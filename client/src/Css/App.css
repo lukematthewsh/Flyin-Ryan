@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#header {
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid black;
+    height: 7vh;
+    width: 100%;
+}
+
+#dropdown {
+    border: 1px solid black;
+    height: 6.5vh;
+    width: 10vw;
+}
+
+#homeImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    height: 80vh;
+    width: 95vw;
+    margin-top: 15px;
+
+}
+
+#logo {
+    border: 1px solid black;
+    height: 10vh;
+    width: 70%;
+    margin-top: 30px;
+}
+
+#buttonWrapper {
+    border: 1px solid black;
+    height: 5vh;
+    width: 40%;
+    margin-bottom: 30px;
+}
