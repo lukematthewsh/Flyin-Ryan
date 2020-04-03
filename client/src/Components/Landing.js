@@ -12,8 +12,8 @@ class Landing extends React.Component {
                 </div>
                 <div id="button-container">
                     <div id="inner-container">
-                        <div id="sign-up-button">Sign Up</div>
-                        <div id="sign-in-button">Sign In</div>
+                        <div id="sign-up-button" onClick={this.props.modal}>Sign Up</div>
+                        <div id="sign-in-button" onClick={this.props.modal}>Sign In</div>
                     </div>
                     <div id="arrow"><img id='arrow-img' src={Arrow} alt='bouncing arrow' /></div>
                 </div>

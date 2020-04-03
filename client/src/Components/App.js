@@ -2,6 +2,7 @@ import React from 'react';
 import '../Css/App.css';
 import Landing from "./Landing.js"
 import { firebaseApp, database, googleProvider } from '../firebaseApp'
+import Modal from './Modal.js'
 
 
 class App extends React.Component {
@@ -10,7 +11,8 @@ class App extends React.Component {
 
     this.state = {
       user: firebaseApp.auth().currentUser,
-      database: null
+      database: null,
+      modal: false
     }
   }
 
@@ -120,13 +122,26 @@ class App extends React.Component {
     }
   }
 
+  modalHandler = () => {
+    this.setState({
+      modal: true,
+    })
+  }
+
+  closeHandler = () => {
+    this.setState({
+      modal: false,
+    })
+  }
+
 
 
   render() {
 
     return (
       <div id="app">
-        <Landing />
+        <Landing modal={this.modalHandler}/>
+        {this.state.modal ? <Modal closeHandler={this.closeHandler}/> : null}
         <div id='header'>
           <div id='dropdown'>
 
