@@ -10,8 +10,6 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
-
-
     this.state = {
       user: firebaseApp.auth().currentUser,
       database: null,
@@ -93,6 +91,7 @@ class App extends React.Component {
     this.setState({
       user: firebaseApp.auth().currentUser
     })
+    alert('Signed Out')
   }
 
   googleHandler = async () => {
@@ -145,7 +144,7 @@ class App extends React.Component {
       <div id="app">
         <Header/>
         <Landing modal={this.modalHandler}/>
-        {this.state.modal ? <Modal closeHandler={this.closeHandler}/> : null}
+        {this.state.modal ? <Modal closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
           <div id='dropdown'>
 
