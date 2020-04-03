@@ -1,7 +1,7 @@
 #flyoutMenu {
     width: 100vw;
     height: 100vh;
-    background-color:rgba(155,155,155,.9);
+    background-image:linear-gradient(grey, white);
     display: flex;
     align-items: center;
     flex-direction: column;
