@@ -1,10 +1,11 @@
 import React from 'react';
 import '../Css/App.css';
 import Landing from "./Landing.js"
+import { firebaseApp, database, googleProvider } from '../firebaseApp'
 
 
 class App extends React.Component {
-  constructor() {
+  constructor(props) {
     super(props)
 
     this.state = {
