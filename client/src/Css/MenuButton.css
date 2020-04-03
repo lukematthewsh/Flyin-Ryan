@@ -1,0 +1,24 @@
+
+#roundButton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: absolute;
+    margin-right: 2vw;
+    right: 0;
+    background-image: linear-gradient(red, yellow, green);
+    width: 60px;
+    height: 30px; 
+    transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+  }
+   
+  #roundButton:hover {
+    background-color: #96D9FF;
+    cursor: pointer;
+    border-color: #003557;
+    transform: scale(1.2, 1.2);
+  }
+   
+  #roundButton:active {
+    border-color: #003557;
+    background-color: #FFF;
+  }
