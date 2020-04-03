@@ -2,13 +2,16 @@ import React from 'react'
 import FRFlogo from '../images/flyinLogo.svg'
 import Arrow from '../images/Arrow-down.svg'
 
+
 class Landing extends React.Component {
     render() {
         return (
+            
             <div id="landing-page">
-                <div id="flyin-logo"><img id='flying-img' src={FRFlogo} alt="Flyin Ryan Logo" />
+                <div id="title">
+                <h1>Core Values Matter</h1>
                 <br></br>
-               
+                <h3>Get Involved!</h3>
                 </div>
                 <div id="button-container">
                     <div id="inner-container">

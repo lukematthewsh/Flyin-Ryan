@@ -2,11 +2,13 @@ import React from 'react';
 import '../Css/App.css';
 import Landing from "./Landing.js"
 import { firebaseApp, database, googleProvider } from '../firebaseApp'
-
+import Header from './Header'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+
+
 
     this.state = {
       user: firebaseApp.auth().currentUser,
@@ -126,6 +128,7 @@ class App extends React.Component {
 
     return (
       <div id="app">
+        <Header/>
         <Landing />
         <div id='header'>
           <div id='dropdown'>

@@ -5,6 +5,22 @@
 
 /*-------------------------------------------------------*/
 
+#nav-bar{
+    height: 10vh;
+    width:100vw;
+    background-color: aliceblue;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#flying-img{
+    margin-left: 2vw;
+    height: 5vh;
+    width: auto;
+}
+
 #landing-page{
     display: flex;
     flex-direction: column;
@@ -16,10 +32,12 @@
     background-size: cover;
 }
 
-#flying-img{
-    margin-top: 10vh; 
-   justify-content: center;
-    width: 70vw;
+#title{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    margin-top: 15vh;
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
 }
 #button-container{
     margin-bottom: 10vh;
@@ -40,16 +58,15 @@ div[id$="-button"]{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom right , red, yellow, green);
+    border: 2px solid black;
+    box-shadow: inset 0 0 0 0 #D80286;
     height: 25px;
     width: 100px;
     margin: 10px;
-    border: black solid 1px;
-    border-radius: 15px 15px 15px 15px;
-    transition: .3s;
+    transition: 1.5s;
 }
 div[id$="-button"]:hover{
-    box-shadow: black 2px 2px 2px;
+    box-shadow: inset 400px 0 0 0 #D80286;
 }
 #arrow{
     display: flex;
