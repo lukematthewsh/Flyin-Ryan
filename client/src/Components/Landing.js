@@ -6,7 +6,10 @@ class Landing extends React.Component {
     render() {
         return (
             <div id="landing-page">
-                <div id="flyin-logo"><img id='flying-img' src={FRFlogo} alt="Flyin Ryan Logo" /></div>
+                <div id="flyin-logo"><img id='flying-img' src={FRFlogo} alt="Flyin Ryan Logo" />
+                <br></br>
+               
+                </div>
                 <div id="button-container">
                     <div id="inner-container">
                         <div id="sign-up-button">Sign Up</div>
