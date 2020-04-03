@@ -21,7 +21,15 @@
 #button-container{
     margin-bottom: 10vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#inner-container{
+    
+    justify-content: center;
+    display: flex;
     flex-direction: row;
+    margin-bottom: 3vh;
 }
 div[id$="-button"]{
     font-family: 'Do Hyeon', sans-serif;
@@ -29,7 +37,7 @@ div[id$="-button"]{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom right , #cc2b5e, #753a88);
+    background-image: linear-gradient(to bottom right , red, yellow, green);
     height: 25px;
     width: 100px;
     margin: 10px;
@@ -39,22 +47,24 @@ div[id$="-button"]:hover{
     box-shadow: black 2px 2px 2px;
 }
 #arrow{
-    width:30px ;
-    height: 30px;
-   
-    animation: bounce  2s infinite
+    display: flex;
+    justify-content: center;
 }
-
+#arrow-img{
+    width:45px ;
+    height: 30px;
+    animation: bounce  3s infinite
+}
 
  @keyframes bounce  {
 	0%, 20%, 50%, 80%, 100% {
      transform: translateY(0);
   }
 	40% {
-   transform:translateY(-30px);
+   transform:translateY(-15px);
   }
 	60% {
-    transform:translateY(-15px);
+    transform:translateY(-5px);
   }
 }
 
