@@ -5,20 +5,23 @@
 
 /*-------------------------------------------------------*/
 
-#nav-bar{
+.nav-bar{
     height: 10vh;
     width:100vw;
-    background-color: aliceblue;
     position: fixed;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: top 0.6s
 }
-#flying-img{
+
+.navbar--hidden {
+    top: -10vh;
+  }
+#flyin-logo{
     margin-left: 2vw;
-    height: 5vh;
-    width: auto;
+    width: 45vw;
 }
 
 #landing-page{
@@ -46,7 +49,6 @@
     justify-content: center;
 }
 #inner-container{
-    
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -58,15 +60,16 @@ div[id$="-button"]{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    box-shadow: inset 0 0 0 0 #D80286;
+    border: 2px solid rgb(20,20,20);
+    box-shadow: inset 0 0 0 0 rgb(20,20,20);
     height: 25px;
     width: 100px;
     margin: 10px;
     transition: 1.5s;
 }
 div[id$="-button"]:hover{
-    box-shadow: inset 400px 0 0 0 #D80286;
+    box-shadow: inset 400px 0 0 0 rgb(20,20,20);
+    color:white;
 }
 #arrow{
     display: flex;
