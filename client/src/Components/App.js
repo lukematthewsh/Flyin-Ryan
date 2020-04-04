@@ -161,6 +161,13 @@ class App extends React.Component {
         <div id="homeImage">
           <div id="logo">
           </div>
+          
+            <form onSubmit={this.loginHandler}>
+              <input type='email' name='email' />
+              <input type='password' name='password' />
+              <input type='submit' />
+            </form>
+          
           <div id='buttonWrapper'>
             <div id='signIn'>
             </div>
