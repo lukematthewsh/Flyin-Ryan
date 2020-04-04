@@ -4,7 +4,7 @@ import Landing from "./Landing.js"
 import { firebaseApp, database, googleProvider } from '../firebaseApp'
 import Header from './Header'
 import Modal from './Modal.js'
-
+import Dashboard from './Dashboard'
 
 class App extends React.Component {
   constructor(props) {
@@ -148,10 +148,12 @@ class App extends React.Component {
 
   render() {
 
+    console.log(this.state.user)
+
     return (
       <div id="app">
         <Header/>
-        <Landing modalHandler={this.modalHandler}/>
+        {this.state.user ? <Dashboard /> : <Landing modalHandler={this.modalHandler}/>}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
           <div id='dropdown'>
