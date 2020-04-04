@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       user: firebaseApp.auth().currentUser,
       database: null,
-      modal: false
+      modal: null
     }
   }
 
@@ -124,10 +124,18 @@ class App extends React.Component {
     }
   }
 
-  modalHandler = () => {
-    this.setState({
-      modal: true,
-    })
+  modalHandler = (event) => {
+    if(event.target.id === 'sign-up-button'){
+      console.log('you clicked on the sign up button')
+      this.setState({
+        modal: 'signUp'
+      })
+    } else if (event.target.id === 'sign-in-button'){
+      console.log('you clicked on the sign in button')
+      this.setState({
+        modal: 'signIn'
+      })
+    }
   }
 
   closeHandler = () => {
@@ -143,8 +151,8 @@ class App extends React.Component {
     return (
       <div id="app">
         <Header/>
-        <Landing modal={this.modalHandler}/>
-        {this.state.modal ? <Modal closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
+        <Landing modalHandler={this.modalHandler}/>
+        {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
           <div id='dropdown'>
 
