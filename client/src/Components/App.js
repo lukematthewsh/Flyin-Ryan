@@ -144,7 +144,7 @@ class App extends React.Component {
       <div id="app">
         <Header/>
         <Landing modal={this.modalHandler}/>
-        {this.state.modal ? <Modal closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
+        {this.state.modal ? <Modal user={this.state.user} greeting={this.state.greeting} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
           <div id='dropdown'>
 
