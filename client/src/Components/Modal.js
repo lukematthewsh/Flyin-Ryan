@@ -8,7 +8,7 @@ class Modal extends React.Component {
         if (this.props.modalContent === 'signIn') {
             return (
                 <div id='modalWrapper'>
-                    <div id='mondal-button' onClick={this.props.closeHandler}>Exit</div>
+                    <div id='modal-button' onClick={this.props.closeHandler}>Exit</div>
                     <h1>Please Log In</h1>
                     <form onSubmit={this.props.loginHandler}>
                         <input type="email" name='email' placeholder='Email' />
@@ -22,7 +22,7 @@ class Modal extends React.Component {
         } else if (this.props.modalContent === 'signUp'){
             return(
                 <div id='modalWrapper'>
-                    <div id='mondal-button' onClick={this.props.closeHandler}>Exit</div>
+                    <div id='modal-button' onClick={this.props.closeHandler}>Exit</div>
                     <h1>Please Sign Up</h1>
                     <form onSubmit={this.props.signupHandler}>
                         <input type="email" name='email' placeholder='Email' />
