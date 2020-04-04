@@ -30,7 +30,7 @@ class Modal extends React.Component {
                         <input id='signIn-button' type='submit' />
                     </form>
                     <button onClick={this.props.logOut}>Sign Out</button>
-                    <button onClick={this.props.googleHandler}>Sign in with google</button>
+                    <button onClick={this.props.googleHandler}>Sign Up with google</button>
                 </div>
             )
         }
