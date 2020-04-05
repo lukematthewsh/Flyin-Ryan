@@ -6,6 +6,8 @@
 /*-------------------------------------------------------*/
 
 .nav-bar{
+    
+    backdrop-filter: blur(25%);
     height: 10vh;
     width:100vw;
     position: fixed;
@@ -70,6 +72,7 @@ div[id$="-button"]{
 div[id$="-button"]:hover{
     box-shadow: inset 400px 0 0 0 rgb(20,20,20);
     color:white;
+    cursor: pointer;
 }
 #arrow{
     display: flex;
