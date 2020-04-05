@@ -145,3 +145,8 @@ div[id$="-button"]:hover{
     margin-bottom: 30px;
 }
 
+
+#user-greeting{
+    margin-top: 10vh;
+}
+
