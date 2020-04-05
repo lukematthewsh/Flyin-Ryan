@@ -154,7 +154,7 @@ class App extends React.Component {
     return (
       <div id="app">
         <Header user={this.state.user} logOut={this.logOut}/>
-        {this.state.user ? <Dashboard /> : <Landing modalHandler={this.modalHandler}/>}
+        {this.state.user ? <Dashboard name={this.state.user.displayName} email={this.state.user.email} /> : <Landing modalHandler={this.modalHandler}/>}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
           <div id='dropdown'>
