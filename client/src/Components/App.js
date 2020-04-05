@@ -45,6 +45,7 @@ class App extends React.Component {
 
         this.setState({
           user: firebaseApp.auth().currentUser,
+          modal: false
         })
         alert('signed in!')
       }
@@ -101,7 +102,7 @@ class App extends React.Component {
     await firebaseApp.auth().signInWithPopup(googleProvider)
       .then(() => {
         alert('signed in with google')
-        this.setState({ user: firebaseApp.auth().currentUser })
+        this.setState({ user: firebaseApp.auth().currentUser, modal: false })
       })
 
     await this.state.database.ref('/')
@@ -152,7 +153,7 @@ class App extends React.Component {
 
     return (
       <div id="app">
-        <Header/>
+        <Header user={this.state.user} logOut={this.logOut}/>
         {this.state.user ? <Dashboard /> : <Landing modalHandler={this.modalHandler}/>}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
