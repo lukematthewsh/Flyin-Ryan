@@ -13,8 +13,8 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Hello, you're signed in!</h1>
+            <div id ="user-greeting">
+                <h1>Hello, {this.props.name || this.props.email}! Welcome to your user Dashboard!</h1>
             </div>
         )
     }

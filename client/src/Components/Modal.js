@@ -1,35 +1,46 @@
 import React from 'react'
 import '../Css/modal.css'
-
+import Goog from '../images/googlesvg.png'
 class Modal extends React.Component {
 
     render() {
         if (this.props.modalContent === 'signIn') {
             return (
                 <div id='modalWrapper'>
-                    <div id='modal-button' onClick={this.props.closeHandler}>Exit</div>
-                    <h1>Please Log In</h1>
-                    <form onSubmit={this.props.loginHandler}>
+
+                    <h1 className="title">Log In</h1>
+
+                    <p>Welcome back! Login to access the Flyin Ryan App!</p>
+                    <div id="google-signin" onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign in with Google</div>
+                    <p>- Or -</p>
+                    <form id='sign-in-out' onSubmit={this.props.loginHandler}>
+                        <p>Email:</p>
                         <input type="email" name='email' placeholder='Email' />
+                        <p>Password:</p>
                         <input type='password' name='password' placeholder='Password' />
                         <input id='signIn-button' type='submit' />
                     </form>
-                    <button onClick={this.props.logOut}>Sign Out</button>
-                    <button onClick={this.props.googleHandler}>Sign in with google</button>
+                    <div id='modal-button' onClick={this.props.closeHandler}>Exit</div>
                 </div>
             )
-        } else if (this.props.modalContent === 'signUp'){
-            return(
+        } else if (this.props.modalContent === 'signUp') {
+            return (
                 <div id='modalWrapper'>
-                    <div id='modal-button' onClick={this.props.closeHandler}>Exit</div>
-                    <h1>Please Sign Up</h1>
-                    <form onSubmit={this.props.signupHandler}>
+
+                    <h1 className='title'>Sign Up</h1>
+
+                    <p>Welcome! Sign up to access the Flyin Ryan App!</p>
+
+                    <div id="google-signin" onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign up with Google</div>
+                    <p>- Or -</p>
+                    <form id='sign-in-out' onSubmit={this.props.signupHandler}>
+                        <p>Email:</p>
                         <input type="email" name='email' placeholder='Email' />
+                        <p>Password:</p>
                         <input type='password' name='password' placeholder='Password' />
                         <input id='signIn-button' type='submit' />
                     </form>
-                    <button onClick={this.props.logOut}>Sign Out</button>
-                    <button onClick={this.props.googleHandler}>Sign Up with google</button>
+                    <div id='modal-button' onClick={this.props.closeHandler}>Exit</div>
                 </div>
             )
         }

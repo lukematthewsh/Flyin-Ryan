@@ -45,6 +45,7 @@ class App extends React.Component {
 
         this.setState({
           user: firebaseApp.auth().currentUser,
+          modal: false
         })
         alert('signed in!')
       }
@@ -101,7 +102,7 @@ class App extends React.Component {
     await firebaseApp.auth().signInWithPopup(googleProvider)
       .then(() => {
         alert('signed in with google')
-        this.setState({ user: firebaseApp.auth().currentUser })
+        this.setState({ user: firebaseApp.auth().currentUser, modal: false })
       })
 
     await this.state.database.ref('/')
@@ -152,33 +153,10 @@ class App extends React.Component {
 
     return (
       <div id="app">
-        <Header/>
-        {this.state.user ? <Dashboard /> : <Landing modalHandler={this.modalHandler}/>}
+        <Header user={this.state.user} logOut={this.logOut}/>
+        {this.state.user ? <Dashboard name={this.state.user.displayName} email={this.state.user.email} /> : <Landing modalHandler={this.modalHandler}/>}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
-        <div id='header'>
-          <div id='dropdown'>
-
-          </div>
-        </div>
-        <div id="homeImage">
-          <div id="logo">
-          </div>
-          
-            <form onSubmit={this.loginHandler}>
-              <input type='email' name='email' />
-              <input type='password' name='password' />
-              <input type='submit' />
-            </form>
-          
-          <div id='buttonWrapper'>
-            <div id='signIn'>
-            </div>
-            <div id='signUp'>
-            </div>
-            <div id="learnMore">
-            </div>
-          </div>
-        </div>
+       
       </div>
     )
   }

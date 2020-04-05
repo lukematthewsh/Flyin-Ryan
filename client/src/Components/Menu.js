@@ -17,6 +17,7 @@ class Menu extends Component {
         <h2><a href="#">About</a></h2>
         <h2><a href="#">Contact</a></h2>
         <h2><a href="#">Search</a></h2>
+        {this.props.user ? <button onClick={this.props.logOut}>Sign Out</button> : null}
       </div>
     );
   }
