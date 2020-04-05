@@ -4,7 +4,7 @@ import Landing from "./Landing.js"
 import { firebaseApp, database, googleProvider } from '../firebaseApp'
 import Header from './Header'
 import Modal from './Modal.js'
-
+import Dashboard from './Dashboard'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       user: firebaseApp.auth().currentUser,
       database: null,
-      modal: false
+      modal: null
     }
   }
 
@@ -124,10 +124,18 @@ class App extends React.Component {
     }
   }
 
-  modalHandler = () => {
-    this.setState({
-      modal: true,
-    })
+  modalHandler = (event) => {
+    if(event.target.id === 'sign-up-button'){
+      console.log('you clicked on the sign up button')
+      this.setState({
+        modal: 'signUp'
+      })
+    } else if (event.target.id === 'sign-in-button'){
+      console.log('you clicked on the sign in button')
+      this.setState({
+        modal: 'signIn'
+      })
+    }
   }
 
   closeHandler = () => {
@@ -140,11 +148,13 @@ class App extends React.Component {
 
   render() {
 
+    console.log(this.state.user)
+
     return (
       <div id="app">
         <Header/>
-        <Landing modal={this.modalHandler}/>
-        {this.state.modal ? <Modal closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
+        {this.state.user ? <Dashboard /> : <Landing modalHandler={this.modalHandler}/>}
+        {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
         <div id='header'>
           <div id='dropdown'>
 
@@ -153,6 +163,13 @@ class App extends React.Component {
         <div id="homeImage">
           <div id="logo">
           </div>
+          
+            <form onSubmit={this.loginHandler}>
+              <input type='email' name='email' />
+              <input type='password' name='password' />
+              <input type='submit' />
+            </form>
+          
           <div id='buttonWrapper'>
             <div id='signIn'>
             </div>
