@@ -49,7 +49,7 @@ class Header extends Component {
             <div className={classnames("nav-bar",{"navbar--hidden" : !this.state.visible})}>
                 <img id="flyin-logo" src={FRFlogo} />
                 <MenuButton handleMouseDown={this.handleMouseDown} />
-                <Menu handleMouseDown={this.handleMouseDown}
+                <Menu closeMenu={this.handleMouseDown}
                     menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} />
                 <div>
 
