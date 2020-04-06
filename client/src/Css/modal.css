@@ -48,3 +48,8 @@
     position: absolute; 
     bottom: 0;
 }
+
+#sign-in-up-message{
+    text-align: center;
+    padding: 15px;
+}
