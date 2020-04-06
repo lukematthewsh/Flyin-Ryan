@@ -64,9 +64,17 @@ class App extends React.Component {
       .then(() => {
         alert('signed up')
       })
-      .catch((err) => {
-        alert(err.message)
+      .catch((error) => {
+        let errorCode = error.code
+        let errorMessage = error.message
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
       })
+
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
@@ -154,7 +162,7 @@ class App extends React.Component {
       <div id="app">
         <Header user={this.state.user} logOut={this.logOut} />
         {this.state.user ?
-          <Dashboard name={this.state.user.displayName} email={this.state.user.email} />
+          <Dashboard userData={this.state.user} />
           : this.state.newUser ?
             <Questions />
             : <Landing modalHandler={this.modalHandler} />}

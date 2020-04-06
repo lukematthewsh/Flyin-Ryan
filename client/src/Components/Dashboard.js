@@ -1,4 +1,5 @@
 import React from "react"
+import '../Css/Dashboard.css'
 
 class Dashboard extends React.Component {
 
@@ -13,8 +14,11 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <div id ="user-greeting">
-                <h1>Hello, {this.props.name || this.props.email}! Welcome to your user Dashboard!</h1>
+            <div id="dashboard-wrapper">
+                <div id="user-greeting">
+                    <img id="dash-pic" src={this.props.userData.photoURL} alt="User Photo" />
+                    <div id="dash-name">{this.props.userData.displayName || this.props.userData.email}</div>
+                </div>
             </div>
         )
     }
