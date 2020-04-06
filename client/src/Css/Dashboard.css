@@ -1,0 +1,23 @@
+#dash-pic {
+    height: 15vh;
+    width: 30vw
+}
+
+#dash-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+#user-greeting{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#dashboard-wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
