@@ -6,7 +6,7 @@ import Header from './Header'
 import Modal from './Modal.js'
 import Dashboard from './Dashboard'
 import Questions from './Questions';
-import About from './AboutFR'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -159,7 +159,6 @@ class App extends React.Component {
             <Questions />
             : <Landing modalHandler={this.modalHandler} />}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
-        <About/>
       </div>
     )
   }
