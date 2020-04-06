@@ -62,9 +62,17 @@ class App extends React.Component {
       .then(() => {
         alert('signed up')
       })
-      .catch((err) => {
-        alert(err.message)
+      .catch((error) => {
+        let errorCode = error.code
+        let errorMessage = error.message
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
       })
+
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
@@ -126,12 +134,12 @@ class App extends React.Component {
   }
 
   modalHandler = (event) => {
-    if(event.target.id === 'sign-up-button'){
+    if (event.target.id === 'sign-up-button') {
       console.log('you clicked on the sign up button')
       this.setState({
         modal: 'signUp'
       })
-    } else if (event.target.id === 'sign-in-button'){
+    } else if (event.target.id === 'sign-in-button') {
       console.log('you clicked on the sign in button')
       this.setState({
         modal: 'signIn'
@@ -153,10 +161,10 @@ class App extends React.Component {
 
     return (
       <div id="app">
-        <Header user={this.state.user} logOut={this.logOut}/>
-        {this.state.user ? <Dashboard name={this.state.user.displayName} email={this.state.user.email} /> : <Landing modalHandler={this.modalHandler}/>}
+        <Header user={this.state.user} logOut={this.logOut} />
+        {this.state.user ? <Dashboard userData={this.state.user}  /> : <Landing modalHandler={this.modalHandler} />}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
-       
+
       </div>
     )
   }
