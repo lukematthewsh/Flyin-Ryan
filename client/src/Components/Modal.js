@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Css/modal.css'
 import Goog from '../images/googlesvg.png'
+
+
 class Modal extends React.Component {
 
     render() {
@@ -29,7 +31,7 @@ class Modal extends React.Component {
 
                     <h1 className='title'>Sign Up</h1>
 
-                    <p id ="sign-in-up-message">Welcome! Sign up to access the Flyin Ryan App!</p>
+                    <p id ="sign-up-message">Welcome! Sign up to access the Flyin Ryan App!</p>
 
                     <div id="google-signin" onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign up with Google</div>
                     <p>- Or -</p>

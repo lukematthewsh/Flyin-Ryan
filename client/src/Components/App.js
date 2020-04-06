@@ -5,6 +5,7 @@ import { firebaseApp, database, googleProvider } from '../firebaseApp'
 import Header from './Header'
 import Modal from './Modal.js'
 import Dashboard from './Dashboard'
+import Questions from './Questions';
 
 class App extends React.Component {
   constructor(props) {
@@ -79,7 +80,7 @@ class App extends React.Component {
           })
 
         this.setState({
-          user: firebaseApp.auth().currentUser,
+          newUser: firebaseApp.auth().currentUser,
         })
         alert('signed in!')
       }
@@ -126,12 +127,12 @@ class App extends React.Component {
   }
 
   modalHandler = (event) => {
-    if(event.target.id === 'sign-up-button'){
+    if (event.target.id === 'sign-up-button') {
       console.log('you clicked on the sign up button')
       this.setState({
         modal: 'signUp'
       })
-    } else if (event.target.id === 'sign-in-button'){
+    } else if (event.target.id === 'sign-in-button') {
       console.log('you clicked on the sign in button')
       this.setState({
         modal: 'signIn'
@@ -148,15 +149,15 @@ class App extends React.Component {
 
 
   render() {
-
-    console.log(this.state.user)
-
     return (
       <div id="app">
-        <Header user={this.state.user} logOut={this.logOut}/>
-        {this.state.user ? <Dashboard name={this.state.user.displayName} email={this.state.user.email} /> : <Landing modalHandler={this.modalHandler}/>}
+        <Header user={this.state.user} logOut={this.logOut} />
+        {this.state.user ?
+          <Dashboard name={this.state.user.displayName} email={this.state.user.email} />
+          : this.state.newUser ?
+            <Questions />
+            : <Landing modalHandler={this.modalHandler} />}
         {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
-       
       </div>
     )
   }
