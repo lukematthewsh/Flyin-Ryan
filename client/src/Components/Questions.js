@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Css/Questions.css'
 
 class Questions extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class Questions extends React.Component {
 
     render() {
         return(
-            <div>
+            <div id='question-container'>
                 <h1>Hello!</h1>
             </div>
         )

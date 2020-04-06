@@ -1,3 +1,9 @@
 #question-container{
-    margin-top: 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    margin-top: 10vh;
 }
