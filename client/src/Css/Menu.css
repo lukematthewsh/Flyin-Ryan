@@ -1,16 +1,30 @@
 #flyoutMenu {
+    z-index: 100000000;
     width: 100vw;
     height: 100vh;
-    background-image:linear-gradient(grey, white);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    background-color:white;
+    
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    ". list x" ;
     position: fixed;
     top: 0;
     left: 0;
     transition: transform .7s cubic-bezier(0, .82, 0, 1.3);
     overflow: scroll;
-    z-index: 10000;
+
+   
+  }
+  #menu-list{
+    grid-area: list;
+    margin-top: 4vh;
+    height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
   }
    
   #flyoutMenu.hide {
@@ -29,4 +43,29 @@
    
   #flyoutMenu h2 a:hover {
     text-decoration: underline;
+  }
+
+  #close-menu{
+    grid-area: x;
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-end;
+
+  }
+
+  #X{
+    max-width: 17vw;
+  }
+  #X:hover{
+    cursor: pointer;
+    animation: spin 1.5s infinite;
+
+  }
+  @keyframes spin{
+     from{
+      transform: rotate(0deg)
+     } 
+     to{
+       transform: rotate(360deg)
+     }
   }

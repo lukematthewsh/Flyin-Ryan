@@ -75,12 +75,14 @@ div[id$="-button"]:hover{
     cursor: pointer;
 }
 #arrow{
+    z-index: .1;
     display: flex;
     align-items: center;
     justify-items: center;
     flex-direction: column;
 }
 #arrow-img{
+    z-index: .1;
     margin-top: 1vh;
     width:55px;
     height: 30px;
