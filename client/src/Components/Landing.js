@@ -2,6 +2,8 @@ import React from 'react'
 import Arrow from '../images/Arrow-down.svg'
 import About from './AboutFR'
 
+
+
 class Landing extends React.Component {
     render() {
         return (

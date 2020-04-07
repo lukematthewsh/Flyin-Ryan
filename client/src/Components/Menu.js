@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Css/Menu.css";
 import X from "../images/x.png"
+
 class Menu extends Component {
   render() {
     let visibility = "hide";
