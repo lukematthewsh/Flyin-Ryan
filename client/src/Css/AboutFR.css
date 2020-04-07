@@ -1,4 +1,5 @@
 #about-page{
+    font-family: 'Questrial', sans-serif;
     margin-top: 7vh;;
     height: 100vh;
     width:100vw;
@@ -6,26 +7,118 @@
     align-items:center;
     justify-items: center;
     flex-direction: column;
+    
 }
-
+#rasta-border{
+    justify-self: center;
+    margin-left: 25vw;
+    width: 40vw;
+    height: 3px;
+    border-bottom: 2px solid;
+    border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+    margin-bottom: 10px;
+}
 .player-wrapper {
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    border-image:   linear-gradient(to right,#e70001 10%,#ffe000 10%, #ffe000 20%,#008542 20%, #008542 30%,#e70001 30%, #e70001  40%,#ffe000 40%, #ffe000 50%, #008542 50%, #008542 60%, #e70001 60%, #e70001 70%, #ffe000 70%, #ffe000 80%,#008542 80%, #008542 90%, #e70001 90%) 1;
+    font-family: 'Questrial', sans-serif;
+    z-index:1;
     height: 50vh;
     width: 90vw;
     position: relative;
-    padding-top: 10%
+    
     
   }
   #core-values{
       max-width: 80vw;
   }
+  #meet-ryan{
+    margin-top: 5vh;
+    width: 90vw;
+    text-align: center;
+  }
   
   #about-text{
-      justify-content: flex-start;
       width: 90vw;
+      text-align: center;
   }
   #signup-text{
       margin-top: 5vh;
-      justify-content: flex-start;
       width: 90vw;
   }
-  
+
+  #signup-text h2{
+  text-align: center;
+}
+
+#ryan-headshot{
+    margin-top: 1vh;
+    max-height: 40vh;
+    max-width:90vw;
+    margin-bottom: 3vh;
+}
+#img-container-fall{
+    margin-top: 5vh;
+    display: flex;
+    justify-content: flex-start;
+}
+#img-container-fall ul {
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:4vw;
+    list-style: square;
+}
+#img-container-fall li {
+text-align: left;
+margin: 5px;
+}
+#fall-line{
+    margin-top: 1vh;
+    max-height: 23vh;
+    margin-bottom: 3vh;
+}
+#img-container-face{
+    display: flex;
+    justify-content: flex-end;
+}
+#img-container-face li {
+    text-align: left;
+    margin: 5px;;
+   }
+#img-container-face ul {
+    list-style: square;
+}
+#snow-face{
+    margin-top: 30vh;
+    margin-top: 1vh;
+    max-height: 30vh;
+    max-width:90vw;
+    margin-bottom: 3vh; 
+}
+#list-container{
+    display: flex;
+    flex-direction: row;
+}
+#bottom-signup{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+    margin-bottom: 50vh;
+}
+
+#sign-up-bottom-button{
+    border-radius: 15px 15px 15px 15px;
+    background-color: #008542;
+    width: 90px;
+    font-size: 16px;
+    margin-left: 3vw;;
+    height: 25px;
+    -webkit-box-shadow: 0px 6px 0px #008542;
+    -moz-box-shadow: 0px 6px 0px #008542;
+    box-shadow: 0px 2px 0px black;
+    border: 1px solid #008575;
+}

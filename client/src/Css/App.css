@@ -4,7 +4,9 @@
 }
 
 /*-------------------------------------------------------*/
-
+#home-page{
+    height: 100%;
+}
 .nav-bar{
     
     backdrop-filter: blur(25%);
@@ -16,7 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: top 0.6s
+    transition: top 0.6s;
+    z-index: 500;
 }
 
 .navbar--hidden {
@@ -34,8 +37,10 @@
     justify-content: space-between;
     height: 100vh;
     width: 100vw;
-    background-image: url("../images/fillerBg.jpeg");
+    background-image: url("../images/frhimg.jpeg");
     background-size: cover;
+    background-attachment: fixed;
+    background-position:40% 40%;
     box-shadow: 0 2px 9px 2px black;
 }
 
@@ -59,7 +64,7 @@
     margin-bottom: 1vh;
 }
 div[id$="-button"]{
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -76,14 +81,14 @@ div[id$="-button"]:hover{
     cursor: pointer;
 }
 #arrow{
-    z-index: .1;
     display: flex;
     align-items: center;
     justify-items: center;
     flex-direction: column;
 }
 #arrow-img{
-    z-index: .1;
+    position: absolute;
+    z-index: 1;
     margin-top: 1vh;
     width:55px;
     height: 30px;
