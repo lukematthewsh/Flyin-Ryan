@@ -1,6 +1,6 @@
 import React from 'react'
 import '../Css/Questions.css'
-import data from './data.js'
+import data from './QuestionsData.js'
 import QuestionCard from './QuestionCard.js'
 
 class Questions extends React.Component {
@@ -28,18 +28,19 @@ class Questions extends React.Component {
     }
 
     render() {
+        const {question} = this.state;
         return(
             <div id='question-container'>
+                <QuestionCard question={question} />
                 <button
                     onClick={this.nextQuestion}
-                    disabled={this.state.question.index === data.questions.length-1}
+                    disabled={question.index === data.questions.length-1}
                     >Next</button>
                 <button 
                     onClick={this.prevQuestion}
-                    disabled={this.state.question.index === 0}
+                    disabled={question.index === 0}
                     >Prev</button>
-
-                <QuestionCard question={this.state.question} />
+                
             </div>
         )
     }
