@@ -21,3 +21,13 @@
     display: flex;
     flex-direction: column;
 }
+
+#dash-links {
+    padding-bottom: 2vh;
+    border-bottom: .5px solid lightgrey;
+    margin-top: 3vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bolder;
+}

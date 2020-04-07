@@ -162,7 +162,7 @@ class App extends React.Component {
       <div id="app">
         <Header user={this.state.user} logOut={this.logOut} />
         {this.state.user ?
-          <Dashboard userData={this.state.user} />
+          <Dashboard user={this.state.user} />
           : this.state.newUser ?
             <Questions />
             : <Landing modalHandler={this.modalHandler} />}
