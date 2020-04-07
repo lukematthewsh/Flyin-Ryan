@@ -37,20 +37,10 @@ class App extends React.Component {
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
       if (user) {
-        await this.state.database.ref('/')
-          .once('value')
-          .then((snapshot) => {
-            let response = snapshot.val().response
-            this.setState({
-              greeting: response
-            })
-          })
-
         this.setState({
           user: firebaseApp.auth().currentUser,
           modal: false
         })
-        alert('signed in!')
       }
     })
   }
@@ -63,7 +53,6 @@ class App extends React.Component {
 
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
-        alert('signed up')
       })
       .catch((error) => {
         let errorCode = error.code
@@ -84,7 +73,6 @@ class App extends React.Component {
           newUser: firebaseApp.auth().currentUser,
           modal: false
         })
-        alert('signed in!')
       }
     })
   }
@@ -104,7 +92,6 @@ class App extends React.Component {
 
     await firebaseApp.auth().signInWithPopup(googleProvider)
       .then(() => {
-        alert('signed in with google')
         this.setState({ user: firebaseApp.auth().currentUser, modal: false })
       })
   }
