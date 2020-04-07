@@ -80,17 +80,9 @@ class App extends React.Component {
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
       if (user) {
-        await this.state.database.ref('/')
-          .once('value')
-          .then((snapshot) => {
-            let response = snapshot.val().response
-            this.setState({
-              greeting: response
-            })
-          })
-
         this.setState({
           newUser: firebaseApp.auth().currentUser,
+          modal: false
         })
         alert('signed in!')
       }
@@ -114,15 +106,6 @@ class App extends React.Component {
       .then(() => {
         alert('signed in with google')
         this.setState({ user: firebaseApp.auth().currentUser, modal: false })
-      })
-
-    await this.state.database.ref('/')
-      .once('value')
-      .then((snapshot) => {
-        let response = snapshot.val().response
-        this.setState({
-          greeting: response
-        })
       })
   }
 
