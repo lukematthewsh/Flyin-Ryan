@@ -142,7 +142,7 @@ class App extends React.Component {
           : this.state.user ?
             <Dashboard user={this.state.user} />
             : this.state.newUser ?
-              <Questions />
+              <Questions user={this.state.newUser} />
               : <Landing modalHandler={this.modalHandler} />}
       </div>
     )
