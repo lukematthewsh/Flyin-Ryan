@@ -33,6 +33,7 @@ class Modal extends React.Component {
                 <div id='modalWrapper'>
                     <img id="flyin-modal" src={FRFlogo} onClick={this.props.closeHandler} />
                     <h1 className='title'>Sign Up</h1>
+                
                     <form id='sign-in-out' onSubmit={this.props.signupHandler}>
                         <div id="modal-form">
                             <div>

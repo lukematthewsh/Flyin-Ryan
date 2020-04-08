@@ -131,7 +131,7 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        {this.state.modal ? null : <Header user={this.state.user} logOut={this.logOut} />}
+        {this.state.modal ? null : <Header user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />}
         {this.state.modal ?
           <Modal signupHandler={this.signupHandler}
             modalContent={this.state.modal}

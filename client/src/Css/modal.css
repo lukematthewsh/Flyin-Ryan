@@ -16,7 +16,10 @@
     width: 80vw;
 }
 .title{
-    border-bottom: 2px solid white;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border-bottom: solid 2px;
+    border-image: linear-gradient(to right, #3e6a99 1%, rgb(255, 255, 255,.8) 25%, rgb(255, 255, 255,.8) 75%, #3e6a99 99%) 5;
     margin-top: 10vh;
 }
 #sign-in-out{
@@ -47,7 +50,8 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid rgba(255, 255, 255, 0.719) 1px;
+    border-bottom: solid 2px;
+    border-image: linear-gradient(to right, #3e6a99 1%, rgb(255, 255, 255,.8) 15%, white 85%, #3e6a99 99%) 5;
     padding: 5px 10px;
     text-align: center;
     font-size: 4vh;

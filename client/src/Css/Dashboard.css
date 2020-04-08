@@ -1,13 +1,21 @@
+#dash-page{
+
+
+}
 #dash-pic {
-    height: 15vh;
-    width: 30vw
+    margin-top: 2vh;
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+    max-width: 70px;
+    border-radius: 50%;
 }
 
 #dash-name {
+    font-family: 'Questrial', sans-serif;
+    margin-left: 2vw;
     font-size: 25px;
     font-weight: bold;
 }
-
 
 #user-greeting{
     margin-top: 10vh;
@@ -17,20 +25,82 @@
 }
 
 #dashboard-wrapper {
+    
+    background-color:#3e6a99;
+    box-shadow: 0 4px 9px 2px black;
     width: 100vw;
+    height: 37vh;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 
 #dash-links {
-    padding-bottom: 2vh;
-    border-bottom: .5px solid lightgrey;
+    padding-bottom: 1vh;
     margin-top: 3vh;
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
     font-weight: bolder;
 }
-div[id$='-link']:hover{
-    background-color: gold;
+
+#dash-content{
+    font-family: 'Questrial', sans-serif;
+    background-color: #95ADC7;
+    color:white;
+    font-size: 12px;
+    margin-top: 5px;
+    height: 100vh;
+    width: 100vw;
 }
+#dash-date{
+    margin-left: 2vw;
+}
+
+.cv-button-active{
+    color:white;
+    font-size: 18px;
+    border-bottom: 2px solid ;
+    border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+    background:none;
+    padding-bottom: 4px;
+    transition: .3s ease-in-out;
+}
+
+.v-button-active{
+    color:white;
+    font-size: 18px;
+    border-bottom: 2px solid ;
+    border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+    background:none;
+    padding-bottom: 4px;
+    transition: .3s ease-in-out;
+}
+.m-button-active{
+    color:white;
+    font-size: 18px;
+    border-bottom: 2px solid ;
+    border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+    padding-bottom: 4px;
+    background:none;
+    transition: .3s ease-in-out;
+
+}
+div[id$='-link']{
+    font-family: 'Questrial', sans-serif;
+}
+div[id$='-link']:hover{
+    cursor: pointer;
+    font-family: 'Questrial', sans-serif;
+}
+
+#core-values{
+    padding: 10px;
+}
+#goals{
+    padding:10px;
+}
+/*-==============Testing==================-*/
+
+
+  
