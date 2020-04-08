@@ -21,7 +21,7 @@ class Menu extends Component {
         <h2><a href="#">Search</a></h2>
         <h2><a href="#">Search</a></h2>
         </div>
-        {this.props.user ? <div id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</div> : null}
+        {this.props.user ? <div id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</div> : this.props.newUser ? <div id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</div> : null }
       </div>
     );
   }

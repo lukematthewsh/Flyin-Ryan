@@ -54,7 +54,6 @@
 }
 ::placeholder{
     color: rgba(255, 255, 255, 0.425);
-    text-align: center;
     font-family: 'Do Hyeon', sans-serif;
 }
 #modal-buttons{
