@@ -1,55 +1,93 @@
+
 #modalWrapper{
-    transition: 2s;
-    background-image: linear-gradient(to left,#56CCF2 ,#2F80ED);
-    margin-top: 12.5vh;
+    font-family: 'Do Hyeon', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 500;
+    justify-content: space-evenly;
     position: absolute;
-    width: 75vw;
-    height: 75vh;
-    border: 2px solid black;
-    
+    width: 100vw;
+    height: 100vh;
+    background-color: #3e6a99;
+    color: white;
 }
-
+#flyin-modal{
+    margin-top: 3vh;
+    width: 80vw;
+}
 .title{
+    border-bottom: 2px solid white;
+    margin-top: 10vh;
+}
+#sign-in-out{
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    justify-content: flex-end;
+    align-items: center;
+}
+#modal-form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
     margin-top: 5vh;
-    border-bottom: 2px solid black;
-    margin-bottom: 5vh;
+}
+.text-line{
+    height: 3vh;
+    width: 70vw;
+    margin-top: 5px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    outline-style: none;
+    outline-offset: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid rgba(255, 255, 255, 0.719) 1px;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 4vh;
+}
+::placeholder{
+    color: rgba(255, 255, 255, 0.425);
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+}
+#modal-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30vh;
+    width: 100vw;
+}
+#signIn-button{
+    width: 70vw;
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: transparent;
+    margin-top: 3vh;
+}
+#google-img{
+    max-width: 20px;
 }
 #google-signin{
-    margin-top: 3vh;
-    margin-bottom: 3vh;
     padding: 3px;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
+    width: 70vw;
+    height: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:white;
-    
+    background-color:rgb(104, 104, 104);
 }
 #google-signin:hover{
     cursor: pointer;
     box-shadow: 1px 1px 1px black;
 }
-#google-img{
-    max-width: 20px;
-}
-#sign-in-out{
-    margin-top: 3vh;
-    display: flex;
-    flex-direction: column;
-}
 
-#modal-button{
-    display: flex;
-    align-self: flex-start;
-    position: absolute; 
-    bottom: 0;
-}
-
-#sign-up-message{
-    text-align: center;
-    padding: 15px;
-}

@@ -107,7 +107,7 @@ class App extends React.Component {
   }
 
   modalHandler = (event) => {
-    if (event.target.id === 'sign-up-button') {
+    if (event.target.id === 'sign-up-button' || event.target.id === 'sign-up-bottom-button') {
       console.log('you clicked on the sign up button')
       this.setState({
         modal: 'signUp'
@@ -130,14 +130,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="app">
-        <Header user={this.state.user} logOut={this.logOut} />
-        {this.state.user ?
-          <Dashboard user={this.state.user} />
-          : this.state.newUser ?
-            <Questions />
-            : <Landing modalHandler={this.modalHandler} />}
-        {this.state.modal ? <Modal signupHandler={this.signupHandler} modalContent={this.state.modal} closeHandler={this.closeHandler} loginHandler={this.loginHandler} googleHandler={this.googleHandler} logOut={this.logOut} /> : null}
+      <div id='app'>
+        {this.state.modal ? null : <Header user={this.state.user} logOut={this.logOut} />}
+        {this.state.modal ?
+          <Modal signupHandler={this.signupHandler}
+            modalContent={this.state.modal}
+            closeHandler={this.closeHandler}
+            loginHandler={this.loginHandler}
+            googleHandler={this.googleHandler}
+            logOut={this.logOut} />
+          : this.state.user ?
+            <Dashboard user={this.state.user} />
+            : this.state.newUser ?
+              <Questions />
+              : <Landing modalHandler={this.modalHandler} />}
       </div>
     )
   }
