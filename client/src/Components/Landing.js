@@ -24,7 +24,7 @@ class Landing extends React.Component {
                         </div>
                     </div>
                 </div>
-            <About/>
+            <About modalHandler={this.props.modalHandler}/>
             </div>
         )
     }
