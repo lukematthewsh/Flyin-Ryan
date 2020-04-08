@@ -8,7 +8,7 @@
     height: 100%;
 }
 .nav-bar{
-    
+    background-color: white;
     backdrop-filter: blur(25%);
     height: 10vh;
     width:100vw;
@@ -20,6 +20,9 @@
     align-items: center;
     transition: top 0.6s;
     z-index: 500;
+    border-bottom: 4px solid;
+    border-image:   linear-gradient(to right,#e70001 10%,#ffe000 10%, #ffe000 20%,#008542 20%, #008542 30%,#e70001 30%, #e70001  40%,#ffe000 40%, #ffe000 50%, #008542 50%, #008542 60%, #e70001 60%, #e70001 70%, #ffe000 70%, #ffe000 80%,#008542 80%, #008542 90%, #e70001 90%) 1;
+   
 }
 
 .navbar--hidden {
@@ -64,6 +67,8 @@
     margin-bottom: 1vh;
 }
 div[id$="-button"]{
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
     font-family: 'Questrial', sans-serif;
     font-size: 20px;
     display: flex;
@@ -76,10 +81,14 @@ div[id$="-button"]{
     transition: 1.5s;
 }
 div[id$="-button"]:hover{
+    /*
+    transition: 1s ease-in-out;
     box-shadow: inset 400px 0 0 0 rgb(20,20,20);
     color:white;
+*/
     cursor: pointer;
 }
+
 #arrow{
     display: flex;
     align-items: center;
