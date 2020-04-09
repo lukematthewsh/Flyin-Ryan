@@ -2,6 +2,7 @@ import React from 'react';
 import '../Css/App.css';
 import Landing from "./Landing.js"
 import { firebaseApp, database, googleProvider } from '../firebaseApp'
+import { Switch, Route } from 'react-router-dom'
 import Header from './Header'
 import Modal from './Modal.js'
 import Dashboard from './Dashboard'
@@ -14,20 +15,35 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      user: firebaseApp.auth().currentUser,
+      user: null,
       database: null,
-      modal: null
+      modal: null,
+      currentPath: undefined,
     }
   }
 
+  pageUpdate = () => {
+    if(this.state.currentPath !== window.location.pathname) {
+      if(window.location.pathname === "/") {
+        this.setState({
+          currentPath: window.location.pathname
+        })
+      } else if(window.location.pathname === "/signup") {
+        this.setState({
+          currentPath: window.location.pathname,
+          modal: "signup"
+        })
+      }
+    }
+  }
+
+
   loginHandler = async (event) => {
-    event.preventDefault()
+    
 
-    let password = event.target.password.value
-    let email = event.target.email.value
+    let password = document.getElementById('password').value
+    let email = document.getElementById('email').value
 
-    event.target.password.value = ''
-    event.target.email.value = ''
 
     firebaseApp.auth().signInWithEmailAndPassword(email, password).catch(function (err) {
       let message = err.message
@@ -46,10 +62,9 @@ class App extends React.Component {
   }
 
   signupHandler = async (event) => {
-    event.preventDefault()
 
-    let password = event.target.password.value
-    let email = event.target.email.value
+    let password = document.getElementById('up-password').value
+    let email = document.getElementById('up-email').value
 
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
@@ -132,18 +147,20 @@ class App extends React.Component {
     return (
       <div id='app'>
         {this.state.modal ? null : <Header user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />}
-        {this.state.modal ?
-          <Modal signupHandler={this.signupHandler}
-            modalContent={this.state.modal}
-            closeHandler={this.closeHandler}
-            loginHandler={this.loginHandler}
-            googleHandler={this.googleHandler}
-            logOut={this.logOut} />
-          : this.state.user ?
-            <Dashboard user={this.state.user} />
-            : this.state.newUser ?
-              <Questions user={this.state.newUser} />
-              : <Landing modalHandler={this.modalHandler} />}
+        <Switch>
+          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} />} />
+          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} />} />
+          <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
+          <Route path='/signup' render={() => <Modal 
+          modalContent={this.state.modal} 
+          signupHandler={this.signupHandler} 
+          closeHandler={this.closeHandler} 
+          pageUpdate={this.pageUpdate} 
+          currentPath={this.state.currentPath} 
+          loginHandler={this.loginHandler} 
+          googleHandler={this.googleHandler} 
+          logOut={this.logOut} />} />
+        </Switch>
       </div>
     )
   }

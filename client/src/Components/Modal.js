@@ -2,9 +2,18 @@ import React from 'react'
 import '../Css/modal.css'
 import Goog from '../images/googlesvg.png'
 import FRFlogo from '../images/flyinLogo.svg'
-
+import { Link } from 'react-router-dom'
+import DelayLink from 'react-delay-link'
+import { firebaseApp } from '../firebaseApp'
 
 class Modal extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    //componentDidUpdate() {
+    //    this.props.pageUpdate()
+    //}
 
     render() {
         if (this.props.modalContent === 'signIn') {
@@ -12,18 +21,18 @@ class Modal extends React.Component {
                 <div id='modalWrapper'>
                     <img id="flyin-modal" src={FRFlogo} onClick={this.props.closeHandler} />
                     <h1 className="title">Log In</h1>
-                    <form id='sign-in-out' onSubmit={this.props.loginHandler}>
+                    <form id='sign-in-out' onSubmit={(event) => {event.preventDefault()}}>
                         <div id='modal-form'>
                             <div>
-                                <input className='text-line' type="email" name='email' placeholder='Email' />
+                                <input id="email" className='text-line' type="email" name='email' placeholder='Email' />
                             </div>
                             <div>
-                                <input className='text-line' type='password' name='password' placeholder='Password' />
+                                <input id="password" className='text-line' type='password' name='password' placeholder='Password' />
                             </div>
                         </div>
                         <div id='modal-buttons'>
-                            <input id='signIn-button' type='submit' />
-                            <div id="google-signin" onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign in with Google</div>
+                            <Link onClick={this.props.loginHandler} to={'/dashboard'}><button id='signIn-button' type='submit'>Sign In</button></Link>
+                            <Link id="google-signin" to='/dashboard' onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign in with Google</Link>
                         </div>
                     </form>
                 </div>
@@ -33,27 +42,26 @@ class Modal extends React.Component {
                 <div id='modalWrapper'>
                     <img id="flyin-modal" src={FRFlogo} onClick={this.props.closeHandler} />
                     <h1 className='title'>Sign Up</h1>
-                
-                    <form id='sign-in-out' onSubmit={this.props.signupHandler}>
+                    <form id='sign-in-out' onSubmit={(event) => {event.preventDefault()}}>
                         <div id="modal-form">
                             <div>
-                                <input className='text-line' type='text' name='firstName' placeholder='Full Name'></input>
+                                <input id='up-name' className='text-line' type='text' name='firstName' placeholder='Full Name'></input>
                             </div>
                             <div>
-                                <input className='text-line' type="email" name='email' placeholder='Email' />
+                                <input id='up-email' className='text-line' type="email" name='email' placeholder='Email' />
                             </div>
                             <div>
-                                <input className='text-line' type='password' name='password' placeholder='Password' />
+                                <input id='up-password' className='text-line' type='password' name='password' placeholder='Password' />
                             </div>
                         </div>
                         <div id='modal-buttons'>
-                            <input id='signIn-button' type='submit' />
-                            <div id="google-signin" onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign up with Google</div>
+                            <Link onClick={this.props.signupHandler} to={'/questions'}><button id='signIn-button' type='submit'>Sign Up</button></Link>
+                            <Link id="google-signin" to={'/questions'} onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign up with Google</Link>
                         </div>
                     </form>
                 </div>
             )
-        }
+        } else { return null }
     }
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import Arrow from '../images/Arrow-down.svg'
 import About from './AboutFR'
+import { Link } from 'react-router-dom'
 
 
 
@@ -16,8 +17,8 @@ class Landing extends React.Component {
                     </div>
                     <div id="button-container">
                         <div id="inner-container">
-                            <div id="sign-up-button" onClick={this.props.modalHandler}>Sign Up</div>
-                            <div id="sign-in-button" onClick={this.props.modalHandler}>Sign In</div>
+                            <Link id="sign-up-button" onClick={this.props.modalHandler} to={'/signup'} >Sign Up</Link>
+                            <Link id="sign-in-button" onClick={this.props.modalHandler} to={'/signup'} >Sign In</Link>
                         </div>
                         <div id="arrow">
                             <img id='arrow-img' src={Arrow} alt='bouncing arrow' />
