@@ -55,3 +55,7 @@ textarea {
     flex-direction: row;
     width: 100%;
 }
+
+.selected{
+    color: red;
+}

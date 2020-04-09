@@ -2,16 +2,17 @@ import React, { useReducer } from 'react'
 import '../Css/Questions.css'
 import data from './QuestionsData.js'
 import QuestionCard from './QuestionCard.js'
-import {database} from '../firebaseApp.js'
+import { database } from '../firebaseApp.js'
 
 class Questions extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            questions: data.questions,
             question: data.questions[0],
-            userAnswers: null
+            category: data.questions[0].folder,
+            userAnswers: null,
+            selectedAnswer: null
         }
     }
 
@@ -22,41 +23,61 @@ class Questions extends React.Component {
     nextQuestion = () => {
         const newIndex = this.state.question.index + 1;
         let userAnswers = {}
-        userAnswers[`/users/${this.props.user.uid}/${this.state.question.index}`] = {question: this.state.question.inquery, answer: this.state.userAnswers}
- 
+        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquery, answer: this.state.userAnswers }
+
 
         database.ref().update(userAnswers)
         this.setState({
             question: data.questions[newIndex],
+            category: data.questions[newIndex].folder,
             userAnswers: null
         })
+        console.log(this.state.category)
     }
 
     prevQuestion = () => {
         const newIndex = this.state.question.index - 1;
         this.setState({
             question: data.questions[newIndex],
+            category: data.questions[newIndex].folder,
         })
+    }
+
+    selected = (event) => {
+        this.setState({
+            selectedAnswer: event.target.id
+        })
+        console.log(this.state.selectedAnswer)
+    }
+
+    highlight = () => {
+        
     }
 
     render() {
         const { question } = this.state;
+        const category = this.state.category
+        let answerStyle
+        if (!category.includes('Core Value Questions')) {
+            answerStyle = question.options.map(option => {
+                return <QuestionOption handler={this.selected} id={option} selected={this.state.selectedAnswer} option={option}/>})
+        } else if (category.includes('Core Value Questions')) {
+            answerStyle = <div id="textinput">
+                <textarea id="textAnswers" placeholder="Write response here..." onChange={this.enterText} cols="40" rows="10"></textarea>
+            </div>
+        }
+
         return (
             <div id="questions-wrapper">
-
                 <div id='question-container'>
-
                     <div id="questions">
                         <QuestionCard question={question} />
                     </div>
                 </div>
-
                 <div id="question-button-container">
-
-                    <div id="textinput">
-                        <textarea id="textAnswers" placeholder="Write response here..." onChange={this.enterText} cols="40" rows="10"></textarea>
+                    <div id='answerStyleWrapper'>
+                        {answerStyle}
                     </div>
-
                     <div id="question-inner-container">
                         <button
                             id="prevButton"
@@ -70,11 +91,13 @@ class Questions extends React.Component {
                         >Next</button>
                     </div>
                 </div>
-
-
             </div>
         )
     }
 }
 
 export default Questions
+
+function QuestionOption(props) {
+    return <div id={props.option} onClick={props.handler} className={props.selected === props.option ? 'selected' : 'unselected'}>{props.option}</div>
+}
