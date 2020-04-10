@@ -2,6 +2,7 @@ import React from "react"
 import '../Css/Dashboard.css'
 import CoreValues from './CoreValues.js'
 import Goals from './Goals.js'
+import Header from './Header'
 import classnames from 'classnames'
 import MoreValues from './MoreValues.js'
 import { Link } from 'react-router-dom'
@@ -100,6 +101,7 @@ class Dashboard extends React.Component {
         return (
             this.state.user ?
             <div id='dash-page'>
+                <Header user={this.state.user} newUser={this.props.newUser} logOut={this.logOut} />
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL : ""} alt="User Photo" />

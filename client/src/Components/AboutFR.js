@@ -4,6 +4,8 @@ import '../Css/AboutFR.css'
 import FRHeadShot from '../images/headshot.jpg'
 import snowFace from '../images/snow-face.png'
 import fallLine from '../images/fall-line.jpg'
+import { Link } from 'react-router-dom'
+
 
 
 class About extends React.Component {
@@ -82,7 +84,7 @@ class About extends React.Component {
                     <p>Once signed up you can return anytime to update your account!</p>
                     <div id='bottom-signup'>
                         <p>Get started:</p>
-                        <div id="sign-up-bottom-button" onClick={this.props.modalHandler}>Sign Up</div> 
+                        <Link to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
                     </div>
                 </div>
             </div >

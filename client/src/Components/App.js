@@ -1,12 +1,13 @@
 import React from 'react';
 import '../Css/App.css';
-import Landing from "./Landing.js"
-import { firebaseApp, database, googleProvider } from '../firebaseApp'
-import { Switch, Route } from 'react-router-dom'
-import Header from './Header'
-import Modal from './Modal.js'
-import Dashboard from './Dashboard'
+import Landing from "./Landing.js";
+import { firebaseApp, database, googleProvider } from '../firebaseApp';
+import { Switch, Route } from 'react-router-dom';
+import Header from './Header';
+import Signup from './Signup.js';
+import Dashboard from './Dashboard';
 import Questions from './Questions';
+import Login from './Login';
 
 
 
@@ -17,7 +18,6 @@ class App extends React.Component {
     this.state = {
       user: null,
       database: null,
-      modal: null,
       currentPath: undefined,
     }
   }
@@ -121,21 +121,6 @@ class App extends React.Component {
     }
   }
 
-  modalHandler = (event) => {
-    if (event.target.id === 'sign-up-button' || event.target.id === 'sign-up-bottom-button') {
-      console.log('you clicked on the sign up button')
-      this.setState({
-        modal: 'signUp'
-      })
-    } else if (event.target.id === 'sign-in-button') {
-      console.log('you clicked on the sign in button')
-      this.setState({
-        modal: 'signIn'
-      })
-    }
-  }
-  
-
   closeHandler = () => {
     this.setState({
       modal: false,
@@ -147,12 +132,20 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        {this.state.modal ? null : <Header user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />}
         <Switch>
-          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} />} />
-          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} />} />
+          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser}/>} />
+          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser}/>} />
           <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
-          <Route path='/signup' render={() => <Modal 
+          <Route path='/signup' render={() => <Signup 
+          modalContent={this.state.modal} 
+          signupHandler={this.signupHandler} 
+          closeHandler={this.closeHandler} 
+          pageUpdate={this.pageUpdate} 
+          currentPath={this.state.currentPath} 
+          loginHandler={this.loginHandler} 
+          googleHandler={this.googleHandler} 
+          logOut={this.logOut} />} />
+          <Route path='/login' render={() => <Login 
           modalContent={this.state.modal} 
           signupHandler={this.signupHandler} 
           closeHandler={this.closeHandler} 
