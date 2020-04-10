@@ -22,40 +22,57 @@ class Questions extends React.Component {
         this.setState({ userAnswers: event.target.value })
     }
 
-    nextQuestion = () => {
+    nextQuestion = async () => {
         const newIndex = this.state.question.index + 1;
         let userAnswers = {}
         userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquery, answer: this.state.userAnswers }
 
 
-        database.ref().update(userAnswers)
+        if (this.state.userAnswers) {
+            await database.ref().update(userAnswers)
+        }
         this.setState({
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
             userAnswers: null
         })
-        console.log(this.state.category)
 
-        this.textAnswers.current.value = ""
+        if (this.state.category.includes('Core Value Questions')) {
+            if (this.textAnswers.current) {
+                this.textAnswers.current.value = null
+            }
 
-        this.checkForAnswer(newIndex)
+            this.checkForAnswer(newIndex)
+        }
     }
 
-    prevQuestion = () => {
+    prevQuestion = async () => {
         const newIndex = this.state.question.index - 1;
         let userAnswers = {}
-        userAnswers[`/users/${this.props.user.uid}/${this.state.question.index}`] = { question: this.state.question.inquery, answer: this.state.userAnswers }
+        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquery, answer: this.state.userAnswers }
 
-        database.ref().update(userAnswers)
+        if (this.state.userAnswers) {
+            await database.ref().update(userAnswers)
+        }
         this.setState({
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
+            userAnswers: null
         })
+
+        if (this.state.category.includes('Core Value Questions')) {
+            if (this.textAnswers.current) {
+                this.textAnswers.current.value = null
+            }
+
+            this.checkForAnswer(newIndex)
+        }
     }
 
     selected = (event) => {
         this.setState({
-            selectedAnswer: event.target.id
+            selectedAnswer: event.target.id,
+            userAnswers: event.target.id
         })
         console.log(this.state.selectedAnswer)
     }
@@ -66,19 +83,22 @@ class Questions extends React.Component {
         } else { return false }
     }
 
-    checkForAnswer = (index) => {
+    checkForAnswer = () => {
         let uid = auth().currentUser.uid;
-        let textAnswers = this.textAnswers.current
+        let textAnswers = this.textAnswers
         let _this = this
+        console.log(uid)
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
+            console.log(currentUserAnswers)
 
-            if (currentUserAnswers && currentUserAnswers[index]) {
-
-                textAnswers.value = currentUserAnswers[index].answer
-                _this.setState({
-                    userAnswers: textAnswers.value
-                })
+            if (currentUserAnswers[_this.state.question.folder]) {
+                if (currentUserAnswers[_this.state.question.folder].answer) {
+                    textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
+                    _this.setState({
+                        userAnswers: textAnswers.value
+                    })
+                }
             }
         })
 
@@ -99,7 +119,7 @@ class Questions extends React.Component {
         }
 
 
-        const isEnabled = this.canBeSubmitted();
+        // const isEnabled = this.canBeSubmitted();
         return (
             <div id="questions-wrapper">
                 <div id='question-container'>
@@ -122,7 +142,7 @@ class Questions extends React.Component {
                         <button
                             id="nextButton"
                             onClick={this.nextQuestion}
-                            disabled={question.index === data.questions.length - 1 || !isEnabled}
+                            disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
                         >Next</button>
                     </div>
                 </div>
