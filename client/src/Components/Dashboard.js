@@ -4,6 +4,7 @@ import CoreValues from './CoreValues.js'
 import Goals from './Goals.js'
 import classnames from 'classnames'
 import MoreValues from './MoreValues.js'
+import { Link } from 'react-router-dom'
 
 class Dashboard extends React.Component {
 
@@ -24,6 +25,14 @@ class Dashboard extends React.Component {
             Mbutt: {
                 active: false,
             },
+        }
+    }
+
+    componentDidUpdate() {
+        if(this.state.user !== this.props.user) {
+            this.setState({
+                user: this.props.user
+            })
         }
     }
 
@@ -68,7 +77,9 @@ class Dashboard extends React.Component {
                 isG: false,
                 isCV: false
             })
+            //CLEAN UP?
             this.setState(prevState => ({ Mbutt: { active: !prevState.Mbutt.active } }))
+        } else if (event.target.id === "cv-link") {
             this.setState({
                 CVbutt: {
                     active: false,
@@ -87,12 +98,13 @@ class Dashboard extends React.Component {
         let Mclasses = classnames('m-button', { 'm-button-active': this.state.Mbutt.active });
 
         return (
+            this.state.user ?
             <div id='dash-page'>
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
-                        <img id="dash-pic" src={this.state.user.photoURL} alt="User Photo" />
-                        <div id="dash-name">{this.state.user.displayName || this.state.user.email}</div>
-                        <div id="dash-date">{this.state.user.creationTime}</div>
+                        <img id="dash-pic" src={this.state.user ? this.state.user.photoURL : ""} alt="User Photo" />
+                        <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
+                        <div id="dash-date">{this.state.user ? this.state.user.creationTime : "Creation Time"}</div>
                     </div>
                     <div id="dash-links">
                         <div id="cv-link" className={CVclasses} onClick={this.toggleContent}>My Core Values</div>
@@ -106,7 +118,9 @@ class Dashboard extends React.Component {
                             <MoreValues user={this.state.user} />
                     }
                 </div>
-            </div>
+                </div> : <Link to="/signup"><h1 style={{marginTop: 200}}>Back To Sign Up/Sign In</h1></Link>
+                    
+            
         )
     }
 }

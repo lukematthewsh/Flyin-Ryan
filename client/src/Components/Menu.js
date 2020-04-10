@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Css/Menu.css";
 import X from "../images/x.png"
+import { Link } from 'react-router-dom'
 
 class Menu extends Component {
   render() {
@@ -19,10 +20,11 @@ class Menu extends Component {
           <h2><a href="#">About</a></h2>
           <h2><a href="#">Contact</a></h2>
           <h2><a href="#">Events</a></h2>
-          {this.props.user ? <div id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</div> :
-            this.props.newUser ? <div id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</div> : null}
+          {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> :
+            this.props.newUser ? <Link to="/" id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> : null}
           
         </div>
+       
       </div>
     );
   }
