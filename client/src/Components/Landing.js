@@ -19,15 +19,23 @@ class Landing extends React.Component {
                     </div>
                     <div id="button-container">
                         <div id="inner-container">
-                            <Link id="sign-up-button" onClick={this.props.modalHandler} to={'/signup'} ><div id = 'signup-box'><img id = 'signup-icon'src = {Signup} alt= 'sign up icon'/></div>Sign Up</Link>
-                            <Link id="sign-in-button" onClick={this.props.modalHandler} to={'/signup'} ><div id = 'login-box'><img id= 'user-icon' src ={Usericon}/></div>Sign In</Link>
+                        
+                            <div id='signup-butt-container'>
+                            <Link onClick={this.props.modalHandler} to={'/signup'} >
+                                <div id='signup-box'><img id='signup-icon' src={Signup} alt='sign up icon' /></div>
+                                <h2 id="sign-up-button"> Sign Up</h2></Link>
+                            </div>
+                            <div id='login-butt-container'>
+                            <div id='login-box'><img id='user-icon' src={Usericon} /></div>
+                                <Link id="sign-in-button" onClick={this.props.modalHandler} to={'/signup'} >Sign In</Link>
+                            </div>
                         </div>
                         <div id="arrow">
                             <img id='arrow-img' src={Arrow} alt='bouncing arrow' />
                         </div>
                     </div>
                 </div>
-            <About modalHandler={this.props.modalHandler}/>
+                <About modalHandler={this.props.modalHandler} />
             </div>
         )
     }

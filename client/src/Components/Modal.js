@@ -3,7 +3,7 @@ import '../Css/modal.css'
 import Goog from '../images/googlesvg.png'
 import FRFlogo from '../images/flyinLogo.svg'
 import { Link } from 'react-router-dom'
-import DelayLink from 'react-delay-link'
+
 import { firebaseApp } from '../firebaseApp'
 
 class Modal extends React.Component {
@@ -19,7 +19,7 @@ class Modal extends React.Component {
         if (this.props.modalContent === 'signIn') {
             return (
                 <div id='modalWrapper'>
-                    <img id="flyin-modal" src={FRFlogo} onClick={this.props.closeHandler} />
+                    <Link  to = {'/'}> <img id="flyin-modal" src={FRFlogo}/> </Link>
                     <h1 className="title">Log In</h1>
                     <form id='sign-in-out' onSubmit={(event) => {event.preventDefault()}}>
                         <div id='modal-form'>
@@ -40,7 +40,7 @@ class Modal extends React.Component {
         } else if (this.props.modalContent === 'signUp') {
             return (
                 <div id='modalWrapper'>
-                    <img id="flyin-modal" src={FRFlogo} onClick={this.props.closeHandler} />
+                    <Link  to = {'/'}> <img id="flyin-modal" src={FRFlogo}/></Link>
                     <h1 className='title'>Sign Up</h1>
                     <form id='sign-in-out' onSubmit={(event) => {event.preventDefault()}}>
                         <div id="modal-form">

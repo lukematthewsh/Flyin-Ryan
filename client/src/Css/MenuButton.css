@@ -1,28 +1,21 @@
 
 #menu-button {
-    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1.5s;
+    overflow: hidden;
     font-size: 20px;
     position: absolute;
     margin-top: 0;
     margin-right: 2vw;
     right: 0;
-    width: 90px;
+    width: 30px;
     height: 30px; 
-    background-color:#998600 ;
-    color: white;
-    box-shadow: 2px 2px  3px black;
+    color: black;
 
   }
   #menubars{
     max-width: 20px;
   }
-  #menu-box{
-    box-shadow: 1px 0px 5px 2px black;
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    background-color: #ffe000;
-}
+ 
