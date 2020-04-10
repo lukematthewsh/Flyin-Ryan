@@ -86,18 +86,6 @@ Link[id$="-button"]:hover{
     width: 40px;
     margin-left: 6px;
 }
-#signup-butt-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-#login-butt-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
 #sign-in-button{
     text-decoration: none;
     text-align: center;
@@ -128,6 +116,18 @@ Link[id$="-button"]:hover{
     height: 70px;
     width: 70px;
     border-radius: 50%;
+}
+#sign-up-link{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#sign-in-link{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #signup-box{
     background-image: inherit;
