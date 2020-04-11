@@ -5,14 +5,16 @@ import Header from './Header'
 import Signup from '../images/signup-icon.png'
 import Usericon from '../images/user-icon.png'
 import { Link } from 'react-router-dom'
+import { firebaseApp } from '../firebaseApp'
 
 
 
 class Landing extends React.Component {
     render() {
+        console.log(firebaseApp.auth().currentUser)
         return (
             <div id="home-page">
-                <Header user={this.props.user} newUser={this.props.newUser} logOut={this.logOut} />
+                <Header user={this.props.user} newUser={this.props.newUser} logOut={this.props.logOut} />
                 <div id="landing-page">
                     <div id="title">
                         <h1>Core Values Matter</h1>

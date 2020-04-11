@@ -97,11 +97,11 @@ class Dashboard extends React.Component {
         let CVclasses = classnames('cv-button', { 'cv-button-active': this.state.CVbutt.active });
         let Vclasses = classnames('v-button', { 'v-button-active': this.state.Vbutt.active });
         let Mclasses = classnames('m-button', { 'm-button-active': this.state.Mbutt.active });
-
+        console.log(this.state.user)
         return (
             this.state.user ?
             <div id='dash-page'>
-                <Header user={this.state.user} newUser={this.props.newUser} logOut={this.logOut} />
+                <Header user={this.state.user} newUser={this.props.newUser} logOut={this.props.logOut} />
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL : ""} alt="User Photo" />
@@ -120,7 +120,7 @@ class Dashboard extends React.Component {
                             <MoreValues user={this.state.user} />
                     }
                 </div>
-                </div> : <Link to="/signup"><h1 style={{marginTop: 200}}>Back To Sign Up/Sign In</h1></Link>
+                </div> : <Link to="/login"><h1 style={{marginTop: 200}}>Back To Log In</h1></Link>
                     
             
         )

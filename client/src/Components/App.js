@@ -3,7 +3,6 @@ import '../Css/App.css';
 import Landing from "./Landing.js";
 import { firebaseApp, database, googleProvider } from '../firebaseApp';
 import { Switch, Route } from 'react-router-dom';
-import Header from './Header';
 import Signup from './Signup.js';
 import Dashboard from './Dashboard';
 import Questions from './Questions';
@@ -133,8 +132,8 @@ class App extends React.Component {
     return (
       <div id='app'>
         <Switch>
-          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser}/>} />
-          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser}/>} />
+          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />} />
+          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser} logOut={this.logOut}/>} />
           <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
           <Route path='/signup' render={() => <Signup 
           modalContent={this.state.modal} 
