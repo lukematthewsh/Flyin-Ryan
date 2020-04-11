@@ -108,13 +108,16 @@ class Questions extends React.Component {
         const { question } = this.state;
         const category = this.state.category
         let answerStyle
+        let headerText
         if (!category.includes('Core Value Questions')) {
+            headerText = 'Demographic Questions'
             answerStyle = question.options.map(option => {
                 return <QuestionOption handler={this.selected} id={option} selected={this.state.selectedAnswer} option={option} />
             })
         } else if (category.includes('Core Value Questions')) {
+            headerText = 'Core Value Questions'
             answerStyle = <div id="textinput">
-                <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="40" rows="10"></textarea>
+                <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
             </div>
         }
 
@@ -122,6 +125,9 @@ class Questions extends React.Component {
         // const isEnabled = this.canBeSubmitted();
         return (
             <div id="questions-wrapper">
+                <div id="question-header-container">
+                    <div id='line'>{headerText}</div>
+                </div>
                 <div id='question-container'>
                     <div id="questions">
                         <QuestionCard question={question} />
@@ -154,5 +160,5 @@ class Questions extends React.Component {
 export default Questions
 
 function QuestionOption(props) {
-    return <div id={props.option} onClick={props.handler} className={props.selected === props.option ? 'selected' : 'unselected'}>{props.option}</div>
+    return <div id={props.option} onClick={props.handler} className={props.selected === props.option ? 'selected answerOption' : 'unselected answerOption'}>{props.option}</div>
 }

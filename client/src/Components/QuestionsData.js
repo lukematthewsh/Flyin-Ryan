@@ -15,7 +15,7 @@ const data = {
             "index": 2,
             "folder": "Ethnicity",
             "inquery": 'What is your ethnicity',
-            'options': ['White', 'Hispanic or Latino', 'Black or African American', 'Native American or American Indian', 'Asian/Pacific Islander', 'Other' ]
+            'options': ['White', 'Hispanic or Latino', 'African American', 'Native American', 'Asian/Pacific Islander', 'Other' ]
         }, {
             "index": 3,
             "folder": "Education",

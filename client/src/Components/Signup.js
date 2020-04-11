@@ -4,8 +4,6 @@ import Goog from '../images/googlesvg.png'
 import FRFlogo from '../images/flyinLogo.svg'
 import { Link } from 'react-router-dom'
 
-import { firebaseApp } from '../firebaseApp'
-
 class Signup extends React.Component {
     constructor(props) {
         super(props)

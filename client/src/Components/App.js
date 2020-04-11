@@ -85,7 +85,6 @@ class App extends React.Component {
       if (user) {
         this.setState({
           newUser: firebaseApp.auth().currentUser,
-          modal: false
         })
       }
     })
@@ -120,12 +119,6 @@ class App extends React.Component {
     }
   }
 
-  closeHandler = () => {
-    this.setState({
-      modal: false,
-    })
-  }
-
 
 
   render() {
@@ -154,6 +147,9 @@ class App extends React.Component {
           googleHandler={this.googleHandler} 
           logOut={this.logOut} />} />
         </Switch>
+        
+        {/* <Questions /> */}
+
       </div>
     )
   }
