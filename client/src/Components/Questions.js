@@ -117,6 +117,7 @@ class Questions extends React.Component {
     }
 
     render() {
+        console.log(this.props.user)
         const { question } = this.state;
         const category = this.state.category
         let answerStyle
