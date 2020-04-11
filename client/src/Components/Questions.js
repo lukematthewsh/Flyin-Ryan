@@ -139,6 +139,7 @@ class Questions extends React.Component {
 
             <div id="questions-wrapper">
                 <ProgressBarContainer>
+                    <div id='questionTitle'>{headerText}</div>
                    <Progress percentage={this.state.percentage} />
                 </ProgressBarContainer>
                 

@@ -24,9 +24,7 @@
     margin-top: 5px;
 }
 
-#line {
-    margin-top: 8vh;
-    padding-top: 10px;
+#questionTitle {
     width: 75vw;
     text-align: center;
     font-size: 3vh;
