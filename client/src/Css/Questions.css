@@ -1,17 +1,23 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-}
-
 #questions-wrapper {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    /* justify-content: flex-end; */
     font-family: 'Do Hyeon', sans-serif;
     background-color: #3e6a99;
+}
+
+#prevButton {
+    width: 15vw;
+    height: 5vh;
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    font-family: 'Do Hyeon', sans-serif;
+    z-index: 50;
+    position: fixed;
 }
 
 #question-header-container {
@@ -22,10 +28,19 @@
     width: 100vw;
     height: 7vh;
     margin-top: 5px;
+    position: absolute;
+}
+
+#questionTitleWrapper {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 7vh;
 }
 
 #questionTitle {
-    width: 75vw;
+    width: 100vw;
     text-align: center;
     font-size: 3vh;
     color: white;
@@ -83,14 +98,14 @@
     outline: none;
     padding: 8px;
     border: 1px solid;
-    border-image:   linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
+    border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
     background-color: #3e6a99;
     box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
     font-size: 3vh;
     color: white
 }
 
-#textAnswers::placeholder{
+#textAnswers::placeholder {
     color: rgba(255, 255, 255, 0.425);
     font-family: 'Do Hyeon', sans-serif;
     text-align: center;
@@ -103,7 +118,7 @@
     width: 100%;
 }
 
-#nextButton, #prevButton {
+#nextButton {
     width: 25vw;
     height: 5vh;
     border: 1px solid black;
@@ -111,4 +126,6 @@
     background-color: white;
     margin-top: 3vh;
     font-family: 'Do Hyeon', sans-serif;
+    position: absolute;
+    bottom: 5vh;
 }
