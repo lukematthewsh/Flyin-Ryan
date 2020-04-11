@@ -138,12 +138,12 @@ class Questions extends React.Component {
 
             <div id="questions-wrapper">
                 <div id='buttonWrapper'>
-                            <button
-                                id="prevButton"
-                                onClick={this.prevQuestion}
-                                disabled={question.index === 0}
-                            >Prev</button>
-                        </div>
+                    <button
+                        id="prevButton"
+                        onClick={this.prevQuestion}
+                        disabled={question.index === 0}
+                    >Prev</button>
+                </div>
                 <ProgressBarContainer>
                     <div id='questionTitleWrapper'>
                         <div id='questionTitle'>{headerText}</div>

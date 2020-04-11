@@ -66,13 +66,13 @@
 #question-button-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     width: 100vw;
     height: 52vh;
     align-items: center;
 }
 
 #answerStyleWrapper {
+    height: 45vh;
     overflow: scroll;
 }
 
@@ -98,6 +98,7 @@
     outline: none;
     padding: 8px;
     border: 1px solid;
+    margin-top: 10vh;
     border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
     background-color: #3e6a99;
     box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
