@@ -50,7 +50,7 @@ class Header extends Component {
                 <img id="flyin-logo" src={FRFlogo} />
                 <MenuButton handleMouseDown={this.handleMouseDown} />
                 <Menu closeMenu={this.handleMouseDown}
-                    menuVisibility={this.state.isHidden} user={this.props.user} newUser={this.props.newUser} logOut={this.props.logOut} />
+                    menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} />
                 <div>
                 </div>
             </div>

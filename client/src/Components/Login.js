@@ -12,6 +12,7 @@ class LogIn extends React.Component {
     }
 
     render() {
+        console.log(firebaseApp.auth().currentUser)
         // if (this.props.modalContent === 'signIn') {
         return (
             <div id='modalWrapper'>
@@ -27,7 +28,7 @@ class LogIn extends React.Component {
                         </div>
                     </div>
                     <div id='modal-buttons'>
-                        <Link onClick={this.props.loginHandler} to={this.err ? '/login' : '/dashboard'}><button id='signIn-button' type='submit'>Sign In</button></Link>
+                        <Link onClick={this.props.loginHandler} to='/dashboard'><button id='signIn-button' type='submit'>Sign In</button></Link>
                         <Link id="google-signin" to='/dashboard' onClick={this.props.googleHandler}><img id="google-img" src={Goog} />Sign in with Google</Link>
                     </div>
                 </form>

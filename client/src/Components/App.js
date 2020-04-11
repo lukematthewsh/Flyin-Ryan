@@ -2,7 +2,7 @@ import React from 'react';
 import '../Css/App.css';
 import Landing from "./Landing.js";
 import { firebaseApp, database, googleProvider } from '../firebaseApp';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Signup from './Signup.js';
 import Dashboard from './Dashboard';
 import Questions from './Questions';
@@ -15,7 +15,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      user: null,
+      user: firebaseApp.auth().currentUser,
       database: null,
       currentPath: undefined,
     }
@@ -82,12 +82,12 @@ class App extends React.Component {
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
-      if (user) {
-        this.setState({
-          newUser: firebaseApp.auth().currentUser,
-          modal: false
-        })
-      }
+     if (user) {
+       this.setState({
+         user: firebaseApp.auth().currentUser,
+         modal: false
+       })
+     }
     })
   }
 
@@ -111,13 +111,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    firebaseApp.auth().signOut()
+    firebaseApp.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          user: firebaseApp.auth().currentUser 
+        });
+      } 
+    });
 
-    if (!this.state.database) {
-      this.setState({
-        database: database
-      })
-    }
+   if (!this.state.database) {
+     this.setState({
+       database: database
+     })
+   }
   }
 
   closeHandler = () => {
@@ -127,15 +133,14 @@ class App extends React.Component {
   }
 
 
-
   render() {
     return (
       <div id='app'>
         <Switch>
-          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />} />
-          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser} logOut={this.logOut}/>} />
-          <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
-          <Route path='/signup' render={() => <Signup 
+          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
+          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut}/> : <Redirect to='/login' />)} />
+          <Route path='/questions' render={() => (firebaseApp.auth().currentUser ? <Questions user={this.state.user} /> : <Redirect to='/signup' />)} />
+          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ?  <Signup 
           modalContent={this.state.modal} 
           signupHandler={this.signupHandler} 
           closeHandler={this.closeHandler} 
@@ -143,8 +148,8 @@ class App extends React.Component {
           currentPath={this.state.currentPath} 
           loginHandler={this.loginHandler} 
           googleHandler={this.googleHandler} 
-          logOut={this.logOut} />} />
-          <Route path='/login' render={() => <Login 
+          logOut={this.logOut} /> : <Redirect to='/questions' />)} />
+          <Route path='/login' render={() => (!firebaseApp.auth().currentUser ? <Login 
           modalContent={this.state.modal} 
           signupHandler={this.signupHandler} 
           closeHandler={this.closeHandler} 
@@ -152,7 +157,7 @@ class App extends React.Component {
           currentPath={this.state.currentPath} 
           loginHandler={this.loginHandler} 
           googleHandler={this.googleHandler} 
-          logOut={this.logOut} />} />
+          logOut={this.logOut} /> : <Redirect to='/dashboard' />)} />
         </Switch>
       </div>
     )

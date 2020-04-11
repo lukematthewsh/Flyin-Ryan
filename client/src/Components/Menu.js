@@ -20,8 +20,7 @@ class Menu extends Component {
           <h2><a href="#">About</a></h2>
           <h2><a href="#">Contact</a></h2>
           <h2><a href="#">Events</a></h2>
-          {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> :
-            this.props.newUser ? <Link to="/" id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> : null}
+          {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> : null}
           
         </div>
        
