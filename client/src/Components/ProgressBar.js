@@ -2,22 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Track = styled.div`
-    margin-left: 2.5%;
-    width: 95%;
-    height: 20px;
-    background-color: #222;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px #000;
-
+const BarBackground = styled.div`
+    margin-left: 15vw;
+    width: 70vw;
+    height: 3px;
+    background-color: #c5d2e0;
+   border-radius: 9px;
+    box-shadow: 2px 2px 2px black;
+    overflow:hide;
 `;
-const Thumb = styled.div`
+const LoadingBar = styled.div`
     width: ${props => props.percentage}%;
     height: 100%;
-    background-color: #7897b8;
-    border-radius: 10px;
-    transition: width 0.3s ease-in-out;
+    border-radius: 9px;
+    background-color: green;
+    transition: width 0.7s ease-in-out;
 
+    
 `;
 class Progress extends React.Component {
 
@@ -28,9 +29,9 @@ class Progress extends React.Component {
 
     render() {
         return (
-            <Track>
-                <Thumb percentage={this.minMax(0, this.props.percentage, 100)} />
-            </Track>
+            <BarBackground>
+                <LoadingBar percentage={this.minMax(0, this.props.percentage, 100)} />
+            </BarBackground>
 
         )
     }

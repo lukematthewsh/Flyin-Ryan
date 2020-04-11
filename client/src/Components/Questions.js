@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 
 const ProgressBarContainer = styled.div`
-wisth: 300px;
+width: 300px;
 margin-top: 11vh;
 `;
 
