@@ -4,6 +4,12 @@ import X from "../images/x.png"
 import { Link } from 'react-router-dom'
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      percentage: 20
+    }
+  }
   render() {
     let visibility = "hide";
 
@@ -23,8 +29,9 @@ class Menu extends Component {
           {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> :
             this.props.newUser ? <Link to="/" id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> : null}
           
+          
         </div>
-       
+        
       </div>
     );
   }

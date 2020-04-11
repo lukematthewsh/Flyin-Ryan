@@ -7,12 +7,12 @@ import Usericon from '../images/user-icon.png'
 import { Link } from 'react-router-dom'
 
 
-
 class Landing extends React.Component {
     render() {
         return (
             <div id="home-page">
-                <Header user={this.props.user} newUser={this.props.newUser} logOut={this.props.logOut} />
+                
+                <Header user={this.props.user} newUser={this.props.newUser} logOut={this.logOut} />
                 <div id="landing-page">
                     <div id="title">
                         <h1>Core Values Matter</h1>
