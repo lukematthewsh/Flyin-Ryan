@@ -3,6 +3,14 @@ import '../Css/Questions.css'
 import data from './QuestionsData.js'
 import QuestionCard from './QuestionCard.js'
 import { database, auth } from '../firebaseApp.js'
+import Progress from './ProgressBar'
+import styled from 'styled-components'
+
+
+const ProgressBarContainer = styled.div`
+wisth: 300px;
+margin-top: 11vh;
+`;
 
 class Questions extends React.Component {
     constructor(props) {
@@ -14,7 +22,9 @@ class Questions extends React.Component {
             question: data.questions[0],
             category: data.questions[0].folder,
             userAnswers: null,
-            selectedAnswer: null
+            selectedAnswer: null,
+            percentage: 5.263,
+    
         }
     }
 
@@ -32,6 +42,7 @@ class Questions extends React.Component {
             await database.ref().update(userAnswers)
         }
         this.setState({
+            percentage: this.state.percentage + 5.623,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
             userAnswers: null
@@ -55,6 +66,7 @@ class Questions extends React.Component {
             await database.ref().update(userAnswers)
         }
         this.setState({
+            percentage: this.state.percentage - 5.263,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
             userAnswers: null
@@ -124,10 +136,12 @@ class Questions extends React.Component {
 
         // const isEnabled = this.canBeSubmitted();
         return (
+
             <div id="questions-wrapper">
-                <div id="question-header-container">
-                    <div id='line'>{headerText}</div>
-                </div>
+                <ProgressBarContainer>
+                   <Progress percentage={this.state.percentage} />
+                </ProgressBarContainer>
+                
                 <div id='question-container'>
                     <div id="questions">
                         <QuestionCard question={question} />

@@ -27,7 +27,6 @@
 #line {
     margin-top: 8vh;
     padding-top: 10px;
-    border-top: 1px solid white;
     width: 75vw;
     text-align: center;
     font-size: 3vh;
@@ -36,17 +35,18 @@
 
 #question-container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 25vh;
     width: 100vw;
     padding-top: 15px;
 }
 
 #questions {
-    width: 100vw;
+    width: 70vw;
     text-align: center;
     margin: 1vh;
-    font-size: 8vw;
+    font-size: 6.5vw;
     color: white;
 }
 
@@ -68,9 +68,9 @@
     justify-content: center;
     align-items: center;
     margin: 3vh;
-    width: 80vw;
+    width: 70vw;
     height: 7vh;
-    font-size: 5.5vw;
+    font-size: 4.5vw;
     color: white;
     border: 1px solid white;
     border-radius: 7px;
