@@ -131,29 +131,29 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        <Switch>
-          <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />} />
-          <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser} logOut={this.logOut}/>} />
-          <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
-          <Route path='/signup' render={() => <Signup 
-          modalContent={this.state.modal} 
-          signupHandler={this.signupHandler} 
-          closeHandler={this.closeHandler} 
-          pageUpdate={this.pageUpdate} 
-          currentPath={this.state.currentPath} 
-          loginHandler={this.loginHandler} 
-          googleHandler={this.googleHandler} 
-          logOut={this.logOut} />} />
-          <Route path='/login' render={() => <Login 
-          modalContent={this.state.modal} 
-          signupHandler={this.signupHandler} 
-          closeHandler={this.closeHandler} 
-          pageUpdate={this.pageUpdate} 
-          currentPath={this.state.currentPath} 
-          loginHandler={this.loginHandler} 
-          googleHandler={this.googleHandler} 
-          logOut={this.logOut} />} />
-        </Switch>
+      <Switch>
+        <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />} />
+        <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser} logOut={this.logOut}/>} />
+        <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
+        <Route path='/signup' render={() => <Signup 
+        modalContent={this.state.modal} 
+        signupHandler={this.signupHandler} 
+        closeHandler={this.closeHandler} 
+        pageUpdate={this.pageUpdate} 
+        currentPath={this.state.currentPath} 
+        loginHandler={this.loginHandler} 
+        googleHandler={this.googleHandler} 
+        logOut={this.logOut} />} />
+        <Route path='/login' render={() => <Login 
+        modalContent={this.state.modal} 
+        signupHandler={this.signupHandler} 
+        closeHandler={this.closeHandler} 
+        pageUpdate={this.pageUpdate} 
+        currentPath={this.state.currentPath} 
+        loginHandler={this.loginHandler} 
+        googleHandler={this.googleHandler} 
+        logOut={this.logOut} />} />
+      </Switch>
       </div>
     )
   }
