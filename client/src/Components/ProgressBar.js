@@ -7,7 +7,7 @@ const BarBackground = styled.div`
     width: 70vw;
     height: 3px;
     background-color: #c5d2e0;
-   border-radius: 9px;
+    border-radius: 9px;
     box-shadow: 2px 2px 2px black;
     overflow:hide;
 `;

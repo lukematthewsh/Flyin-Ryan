@@ -9,7 +9,6 @@ import styled from 'styled-components'
 
 const ProgressBarContainer = styled.div`
 width: 300px;
-margin-top: 11vh;
 `;
 
 class Questions extends React.Component {
@@ -24,7 +23,7 @@ class Questions extends React.Component {
             userAnswers: null,
             selectedAnswer: null,
             percentage: 5.263,
-    
+
         }
     }
 
@@ -138,10 +137,20 @@ class Questions extends React.Component {
         return (
 
             <div id="questions-wrapper">
+                <div id='buttonWrapper'>
+                            <button
+                                id="prevButton"
+                                onClick={this.prevQuestion}
+                                disabled={question.index === 0}
+                            >Prev</button>
+                        </div>
                 <ProgressBarContainer>
-                   <Progress percentage={this.state.percentage} />
+                    <div id='questionTitleWrapper'>
+                        <div id='questionTitle'>{headerText}</div>
+                    </div>
+                    <Progress percentage={this.state.percentage} />
                 </ProgressBarContainer>
-                
+
                 <div id='question-container'>
                     <div id="questions">
                         <QuestionCard question={question} />
@@ -154,11 +163,6 @@ class Questions extends React.Component {
                     </div>
 
                     <div id="question-inner-container">
-                        <button
-                            id="prevButton"
-                            onClick={this.prevQuestion}
-                            disabled={question.index === 0}
-                        >Prev</button>
                         <button
                             id="nextButton"
                             onClick={this.nextQuestion}
