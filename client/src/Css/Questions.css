@@ -7,17 +7,24 @@
     background-color: #3e6a99;
 }
 
+#backButton{
+    height: 4vh;
+    z-index: 50;
+    position: fixed;
+    margin-top: 25px;
+    margin-left: 25px;
+    transform: rotate(90deg);
+}
+
 #prevButton {
     width: 15vw;
     height: 5vh;
-    margin-top: 20px;
-    margin-left: 10px;
+    
     border: 1px solid black;
     border-radius: 20px;
     background-color: white;
     font-family: 'Do Hyeon', sans-serif;
-    z-index: 50;
-    position: fixed;
+   
 }
 
 #question-header-container {

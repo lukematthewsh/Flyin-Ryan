@@ -147,6 +147,9 @@ class App extends React.Component {
           googleHandler={this.googleHandler} 
           logOut={this.logOut} />} />
         </Switch>
+        
+        {/* <Questions /> */}
+
       </div>
     )
   }
