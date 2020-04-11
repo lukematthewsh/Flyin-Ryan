@@ -1,13 +1,6 @@
 const data = {
     "questions": [
-        //TESTING
-        {
-            "index": 3,
-            "folder": "Education",
-            "inquery": 'What is your highest degree or level of school you have completed?',
-            "options": ["Less then a High School Diploma", "High School Degree or Equivalent", "Bachelor's Degree (eg. BA, BS)", "Masters Degree (eg. MA, MS, MEd)", "Doctorate (eg. PhD, EdD)", "Other (Please specify)"]
-        },
-
+        
         // Demographic Questions
         {
             "index": 0,
