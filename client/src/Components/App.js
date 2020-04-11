@@ -124,7 +124,7 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        <Switch>
+        {/* <Switch>
           <Route exact path='/' render={() => <Landing modalHandler={this.modalHandler} user={this.state.user} newUser={this.state.newUser} logOut={this.logOut} />} />
           <Route path='/dashboard' render={() => <Dashboard user={this.state.user} newUser={this.state.newUser} logOut={this.logOut}/>} />
           <Route path='/questions' render={() => <Questions user={this.state.newUser} />} />
@@ -146,9 +146,9 @@ class App extends React.Component {
           loginHandler={this.loginHandler} 
           googleHandler={this.googleHandler} 
           logOut={this.logOut} />} />
-        </Switch>
+        </Switch> */}
         
-        {/* <Questions /> */}
+        <Questions />
 
       </div>
     )
