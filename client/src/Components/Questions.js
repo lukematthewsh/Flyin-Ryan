@@ -5,6 +5,7 @@ import QuestionCard from './QuestionCard.js'
 import { database, auth } from '../firebaseApp.js'
 import Progress from './ProgressBar'
 import styled from 'styled-components'
+import backButton from '../images/arrow-invert.png'
 
 
 const ProgressBarContainer = styled.div`
@@ -116,6 +117,7 @@ class Questions extends React.Component {
     }
 
     render() {
+        console.log(this.props.user)
         const { question } = this.state;
         const category = this.state.category
         let answerStyle
@@ -138,12 +140,11 @@ class Questions extends React.Component {
 
             <div id="questions-wrapper">
                 <div id='buttonWrapper'>
-                            <button
-                                id="prevButton"
-                                onClick={this.prevQuestion}
-                                disabled={question.index === 0}
-                            >Prev</button>
-                        </div>
+                    <img id='backButton' 
+                        onClick={question.index !== 0 ? this.prevQuestion : null}
+                        src={backButton} 
+                        alt='back button' />
+                </div>
                 <ProgressBarContainer>
                     <div id='questionTitleWrapper'>
                         <div id='questionTitle'>{headerText}</div>

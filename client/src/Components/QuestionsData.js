@@ -7,6 +7,12 @@ const data = {
         //     "inquery": 'What is your highest degree or level of school you have completed?',
         //     "options": ["Less then a High School Diploma", "High School Degree or Equivalent", "Bachelor's Degree (eg. BA, BS)", "Masters Degree (eg. MA, MS, MEd)", "Doctorate (eg. PhD, EdD)", "Other (Please specify)"]
         // },
+        // {
+        //     "index": 12,
+        //     "folder": "Core Value Questions 8",
+        //     "inquery": "What are the characteristics you admire most about yourself?",
+
+        // },
 
         // Demographic Questions
         {
