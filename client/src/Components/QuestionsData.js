@@ -13,13 +13,18 @@ const data = {
         //     "inquery": "What are the characteristics you admire most about yourself?",
 
         // },
+        {
+            "index": 17,
+            "folder": "Key Core Value Questions 13",
+            "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
+        },
 
         // Demographic Questions
         {
             "index": 0,
             "folder": "Age",
             "inquery": 'How old are you?',
-            "options": ['0-18', '19-25', '26-30', '31-39']
+            "options": ['0-18', '19-25', '26-30', '31-35', '36-40', '41-45', '46-50', '51-60', '61-70', '80+']
         }, {
             "index": 1,
             "folder": "Sex",
@@ -39,7 +44,7 @@ const data = {
             "index": 4,
             "folder": "Location",
             "inquery": 'Where do you live?',
-            "options": ['United States', "Canada", "Mexico", "Other"]
+            "options": ['United States', "Canada", "Mexico", "Other (Please specify"]
         },
 
         // Core Value Questions
@@ -116,7 +121,7 @@ const data = {
         },
         {
             "index": 17,
-            "folder": "Core Value Questions 13",
+            "folder": "Key Core Value Questions 13",
             "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
         }
     ]

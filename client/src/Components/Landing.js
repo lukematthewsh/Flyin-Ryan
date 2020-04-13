@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 
 class Landing extends React.Component {
     render() {
-        console.log(this.props.user)
         return (
             <div id="home-page">
                 <Header user={this.props.user} logOut={this.props.logOut} />

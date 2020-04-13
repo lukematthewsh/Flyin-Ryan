@@ -129,7 +129,7 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        <Switch>
+        {/* <Switch>
           <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
           <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut}/> : <Redirect to='/login' />)} />
           <Route path='/questions' render={() => (firebaseApp.auth().currentUser ? <Questions user={this.state.user} /> : <Redirect to='/signup' />)} />
@@ -151,9 +151,9 @@ class App extends React.Component {
           loginHandler={this.loginHandler} 
           googleHandler={this.googleHandler} 
           logOut={this.logOut} /> : <Redirect to='/dashboard' />)} />
-        </Switch>
+        </Switch> */}
         
-        {/* <Questions /> */}
+        <Questions />
 
       </div>
     )

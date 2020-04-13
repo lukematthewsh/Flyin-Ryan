@@ -137,3 +137,8 @@
     position: absolute;
     bottom: 5vh;
 }
+#finishButton{
+    font-family: 'Do Hyeon', sans-serif;
+    width: 25vw;
+    height: 5vh;
+}

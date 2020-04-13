@@ -6,6 +6,7 @@ import { database, auth } from '../firebaseApp.js'
 import Progress from './ProgressBar'
 import styled from 'styled-components'
 import backButton from '../images/arrow-invert.png'
+import { Link } from 'react-router-dom'
 
 
 const ProgressBarContainer = styled.div`
@@ -24,7 +25,6 @@ class Questions extends React.Component {
             userAnswers: null,
             selectedAnswer: null,
             percentage: 5.263,
-
         }
     }
 
@@ -103,7 +103,6 @@ class Questions extends React.Component {
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             console.log(currentUserAnswers)
-
             if (currentUserAnswers[_this.state.question.folder]) {
                 if (currentUserAnswers[_this.state.question.folder].answer) {
                     textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
@@ -117,32 +116,48 @@ class Questions extends React.Component {
     }
 
     render() {
-        console.log(this.props.user)
         const { question } = this.state;
         const category = this.state.category
         let answerStyle
         let headerText
+        let nextButton
         if (!category.includes('Core Value Questions')) {
             headerText = 'Demographic Questions'
             answerStyle = question.options.map(option => {
-                return <QuestionOption handler={this.selected} id={option} selected={this.state.selectedAnswer} option={option} />
+                return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
             })
+            nextButton = <button
+                id="nextButton"
+                onClick={this.nextQuestion}
+                disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
+            >Next</button>
+        } else if (category.includes('Key Core')) {
+            headerText = 'Core Value Questions'
+            answerStyle = <div id="textinput">
+                <textarea id="textAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="3"></textarea>
+            </div>
+            nextButton = <Link to='/dashboard' id="nextButton"><button id='finishButton'
+            >Finish</button> </Link>
         } else if (category.includes('Core Value Questions')) {
             headerText = 'Core Value Questions'
             answerStyle = <div id="textinput">
                 <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
             </div>
+            nextButton = <button
+                id="nextButton"
+                onClick={this.nextQuestion}
+                disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
+            >Next</button>
         }
-
 
         // const isEnabled = this.canBeSubmitted();
         return (
 
             <div id="questions-wrapper">
                 <div id='buttonWrapper'>
-                    <img id='backButton' 
+                    <img id='backButton'
                         onClick={question.index !== 0 ? this.prevQuestion : null}
-                        src={backButton} 
+                        src={backButton}
                         alt='back button' />
                 </div>
                 <ProgressBarContainer>
@@ -162,14 +177,10 @@ class Questions extends React.Component {
                     <div id='answerStyleWrapper'>
                         {answerStyle}
                     </div>
-
                     <div id="question-inner-container">
-                        <button
-                            id="nextButton"
-                            onClick={this.nextQuestion}
-                            disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
-                        >Next</button>
+                        {nextButton}
                     </div>
+
                 </div>
             </div>
         )
