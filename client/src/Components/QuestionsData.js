@@ -13,12 +13,12 @@ const data = {
         //     "inquery": "What are the characteristics you admire most about yourself?",
 
         // },
-        {
-            "index": 17,
-            "folder": "Key Core Value Questions 13",
-            "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
-        },
-
+        // {
+        //     "index": 17,
+        //     "folder": "Key Core Values",
+        //     "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
+        // },
+        
         // Demographic Questions
         {
             "index": 0,
@@ -121,7 +121,7 @@ const data = {
         },
         {
             "index": 17,
-            "folder": "Key Core Value Questions 13",
+            "folder": "Key Core Values",
             "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
         }
     ]

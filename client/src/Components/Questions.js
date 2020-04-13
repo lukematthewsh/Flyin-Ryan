@@ -22,9 +22,10 @@ class Questions extends React.Component {
         this.state = {
             question: data.questions[0],
             category: data.questions[0].folder,
-            userAnswers: null,
+            userAnswers: '',
             selectedAnswer: null,
             percentage: 5.263,
+            cvArray: [],
         }
     }
 
@@ -45,7 +46,7 @@ class Questions extends React.Component {
             percentage: this.state.percentage + 5.623,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
-            userAnswers: null
+            userAnswers: ''
         })
 
         if (this.state.category.includes('Core Value Questions')) {
@@ -69,7 +70,7 @@ class Questions extends React.Component {
             percentage: this.state.percentage - 5.263,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
-            userAnswers: null
+            userAnswers: ''
         })
 
         if (this.state.category.includes('Core Value Questions')) {
@@ -79,6 +80,50 @@ class Questions extends React.Component {
 
             this.checkForAnswer(newIndex)
         }
+    }
+
+    async componentDidMount() {
+        let uid = auth().currentUser.uid;
+        let answers = await database.ref(`/users/${this.props.user.uid}/${this.state.question.folder}`).once('value').then(function (snapshot) {
+            let currentUserAnswers = snapshot.val()
+            return currentUserAnswers
+        })
+        if (answers) {
+            this.setState({
+                cvArray: answers
+            })
+        }
+    }
+
+    cvSubmit = async () => {
+        let cvArray = this.state.cvArray
+        let newCVArray = cvArray.concat([this.state.userAnswers])
+        this.setState({
+            userAnswers: '',
+            cvArray: newCVArray
+        })
+        if (this.textAnswers.current) {
+            this.textAnswers.current.value = null
+        }
+        console.log(this.state.cvArray)
+    }
+
+    removeCV = (event) => {
+        let cvArray = this.state.cvArray
+        let removeTarget = event.target.textContent
+        let targetIndex = cvArray.indexOf(removeTarget)
+        cvArray.splice(targetIndex, 1)
+        this.setState({
+            cvArray: cvArray
+        })
+    }
+
+    questionsFinish = async () => {
+        let userAnswers = {}
+
+        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = this.state.cvArray
+
+        await database.ref().update(userAnswers)
     }
 
     selected = (event) => {
@@ -121,7 +166,8 @@ class Questions extends React.Component {
         let answerStyle
         let headerText
         let nextButton
-        if (!category.includes('Core Value Questions')) {
+        let reviewAnswer
+        if (!category.includes('Core Value Questions') && !category.includes('Key')) {
             headerText = 'Demographic Questions'
             answerStyle = question.options.map(option => {
                 return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
@@ -131,13 +177,6 @@ class Questions extends React.Component {
                 onClick={this.nextQuestion}
                 disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
             >Next</button>
-        } else if (category.includes('Key Core')) {
-            headerText = 'Core Value Questions'
-            answerStyle = <div id="textinput">
-                <textarea id="textAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="3"></textarea>
-            </div>
-            nextButton = <Link to='/dashboard' id="nextButton"><button id='finishButton'
-            >Finish</button> </Link>
         } else if (category.includes('Core Value Questions')) {
             headerText = 'Core Value Questions'
             answerStyle = <div id="textinput">
@@ -148,6 +187,23 @@ class Questions extends React.Component {
                 onClick={this.nextQuestion}
                 disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
             >Next</button>
+        } else if (category.includes('Key Core')) {
+            headerText = 'Core Value Questions'
+            answerStyle = <div id="finalTextinput">
+                <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
+                <button
+                    id='cvSubmit'
+                    onClick={this.cvSubmit}
+                >Submit</button>
+            </div>
+            reviewAnswer =
+                <div id='reviewCV'>
+                    {this.state.cvArray.map((answer) => {
+                        return <div onClick={this.removeCV}>{answer}</div>
+                    })}
+                </div>
+            nextButton = <Link to='/dashboard' id="nextButton"><button onClick={this.questionsFinish} id='finishButton'
+            >Finish</button> </Link>
         }
 
         // const isEnabled = this.canBeSubmitted();
@@ -169,13 +225,14 @@ class Questions extends React.Component {
 
                 <div id='question-container'>
                     <div id="questions">
-                        <QuestionCard question={question} />
+                        <QuestionCard question={question} category={this.state.category} />
                     </div>
                 </div>
 
                 <div id="question-button-container">
                     <div id='answerStyleWrapper'>
                         {answerStyle}
+                        {reviewAnswer}
                     </div>
                     <div id="question-inner-container">
                         {nextButton}
