@@ -7,7 +7,7 @@
     background-color: #3e6a99;
 }
 
-#backButton{
+#backButton {
     height: 4vh;
     z-index: 50;
     position: fixed;
@@ -19,12 +19,10 @@
 #prevButton {
     width: 15vw;
     height: 5vh;
-    
     border: 1px solid black;
     border-radius: 20px;
     background-color: white;
     font-family: 'Do Hyeon', sans-serif;
-   
 }
 
 #question-header-container {
@@ -79,6 +77,7 @@
 }
 
 #answerStyleWrapper {
+   
     height: 45vh;
     overflow: scroll;
 }
@@ -99,7 +98,12 @@
 .selected {
     background-color: grey;
 }
-
+#finalTextinput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #textAnswers {
     resize: none;
     outline: none;
@@ -113,10 +117,38 @@
     color: white
 }
 
+#finalTextAnswers {
+    resize: none;
+    outline: none;
+    padding: 8px;
+    border: 1px solid;
+    margin-top: 1vh;
+    border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
+    background-color: #3e6a99;
+    box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
+    font-size: 2vh;
+    color: white
+}
+
 #textAnswers::placeholder {
     color: rgba(255, 255, 255, 0.425);
     font-family: 'Do Hyeon', sans-serif;
     text-align: center;
+}
+#cvSubmit{
+    width: 25vw;
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 2vh;
+    font-family: 'Do Hyeon', sans-serif;
+}
+#reviewCV{
+    border: 1px solid black;
+    height: 20vh;
+    width: 70vw;
+    margin-top: 2vh;
 }
 
 #question-inner-container {
@@ -137,7 +169,8 @@
     position: absolute;
     bottom: 5vh;
 }
-#finishButton{
+
+#finishButton {
     font-family: 'Do Hyeon', sans-serif;
     width: 25vw;
     height: 5vh;

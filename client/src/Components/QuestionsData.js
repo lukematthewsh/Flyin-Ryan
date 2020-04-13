@@ -15,10 +15,10 @@ const data = {
         // },
         // {
         //     "index": 17,
-        //     "folder": "Key Core Value Questions 13",
+        //     "folder": "Key Core Values",
         //     "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
         // },
-
+        
         // Demographic Questions
         {
             "index": 0,
@@ -121,7 +121,7 @@ const data = {
         },
         {
             "index": 17,
-            "folder": "Key Core Value Questions 13",
+            "folder": "Key Core Values",
             "inquery": 'What do you believe your core values to be? There is no "right" number to aim for.',
         }
     ]
