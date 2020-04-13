@@ -103,7 +103,7 @@ div[id$='-link']:hover{
 /*-==============Testing==================-*/
 
 #corevalues-content{
-    border: 2px solid black;
+
     display: flex; 
     flex-direction: column;
 }
