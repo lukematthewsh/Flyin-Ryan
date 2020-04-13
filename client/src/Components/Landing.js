@@ -23,7 +23,7 @@ class Landing extends React.Component {
                         <div id="inner-container">
 
                             <div id='signup-butt-container'>
-                                <Link id='sign-up-link' to={'/signup'}>
+                                <Link id='sign-up-link' style={{ textDecoration: 'none' }} to={'/signup'}>
                                     <div id='signup-box-wrapper'>
                                         <div id='signup-box'><img id='signup-icon' src={Signup} alt='sign up icon' /></div>
                                         <div id="sign-up-landing-button"> Sign Up</div>
@@ -32,7 +32,7 @@ class Landing extends React.Component {
                             </div>
 
                             <div id='login-butt-container'>
-                                <Link id = 'sign-in-link' to={'/login'} >
+                                <Link id = 'sign-in-link' style={{ textDecoration: 'none' }} to={'/login'} >
                                     <div id='login-box-wrapper'>
                                         <div id='login-box'><img id='user-icon' src={Usericon} /></div>
                                         <div id="sign-in-landing-button">Sign In</div>

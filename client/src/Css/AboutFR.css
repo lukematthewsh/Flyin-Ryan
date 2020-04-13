@@ -111,9 +111,14 @@ margin: 5px;
 }
 
 #sign-up-bottom-button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     border-radius: 15px 15px 15px 15px;
     background-color: #008542;
     width: 90px;
+    color:white;
     font-size: 16px;
     margin-left: 3vw;;
     height: 25px;

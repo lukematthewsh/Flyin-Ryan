@@ -84,7 +84,7 @@ class About extends React.Component {
                     <p>Once signed up you can return anytime to update your account!</p>
                     <div id='bottom-signup'>
                         <p>Get started:</p>
-                        <Link to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
+                        <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
                     </div>
                 </div>
             </div >

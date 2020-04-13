@@ -78,19 +78,18 @@ class Dashboard extends React.Component {
                 isG: false,
                 isCV: false
             })
-            //CLEAN UP?
             this.setState(prevState => ({ Mbutt: { active: !prevState.Mbutt.active } }))
-        } else if (event.target.id === "cv-link") {
             this.setState({
-                CVbutt: {
-                    active: false,
-                },
                 Vbutt: {
                     active: false,
+                },
+                CVbutt: {
+                    active: false,
                 }
-            })
-        }
+       
+        })
     }
+}
 
 
     render() {
