@@ -16,22 +16,23 @@ class CoreValues extends React.Component {
     }
 
 
-    getCoreValues = (uid) => {
-
-        database.ref('users/' + this.state.user.uid + '/Key Core Values').once("value", snapshot => { 
-            this.setState({
-                userData: snapshot.val()
-            })
-            
-           
+    
+    async componentDidMount() {
+        let answers = await database.ref(`/users/${this.state.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
+            let currentUserAnswers = snapshot.val()
+    
+            return currentUserAnswers
         })
+        answers.forEach((answer) => {
+            this.setState({
+                userData: answer
+            })
+        })
+       
+
     }
 
 
-
-    componentDidMount() {
-        this.getCoreValues();
-    }
 
     componentWillUnmount() {
         window.removeEventListener('load', this.getCoreValues)
