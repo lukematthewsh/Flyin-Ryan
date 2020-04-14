@@ -163,6 +163,7 @@ class Questions extends React.Component {
     render() {
         const { question } = this.state;
         const category = this.state.category
+        const cvArray = this.state.cvArray
         let answerStyle
         let headerText
         let nextButton
@@ -198,7 +199,7 @@ class Questions extends React.Component {
             </div>
             reviewAnswer =
                 <div id='reviewCV'>
-                    {this.state.cvArray.map((answer) => {
+                    {cvArray.map(answer => {
                         return <div onClick={this.removeCV}>{answer}</div>
                     })}
                 </div>
