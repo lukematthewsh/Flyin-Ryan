@@ -23,7 +23,7 @@ class Questions extends React.Component {
             question: data.questions[0],
             category: data.questions[0].folder,
             userAnswers: '',
-            selectedAnswer: null,
+            selectedAnswer: '',
             percentage: 5.263,
             cvArray: [],
         }
@@ -143,23 +143,26 @@ class Questions extends React.Component {
         let _this = this
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
-            if (currentUserAnswers[_this.state.question.folder] && !_this.state.category.includes('Core Value Questions')) {
-                if (currentUserAnswers[_this.state.question.folder].answer) {
-                    let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
-                    _this.setState({
-                        userAnswers: prevAnswer,
-                        selectedAnswer: prevAnswer
-                    })
-                }
-            } else if (currentUserAnswers[_this.state.question.folder]) {
-                if (currentUserAnswers[_this.state.question.folder].answer) {
-                    textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
-                    _this.setState({
-                        userAnswers: textAnswers.current.value
-                    })
+            if (currentUserAnswers) {
+                if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
+                    if (currentUserAnswers[_this.state.category].answer) {
+                        let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
+                        _this.setState({
+                            userAnswers: prevAnswer,
+                            selectedAnswer: prevAnswer
+                        })
+                    }
+                } else if (currentUserAnswers[_this.state.question.folder]) {
+                    if (currentUserAnswers[_this.state.question.folder].answer) {
+                        textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
+                        _this.setState({
+                            userAnswers: textAnswers.current.value
+                        })
+                    }
                 }
             }
         })
+
     }
 
     render() {
