@@ -28,13 +28,22 @@ class CoreValues extends React.Component {
         })
     }
 
-
-
     componentWillUnmount() {
         window.removeEventListener('load', this.getCoreValues)
     }
 
+    share = async (event) => {
+        let feedfeed = (event.target.parentNode.parentNode.textContent)
+        let feedAnswers = {} 
+        feedAnswers[`/feed/${this.props.user.uid}`] = { answer: feedfeed }
+        await database.ref().update(feedAnswers)
+    } 
+    
+    edit = () => {}
+
+
     render() {
+        console.log(this.state.userData)
         return (
             <div id='core-values'>
                 <h1>Your Core Values</h1>
@@ -43,13 +52,11 @@ class CoreValues extends React.Component {
                 <br></br>
                 <div id="corevalues-content">
                     <ul id = "core-values-list">
-                        {this.state.userData.map(item => (
-                            <li key = {item}>{item}
-                            <div id = "button-core-container"> 
-                            <button id = "edit"> <img src = {editIco} style = {{maxWidth: "15px"}}/></button>
-                            <button><img id = "share" src = {ShareIco} style = {{maxWidth: "15px"}}/></button>
+                        {this.state.userData.map(item => ( 
+                            <div id = "button-core-container" key = {item}>{item} 
+                            <button id = "edit" onClick = {this.edit}> <img src = {editIco} style = {{maxWidth: "15px"}}/></button>
+                            <button onClick = {this.share}><img id = "share" src = {ShareIco} style = {{maxWidth: "15px"}}/></button>
                             </div>
-                            </li>
                         ))}
                     </ul>
                 </div>
