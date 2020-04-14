@@ -1,19 +1,16 @@
-#dash-page{
 
-
-}
 #dash-pic {
     margin-top: 2vh;
     margin-left: 2vw;
     margin-bottom: 2vh;
-    max-width: 70px;
+    max-width: 50px;
     border-radius: 50%;
 }
 
 #dash-name {
     font-family: 'Questrial', sans-serif;
     margin-left: 2vw;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -31,13 +28,14 @@
     width: 100vw;
     height: 37vh;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     z-index: 100;
 }
 
 #dash-links {
-    padding-bottom: 1vh;
     margin-top: 3vh;
+    margin-bottom: 2vh;
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
@@ -59,29 +57,23 @@
 
 .cv-button-active{
     color:white;
-    font-size: 18px;
     border-bottom: 2px solid ;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
     background:none;
-    padding-bottom: 4px;
     transition: .3s ease-in-out;
 }
 
 .v-button-active{
     color:white;
-    font-size: 18px;
     border-bottom: 2px solid ;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
     background:none;
-    padding-bottom: 4px;
     transition: .3s ease-in-out;
 }
 .m-button-active{
     color:white;
-    font-size: 18px;
     border-bottom: 2px solid ;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
-    padding-bottom: 4px;
     background:none;
     transition: .3s ease-in-out;
 
