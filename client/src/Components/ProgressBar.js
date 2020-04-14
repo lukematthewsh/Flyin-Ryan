@@ -6,16 +6,15 @@ const BarBackground = styled.div`
     margin-left: 15vw;
     width: 70vw;
     height: 3px;
-    background-color: #c5d2e0;
+    background-color: #32557a;
     border-radius: 9px;
-    box-shadow: 2px 2px 2px black;
     overflow:hide;
 `;
 const LoadingBar = styled.div`
     width: ${props => props.percentage}%;
     height: 100%;
     border-radius: 9px;
-    background-color: green;
+    background-color: #5179a3;
     transition: width 0.7s ease-in-out;
 
     
