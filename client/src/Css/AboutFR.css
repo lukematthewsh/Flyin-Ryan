@@ -1,3 +1,4 @@
+
 #about-page{
     font-family: 'Questrial', sans-serif;
     margin-top: 7vh;;
@@ -6,8 +7,7 @@
     display: flex;
     align-items:center;
     justify-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
 #rasta-border{
     justify-self: center;

@@ -14,13 +14,16 @@
     left: 0;
     transition: transform .7s ease-in-out;
     overflow: scroll;
+    text-decoration: none;
   }
  
   #menu-list{
+    text-decoration: none;
     grid-area: list;
-    margin-top: 4vh;
+    margin-top: 10vh;
     height: 70vh;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     text-align: center;
     flex-direction: column;
@@ -55,7 +58,8 @@
   }
 
   #X{
-    width: 17vw;
+    margin-top: 2vh;
+    width: 12vw;
   }
   #X:hover{
     transform: scale(2);

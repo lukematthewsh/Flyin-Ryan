@@ -22,13 +22,11 @@ class Menu extends Component {
         <div id="close-menu" onClick={this.props.closeMenu}><img id="X" src={X} /></div>
 
         <div id="menu-list">
-          <Link to = '/'><h2><a href="#">Home</a></h2> </Link>
+          <Link to = '/' style={{ textDecoration: 'none' }}><h2><a>Home</a></h2> </Link>
           <h2><a href="https://flyinryanhawks.org/foundation/">About</a></h2>
           <h2><a href="https://flyinryanhawks.org/contact/">Contact</a></h2>
           <h2><a href="https://flyinryanhawks.org/event-directory/">Events</a></h2>
-          {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu}>Sign Out</Link> : null}
-          
-          
+          {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu} style={{ textDecoration: 'none', color: 'black' }} ><h2><a>Sign Out</a></h2></Link> : null}
         </div>
         
       </div>
