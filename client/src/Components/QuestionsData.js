@@ -5,7 +5,7 @@ const data = {
         //     "index": 3,
         //     "folder": "Education",
         //     "inquery": 'What is your highest degree or level of school you have completed?',
-        //     "options": ["Less then a High School Diploma", "High School Degree or Equivalent", "Bachelor's Degree (eg. BA, BS)", "Masters Degree (eg. MA, MS, MEd)", "Doctorate (eg. PhD, EdD)", "Other (Please specify)"]
+        //     "options": ["Less then a High School Diploma", "High School Degree or Equivalent", "Bachelor's Degree (eg. BA, BS)", "Masters Degree (eg. MA, MS, MEd)", "Doctorate (eg. PhD, EdD)", "Other"]
         // },
         // {
         //     "index": 12,
@@ -29,7 +29,7 @@ const data = {
             "index": 1,
             "folder": "Sex",
             "inquery": 'What is your gender?',
-            "options": ['Male', 'Female', 'Other (Please specify)', 'Prefer not to say']
+            "options": ['Male', 'Female', 'Other', 'Prefer not to say']
         }, {
             "index": 2,
             "folder": "Ethnicity",
@@ -39,12 +39,12 @@ const data = {
             "index": 3,
             "folder": "Education",
             "inquery": 'What is your highest degree or level of school you have completed?',
-            "options": ["Less then a High School Diploma", "High School Degree or Equivalent", "Bachelor's Degree (eg. BA, BS)", "Masters Degree (eg. MA, MS, MEd)", "Doctorate (eg. PhD, EdD)", "Other (Please specify)"]
+            "options": ["Less then a High School Diploma", "High School Degree or Equivalent", "Bachelor's Degree (eg. BA, BS)", "Masters Degree (eg. MA, MS, MEd)", "Doctorate (eg. PhD, EdD)", "Other"]
         }, {
             "index": 4,
             "folder": "Location",
             "inquery": 'Where do you live?',
-            "options": ['United States', "Canada", "Mexico", "Other (Please specify"]
+            "options": ['United States', "Canada", "Mexico", "Other"]
         },
 
         // Core Value Questions

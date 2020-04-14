@@ -82,13 +82,14 @@ class Questions extends React.Component {
     }
 
     async componentDidMount() {
-        let answers = await database.ref(`/users/${this.props.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
+        
+        let cvAnswers = await database.ref(`/users/${this.props.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             return currentUserAnswers
         })
-        if (answers) {
+        if (cvAnswers) {
             this.setState({
-                cvArray: answers
+                cvArray: cvAnswers
             })
         }
 
@@ -208,7 +209,6 @@ class Questions extends React.Component {
             </div>
             reviewAnswer =
                 <div id='reviewCV'>
-                    {console.log(this.state.cvArray)}
                     {this.state.cvArray.map((answer) => (
                         <div onClick={this.removeCV}>{answer}</div>
                     ))}
