@@ -34,12 +34,21 @@ class CoreValues extends React.Component {
 
     share = async (event) => {
         let feedfeed = (event.target.parentNode.parentNode.textContent)
-        let feedAnswers = {} 
-        feedAnswers[`/feed/${this.props.user.uid}`] = { answer: feedfeed }
+        let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
+            return snapshot.val() || []
+        })    
+        console.log(prevPosts)
+        console.log(feedfeed)
+        prevPosts.push(feedfeed)
+
+        let feedAnswers = {}
+        feedAnswers[`/feed`] = prevPosts
+
         await database.ref().update(feedAnswers)
-    } 
-    
-    edit = () => {}
+
+    }
+
+    edit = () => { }
 
 
     render() {
@@ -51,17 +60,17 @@ class CoreValues extends React.Component {
                 <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
                 <br></br>
                 <div id="corevalues-content">
-                    <ul id = "core-values-list">
-                        {this.state.userData.map(item => ( 
-                            <div id = "button-core-container" key = {item}>{item} 
-                            <button id = "edit" onClick = {this.edit}> <img src = {editIco} style = {{maxWidth: "15px"}}/></button>
-                            <button onClick = {this.share}><img id = "share" src = {ShareIco} style = {{maxWidth: "15px"}}/></button>
+                    <ul id="core-values-list">
+                        {this.state.userData.map(item => (
+                            <div id="button-core-container" key={item}>{item}
+                                <button id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></button>
+                                <button onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></button>
                             </div>
                         ))}
                     </ul>
                 </div>
                 <br></br>
-        
+
             </div>
         )
     }
