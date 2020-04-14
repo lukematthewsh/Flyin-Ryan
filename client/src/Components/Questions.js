@@ -76,23 +76,22 @@ class Questions extends React.Component {
         if (this.state.category.includes('Core Value Questions')) {
             if (this.textAnswers.current) {
                 this.textAnswers.current.value = null
-            }   
+            }
         }
         this.checkForAnswer(newIndex)
     }
 
     async componentDidMount() {
-        
+        this.checkForAnswer()
         let cvAnswers = await database.ref(`/users/${this.props.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             return currentUserAnswers
         })
         if (cvAnswers) {
             this.setState({
-                cvArray: cvAnswers
+                cvArray: cvAnswers || ''
             })
         }
-
     }
 
     cvSubmit = async () => {
@@ -138,9 +137,6 @@ class Questions extends React.Component {
         } else { return false }
     }
 
-
-    
-
     checkForAnswer = () => {
         let uid = auth().currentUser.uid;
         let textAnswers = this.textAnswers
@@ -149,7 +145,6 @@ class Questions extends React.Component {
             let currentUserAnswers = snapshot.val()
             if (currentUserAnswers[_this.state.question.folder] && !_this.state.category.includes('Core Value Questions')) {
                 if (currentUserAnswers[_this.state.question.folder].answer) {
-                    console.log(currentUserAnswers[_this.state.question.folder].answer)
                     let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
                     _this.setState({
                         userAnswers: prevAnswer,
@@ -158,7 +153,6 @@ class Questions extends React.Component {
                 }
             } else if (currentUserAnswers[_this.state.question.folder]) {
                 if (currentUserAnswers[_this.state.question.folder].answer) {
-                    console.log(currentUserAnswers[_this.state.question.folder].answer)
                     textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
                     _this.setState({
                         userAnswers: textAnswers.current.value
@@ -188,7 +182,6 @@ class Questions extends React.Component {
                 disabled={!isEnabled}
             >Next</button>
         } else if (category.includes('Core Value Questions')) {
-            console.log(this.state.userAnswers)
             headerText = 'Core Value Questions'
             answerStyle = <div id="textinput">
                 <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
@@ -196,7 +189,7 @@ class Questions extends React.Component {
             nextButton = <button
                 id="nextButton"
                 onClick={this.nextQuestion}
-                disabled={ !this.state.userAnswers || !isEnabled}
+                disabled={!this.state.userAnswers || !isEnabled}
             >Next</button>
         } else if (category.includes('Key Core')) {
             headerText = 'Core Value Questions'

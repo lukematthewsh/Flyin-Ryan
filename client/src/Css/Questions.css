@@ -135,6 +135,11 @@
     font-family: 'Do Hyeon', sans-serif;
     text-align: center;
 }
+#finalTextAnswers::placeholder {
+    color: rgba(255, 255, 255, 0.425);
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+}
 #cvSubmit{
     width: 25vw;
     height: 5vh;
@@ -145,10 +150,18 @@
     font-family: 'Do Hyeon', sans-serif;
 }
 #reviewCV{
-    border: 1px solid black;
-    height: 20vh;
-    width: 70vw;
+    height: 18vh;
+    width: 64.5vw;
     margin-top: 2vh;
+    overflow: scroll;
+    padding: 8px;
+    border: 1px solid;
+    margin-top: 1vh;
+    border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
+    background-color: #3e6a99;
+    box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
+    font-size: 2vh;
+    color: white
 }
 
 #question-inner-container {
