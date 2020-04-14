@@ -6,6 +6,8 @@ import Header from './Header'
 import classnames from 'classnames'
 import MoreValues from './MoreValues.js'
 import { Link } from 'react-router-dom'
+import User from '../images/user-icon.png'
+
 
 class Dashboard extends React.Component {
 
@@ -103,11 +105,12 @@ class Dashboard extends React.Component {
                 <Header user={this.state.user} logOut={this.props.logOut} />
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
-                        <img id="dash-pic" src={this.state.user ? this.state.user.photoURL : ""} alt="User Photo" />
+                        <img id="dash-pic" src={this.state.user ? this.state.user.photoURL ||  User : ""} alt="User Photo" />
                         <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
                         <div id="dash-date">{this.state.user ? this.state.user.creationTime : "Creation Time"}</div>
                     </div>
                     <div id="dash-links">
+                        <div id="feed-link">Feed</div>
                         <div id="cv-link" className={CVclasses} onClick={this.toggleContent}>My Core Values</div>
                         <div id="g-link" className={Vclasses} onClick={this.toggleContent}>My Goals</div>
                         <div id="more-link" className={Mclasses} onClick={this.toggleContent}>More</div>
