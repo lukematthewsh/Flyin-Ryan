@@ -17,20 +17,20 @@ class CoreValues extends React.Component {
 
 
     
-    async componentDidMount() {
-        let answers = await database.ref(`/users/${this.state.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
-            let currentUserAnswers = snapshot.val()
+    // async componentDidMount() {
+    //     let answers = await database.ref(`/users/${this.state.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
+    //         let currentUserAnswers = snapshot.val()
     
-            return currentUserAnswers
-        })
-        answers.forEach((answer) => {
-            this.setState({
-                userData: answer
-            })
-        })
+    //         return currentUserAnswers
+    //     })
+    //     answers.forEach((answer) => {
+    //         this.setState({
+    //             userData: answer
+    //         })
+    //     })
        
 
-    }
+    // }
 
 
 
