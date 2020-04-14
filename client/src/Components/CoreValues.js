@@ -1,8 +1,8 @@
 import React from 'react'
 import '../Css/Dashboard.css'
 import { database } from '../firebaseApp.js'
-
-
+import ShareIco from '../images/share.png'
+import editIco from '../images/editIco.png'
 class CoreValues extends React.Component {
 
     constructor(props) {
@@ -16,20 +16,16 @@ class CoreValues extends React.Component {
     }
 
 
-    
+
     async componentDidMount() {
         let answers = await database.ref(`/users/${this.state.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
-    
+
             return currentUserAnswers
         })
-        answers.forEach((answer) => {
-            this.setState({
-                userData: answer
-            })
+        this.setState({
+            userData: answers
         })
-       
-
     }
 
 
@@ -42,9 +38,23 @@ class CoreValues extends React.Component {
         return (
             <div id='core-values'>
                 <h1>Your Core Values</h1>
-                <div id="corevalues-content">{this.state.userData}</div>
                 <br></br>
-                <h3>This where the user's core values will be displayed. They will also be able to update/edit them here.</h3>
+                <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
+                <br></br>
+                <div id="corevalues-content">
+                    <ul id = "core-values-list">
+                        {this.state.userData.map(item => (
+                            <li key = {item}>{item}
+                            <div id = "button-core-container"> 
+                            <button id = "edit"> <img src = {editIco} style = {{maxWidth: "15px"}}/></button>
+                            <button><img id = "share" src = {ShareIco} style = {{maxWidth: "15px"}}/></button>
+                            </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <br></br>
+        
             </div>
         )
     }

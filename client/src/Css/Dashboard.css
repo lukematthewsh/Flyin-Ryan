@@ -3,8 +3,15 @@
     margin-top: 2vh;
     margin-left: 2vw;
     margin-bottom: 2vh;
-    max-width: 50px;
+    max-width: 65px;
     border-radius: 50%;
+    background-color: rgb(255,255,255, .2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px 1px black;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
 #dash-name {
@@ -50,6 +57,8 @@
     margin-top: 5px;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 #dash-date{
     margin-left: 2vw;
@@ -95,8 +104,33 @@ div[id$='-link']:hover{
 /*-==============Testing==================-*/
 
 #corevalues-content{
-
     display: flex; 
     flex-direction: column;
+    align-items: center;
 }
-  
+#core-values-list{
+    width: 80vw;
+}
+
+#core-values-list li{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: #aabdd2 ;
+    margin: 5px;
+    font-size: 15px;
+    height: auto;
+}
+
+#share{
+    filter: opacity(12%)
+}
+#edit{
+    margin-right: 1.5vw;
+    filter: opacity(12%)
+}
+ 
+#button-core-container{
+    display: flex;
+    flex-direction: row;
+}
