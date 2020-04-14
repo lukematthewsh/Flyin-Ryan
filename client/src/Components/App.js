@@ -22,12 +22,12 @@ class App extends React.Component {
   }
 
   pageUpdate = () => {
-    if(this.state.currentPath !== window.location.pathname) {
-      if(window.location.pathname === "/") {
+    if (this.state.currentPath !== window.location.pathname) {
+      if (window.location.pathname === "/") {
         this.setState({
           currentPath: window.location.pathname
         })
-      } else if(window.location.pathname === "/signup") {
+      } else if (window.location.pathname === "/signup") {
         this.setState({
           currentPath: window.location.pathname,
           modal: "signup"
@@ -38,7 +38,7 @@ class App extends React.Component {
 
 
   loginHandler = async (event) => {
-    
+
 
     let password = document.getElementById('password').value
     let email = document.getElementById('email').value
@@ -64,8 +64,9 @@ class App extends React.Component {
 
     let password = document.getElementById('up-password').value
     let email = document.getElementById('up-email').value
+    let name = document.getElementById('up-name').value
 
-    firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+    await firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
       })
       .catch((error) => {
@@ -79,14 +80,17 @@ class App extends React.Component {
         console.log(error);
       })
 
+    await firebaseApp.auth().currentUser.updateProfile({
+      displayName: name
+    })
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
-     if (user) {
-       this.setState({
-         user: firebaseApp.auth().currentUser,
-       })
-     }
+      if (user) {
+        this.setState({
+          user: firebaseApp.auth().currentUser,
+        })
+      }
     })
   }
 
@@ -113,16 +117,16 @@ class App extends React.Component {
     firebaseApp.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          user: firebaseApp.auth().currentUser 
+          user: firebaseApp.auth().currentUser
         });
-      } 
+      }
     });
 
-   if (!this.state.database) {
-     this.setState({
-       database: database
-     })
-   }
+    if (!this.state.database) {
+      this.setState({
+        database: database
+      })
+    }
   }
 
 
@@ -131,28 +135,28 @@ class App extends React.Component {
       <div id='app'>
         <Switch>
           <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
-          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut}/> : <Redirect to='/login' />)} />
+          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} /> : <Redirect to='/login' />)} />
           <Route path='/questions' render={() => (firebaseApp.auth().currentUser ? <Questions user={this.state.user} /> : <Redirect to='/signup' />)} />
-          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ?  <Signup 
-          modalContent={this.state.modal} 
-          signupHandler={this.signupHandler} 
-          closeHandler={this.closeHandler} 
-          pageUpdate={this.pageUpdate} 
-          currentPath={this.state.currentPath} 
-          loginHandler={this.loginHandler} 
-          googleHandler={this.googleHandler} 
-          logOut={this.logOut} /> : <Redirect to='/questions' />)} />
-          <Route path='/login' render={() => (!firebaseApp.auth().currentUser ? <Login 
-          modalContent={this.state.modal} 
-          signupHandler={this.signupHandler} 
-          closeHandler={this.closeHandler} 
-          pageUpdate={this.pageUpdate} 
-          currentPath={this.state.currentPath} 
-          loginHandler={this.loginHandler} 
-          googleHandler={this.googleHandler} 
-          logOut={this.logOut} /> : <Redirect to='/dashboard' />)} />
+          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ? <Signup
+            modalContent={this.state.modal}
+            signupHandler={this.signupHandler}
+            closeHandler={this.closeHandler}
+            pageUpdate={this.pageUpdate}
+            currentPath={this.state.currentPath}
+            loginHandler={this.loginHandler}
+            googleHandler={this.googleHandler}
+            logOut={this.logOut} /> : <Redirect to='/questions' />)} />
+          <Route path='/login' render={() => (!firebaseApp.auth().currentUser ? <Login
+            modalContent={this.state.modal}
+            signupHandler={this.signupHandler}
+            closeHandler={this.closeHandler}
+            pageUpdate={this.pageUpdate}
+            currentPath={this.state.currentPath}
+            loginHandler={this.loginHandler}
+            googleHandler={this.googleHandler}
+            logOut={this.logOut} /> : <Redirect to='/dashboard' />)} />
         </Switch>
-        
+
         {/* <Questions /> */}
 
       </div>
