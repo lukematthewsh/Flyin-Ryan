@@ -54,8 +54,8 @@ class Questions extends React.Component {
                 this.textAnswers.current.value = null
             }
 
-            this.checkForAnswer(newIndex)
         }
+        this.checkForAnswer(newIndex)
     }
 
     prevQuestion = async () => {
@@ -76,15 +76,13 @@ class Questions extends React.Component {
         if (this.state.category.includes('Core Value Questions')) {
             if (this.textAnswers.current) {
                 this.textAnswers.current.value = null
-            }
-
-            this.checkForAnswer(newIndex)
+            }   
         }
+        this.checkForAnswer(newIndex)
     }
 
     async componentDidMount() {
-        let uid = auth().currentUser.uid;
-        let answers = await database.ref(`/users/${this.props.user.uid}/${this.state.question.folder}`).once('value').then(function (snapshot) {
+        let answers = await database.ref(`/users/${this.props.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             return currentUserAnswers
         })
@@ -93,6 +91,7 @@ class Questions extends React.Component {
                 cvArray: answers
             })
         }
+
     }
 
     cvSubmit = async () => {
@@ -105,7 +104,6 @@ class Questions extends React.Component {
         if (this.textAnswers.current) {
             this.textAnswers.current.value = null
         }
-        console.log(this.state.cvArray)
     }
 
     removeCV = (event) => {
@@ -131,39 +129,49 @@ class Questions extends React.Component {
             selectedAnswer: event.target.id,
             userAnswers: event.target.id
         })
-        console.log(this.state.selectedAnswer)
     }
 
     canBeSubmitted = () => {
-        if (this.textAnswers.current) {
-            return this.textAnswers.current.value.length > 0
+        if (this.state.userAnswers) {
+            return true
         } else { return false }
     }
+
+
+    
 
     checkForAnswer = () => {
         let uid = auth().currentUser.uid;
         let textAnswers = this.textAnswers
         let _this = this
-        console.log(uid)
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
-            console.log(currentUserAnswers)
-            if (currentUserAnswers[_this.state.question.folder]) {
+            if (currentUserAnswers[_this.state.question.folder] && !_this.state.category.includes('Core Value Questions')) {
                 if (currentUserAnswers[_this.state.question.folder].answer) {
+                    console.log(currentUserAnswers[_this.state.question.folder].answer)
+                    let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
+                    _this.setState({
+                        userAnswers: prevAnswer,
+                        selectedAnswer: prevAnswer
+                    })
+                }
+            } else if (currentUserAnswers[_this.state.question.folder]) {
+                if (currentUserAnswers[_this.state.question.folder].answer) {
+                    console.log(currentUserAnswers[_this.state.question.folder].answer)
                     textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
                     _this.setState({
-                        userAnswers: textAnswers.value
+                        userAnswers: textAnswers.current.value
                     })
                 }
             }
         })
-
     }
 
     render() {
         const { question } = this.state;
         const category = this.state.category
         const cvArray = this.state.cvArray
+        const isEnabled = this.canBeSubmitted();
         let answerStyle
         let headerText
         let nextButton
@@ -176,9 +184,10 @@ class Questions extends React.Component {
             nextButton = <button
                 id="nextButton"
                 onClick={this.nextQuestion}
-                disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
+                disabled={!isEnabled}
             >Next</button>
         } else if (category.includes('Core Value Questions')) {
+            console.log(this.state.userAnswers)
             headerText = 'Core Value Questions'
             answerStyle = <div id="textinput">
                 <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
@@ -186,7 +195,7 @@ class Questions extends React.Component {
             nextButton = <button
                 id="nextButton"
                 onClick={this.nextQuestion}
-                disabled={question.index === data.questions.length - 1 /*|| !isEnabled*/}
+                disabled={ !this.state.userAnswers || !isEnabled}
             >Next</button>
         } else if (category.includes('Key Core')) {
             headerText = 'Core Value Questions'
@@ -199,15 +208,15 @@ class Questions extends React.Component {
             </div>
             reviewAnswer =
                 <div id='reviewCV'>
-                    {cvArray.map(answer => {
-                        return <div onClick={this.removeCV}>{answer}</div>
-                    })}
+                    {console.log(this.state.cvArray)}
+                    {this.state.cvArray.map((answer) => (
+                        <div onClick={this.removeCV}>{answer}</div>
+                    ))}
                 </div>
             nextButton = <Link to='/dashboard' id="nextButton"><button onClick={this.questionsFinish} id='finishButton'
             >Finish</button> </Link>
         }
 
-        // const isEnabled = this.canBeSubmitted();
         return (
 
             <div id="questions-wrapper">
