@@ -29,7 +29,7 @@ const data = {
             "index": 1,
             "folder": "Sex",
             "inquery": 'What is your gender?',
-            "options": ['Male', 'Female', 'Other', 'Prefer not to say']
+            "options": ['Male', 'Female', 'Other', 'Prefer not to say
         }, {
             "index": 2,
             "folder": "Ethnicity",
