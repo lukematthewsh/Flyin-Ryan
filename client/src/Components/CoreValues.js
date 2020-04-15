@@ -10,7 +10,7 @@ class CoreValues extends React.Component {
         this.state = {
             user: this.props.user,
             userData: [],
-
+            author: this.props.user.displayName
         }
 
     }
@@ -33,13 +33,13 @@ class CoreValues extends React.Component {
     }
 
     share = async (event) => {
-        let feedfeed = (event.target.parentNode.parentNode.textContent)
+        let content = (event.target.parentNode.parentNode.textContent)
+        let author = this.state.user.displayName
         let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
             return snapshot.val() || []
         })    
         console.log(prevPosts)
-        console.log(feedfeed)
-        prevPosts.push(feedfeed)
+        prevPosts.push(content + author)
 
         let feedAnswers = {}
         feedAnswers[`/feed`] = prevPosts

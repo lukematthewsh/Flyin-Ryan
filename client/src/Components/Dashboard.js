@@ -3,6 +3,7 @@ import '../Css/Dashboard.css'
 import CoreValues from './CoreValues.js'
 import Goals from './Goals.js'
 import Header from './Header'
+import Feed from './Feed'
 import classnames from 'classnames'
 import MoreValues from './MoreValues.js'
 import { Link } from 'react-router-dom'
@@ -107,19 +108,19 @@ class Dashboard extends React.Component {
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL ||  User : ""} alt="User Photo" />
                         <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
-                        <div id="dash-date">{this.state.user ? this.state.user.creationTime : "Creation Time"}</div>
+        
                     </div>
                     <div id="dash-links">
-                        <div id="feed-link">Feed</div>
+                        <div id="more-link" className={Mclasses} onClick={this.toggleContent}>Feed</div>
                         <div id="cv-link" className={CVclasses} onClick={this.toggleContent}>My Core Values</div>
-                        <div id="g-link" className={Vclasses} onClick={this.toggleContent}>My Goals</div>
-                        <div id="more-link" className={Mclasses} onClick={this.toggleContent}>More</div>
+                        <div id="g-link" className={Vclasses} onClick={this.toggleContent}>Profile</div>
+                        
                     </div>
                 </div>
                 <div id="dash-content">
                     {this.state.isCV ? <CoreValues user={this.state.user} />
                         : this.state.isG ? <Goals user={this.state.user} /> :
-                            <MoreValues user={this.state.user} />
+                            <Feed user={this.state.user}/>
                     }
                 </div>
                 </div> : <Link to="/login"><h1 style={{marginTop: 200}}>Back To Log In</h1></Link>

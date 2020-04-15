@@ -112,15 +112,7 @@ div[id$='-link']:hover{
     width: 80vw;
 }
 
-#core-values-list li{
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    background-color: #aabdd2 ;
-    margin: 5px;
-    font-size: 15px;
-    height: auto;
-}
+
 
 #share{
     filter: opacity(12%)
@@ -131,6 +123,34 @@ div[id$='-link']:hover{
 }
  
 #button-core-container{
+    align-items: center;
+    box-shadow: 2px 2px 2px #778a9f;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: #aabdd2 ;
+    margin: 5px;
+    font-size: 15px;
+    height: auto;
+}
+#feed-display{
+    padding: 10px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+#blog-list{
+    width:80vw;
+}
+#button-feed-container{
+    box-shadow: 2px 2px 2px #778a9f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    list-style-type: none;
+    background-color: #aabdd2 ;
+    margin: 5px;
+    font-size: 15px;
+    height: 20px;
 }

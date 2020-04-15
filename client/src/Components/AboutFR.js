@@ -17,27 +17,33 @@ class About extends React.Component {
                     <h1>What are Core Values?</h1>
                     <div id='rasta-border'></div>
                     <br></br>
-                    <p>Core Values Matter – These three words are the mantra for the Flyin Ryan Hawks Foundation.</p>
+                    <p>“Before his death in 2011 in a Freeride World Tour event, “Flyin” Ryan Hawks wrote his 14 Core Principles for Living.
+                    </p>
                     <br></br>
-                    <p>The 14 Core Principles for Living, as written down by Ryan Hawks before his death, provided him with a compass to guide his decision making, whether in sports, school, relationships or other aspects of daily living.</p>
+                    <p>These Core Values gave him a compass that guided his decision making in sports, in school, in relationships and in his daily life.
+                    </p>
                     <br></br>
-                    <p>People with an established, self-composed set of Core Values have a touchstone, a reference point for making decisions, big and small.</p>
+                    <p>People with an established set of self-composed Core Values have a reference point for making decisions, big and small.”
+                    </p>
                     <br></br>
+                    <br></br>
+
                 </div>
                 <div className='player-wrapper'>
                     <ReactPlayer
-                        url="https://www.youtube.com/watch?v=YDM0M69UGQA"
+                        url="https://www.youtube.com/watch?v=xTkeYOcdz0g"
                         className='react-player'
                         width='100%'
                         height='100%'
                         z-index='.1'
                     />
                 </div>
+                <br></br>
                 <div id='meet-ryan'>
                     <h2>Meet Ryan Hawks</h2>
                     <div id='rasta-border'></div>
                     <br></br>
-                    <p>Ryan Hawks was a dynamic human being, with a passion and love for the mountains and skiing. He lived a fulfilling life, which was dominated by fun, adventure, and determination. Although he lived only 25 short years, he lived every minute of his life.</p>
+                    <p>Ryan Hawks was a dynamic human being, with a passion and love for the mountains and skiing. He lived a fulfilling life, dominated by fun, adventure, and determination. Although he lived only 25 short years, he lived every minute of his life.</p>
                     <br></br>
                     <img id='ryan-headshot' src={FRHeadShot} />
                     <br></br>
@@ -46,8 +52,23 @@ class About extends React.Component {
                     <p>Ryan’s Core Values statement provided much of the inspiration that drives the mission of the Flyin Ryan Hawks Foundation to help people discover and enumerate their own core values. These are the values by which he lived:</p>
                     <br></br>
                     <br></br>
+
+
                     <h2>Ryan's Core Values</h2>
                     <div id='rasta-border'></div>
+                    <br></br>
+                    <br></br>
+                    <div className='player-wrapper'>
+                        <ReactPlayer
+                            url="https://www.youtube.com/watch?v=YDM0M69UGQA"
+                            className='react-player'
+                            width='100%'
+                            height='100%'
+                            z-index='.1'
+                        />
+                    </div>
+                    <br></br>
+                    <br></br>
                     <div id='img-container-fall'>
                         <img id='fall-line' src={fallLine} />
                         <ul>
@@ -77,13 +98,16 @@ class About extends React.Component {
                     <h2>Take the Flyin Ryan Core Values Challenge</h2>
                     <div id='rasta-border'></div>
                     <br></br>
-                    <p>The goal of this application is to make the core values challenge more accesible! If you're interested keep following allong and we will help you get started.</p>
+                    <p>Through this app, we will help you learn more about yourself and create your own personal set of Core Values.</p>
                     <br></br>
-                    <p>Sign up bellow and start filling out your core values!</p>
+                    <p>Getting started is easy. You can work at your own pace, returning as often as you like to make updates.</p>
                     <br></br>
-                    <p>Once signed up you can return anytime to update your account!</p>
+                    <p>There is no time limit or right speed for discovering the things that are important to you, that
+                    help define you. As you grow and learn more about yourself, you can return here to update and reflect on the work you’ve done.</p>
+                    <br></br>
+                    <p>Sign up below to begin!</p>
+                    <br></br>
                     <div id='bottom-signup'>
-                        <p>Get started:</p>
                         <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
                     </div>
                 </div>
