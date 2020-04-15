@@ -15,27 +15,11 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      user: firebaseApp.auth().currentUser,
+      user: null,
       database: null,
       currentPath: undefined,
     }
   }
-
-  pageUpdate = () => {
-    if (this.state.currentPath !== window.location.pathname) {
-      if (window.location.pathname === "/") {
-        this.setState({
-          currentPath: window.location.pathname
-        })
-      } else if (window.location.pathname === "/signup") {
-        this.setState({
-          currentPath: window.location.pathname,
-          modal: "signup"
-        })
-      }
-    }
-  }
-
 
   loginHandler = async (event) => {
 
@@ -68,6 +52,15 @@ class App extends React.Component {
 
     await firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
+        firebaseApp.auth().currentUser.sendEmailVerification()
+          .then(() => {
+            alert('Email Sent!')
+            console.log(firebaseApp.auth().currentUser)
+          })
+          .catch((err) => {
+            let errMess = err.message
+            alert(errMess)
+          })
       })
       .catch((error) => {
         let errorCode = error.code
@@ -86,9 +79,14 @@ class App extends React.Component {
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
-      if (user) {
+      if (user && user.emailVerified) {
         this.setState({
           user: firebaseApp.auth().currentUser,
+        })
+      } else {
+        firebaseApp.auth().signOut()
+        this.setState({
+          user: null
         })
       }
     })
@@ -131,12 +129,20 @@ class App extends React.Component {
 
 
   render() {
+    console.log(this.state.user)
     return (
       <div id='app'>
         <Switch>
           <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
           <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} /> : <Redirect to='/login' />)} />
-          <Route path='/questions' render={() => (firebaseApp.auth().currentUser ? <Questions user={this.state.user} /> : <Redirect to='/signup' />)} />
+          <Route path='/questions' render={() => (this.state.user ? <Questions user={this.state.user} /> : <Login modalContent={this.state.modal}
+            signupHandler={this.signupHandler}
+            closeHandler={this.closeHandler}
+            pageUpdate={this.pageUpdate}
+            currentPath={this.state.currentPath}
+            loginHandler={this.loginHandler}
+            googleHandler={this.googleHandler}
+            logOut={this.logOut} />)} />
           <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ? <Signup
             modalContent={this.state.modal}
             signupHandler={this.signupHandler}
