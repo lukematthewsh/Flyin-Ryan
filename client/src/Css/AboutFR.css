@@ -19,9 +19,6 @@
     margin-bottom: 10px;
 }
 .player-wrapper {
-    border-top: 4px solid;
-    border-bottom: 4px solid;
-    border-image:   linear-gradient(to right,#e70001 10%,#ffe000 10%, #ffe000 20%,#008542 20%, #008542 30%,#e70001 30%, #e70001  40%,#ffe000 40%, #ffe000 50%, #008542 50%, #008542 60%, #e70001 60%, #e70001 70%, #ffe000 70%, #ffe000 80%,#008542 80%, #008542 90%, #e70001 90%) 1;
     font-family: 'Questrial', sans-serif;
     z-index:1;
     height: 50vh;
@@ -105,7 +102,7 @@ margin: 5px;
     justify-content: center;
     align-items: center;
     margin-top: 3vh;
-    margin-bottom: 50vh;
+    margin-bottom: 10vh;
 }
 
 #sign-up-bottom-button{
@@ -128,4 +125,8 @@ margin: 5px;
 
 #signup-text{
     text-align: center;
+}
+
+#coaster-img{
+    width:90vw;
 }

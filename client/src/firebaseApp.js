@@ -16,7 +16,6 @@ const credentials = {
 
 const firebaseApp = !firebase.apps.length ? firebase.initializeApp(credentials) : firebase.app()
 
-
 const database = firebaseApp.database()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 const auth = firebase.auth

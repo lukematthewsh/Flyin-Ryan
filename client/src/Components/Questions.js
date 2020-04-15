@@ -7,11 +7,13 @@ import Progress from './ProgressBar'
 import styled from 'styled-components'
 import backButton from '../images/arrow-invert.png'
 import { Link } from 'react-router-dom'
-
+import helpButton from '../images/help.svg'
+import HelpModal from './helpModal';
 
 const ProgressBarContainer = styled.div`
 width: 300px;
 `;
+
 
 class Questions extends React.Component {
     constructor(props) {
@@ -22,10 +24,12 @@ class Questions extends React.Component {
         this.state = {
             question: data.questions[0],
             category: data.questions[0].folder,
+            help: data.questions[0].help,
             userAnswers: '',
             selectedAnswer: '',
             percentage: 5.263,
             cvArray: [],
+            show: false
         }
     }
 
@@ -46,6 +50,7 @@ class Questions extends React.Component {
             percentage: this.state.percentage + 5.623,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
+            help: data.questions[newIndex].help,
             userAnswers: ''
         })
 
@@ -164,7 +169,16 @@ class Questions extends React.Component {
         })
 
     }
-
+    openHelp = (e) => {
+        this.setState({
+            show: !this.state.show
+        })  
+    }
+    closeHelp = (e)=>{
+        this.setState({
+            show: !this.state.show
+        })
+    }
     render() {
         const { question } = this.state;
         const category = this.state.category
@@ -221,7 +235,12 @@ class Questions extends React.Component {
                         onClick={question.index !== 0 ? this.prevQuestion : null}
                         src={backButton}
                         alt='back button' />
+                    <img id='helpButton'
+                        onClick={this.openHelp}
+                        src = {helpButton}
+                        alt= 'help button' />
                 </div>
+                <HelpModal show ={this.state.show} help={this.state.help} closeHelp={this.closeHelp}/>
                 <ProgressBarContainer>
                     <div id='questionTitleWrapper'>
                         <div id='questionTitle'>{headerText}</div>
