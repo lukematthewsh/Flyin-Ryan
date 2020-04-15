@@ -24,7 +24,8 @@ const data = {
             "index": 0,
             "folder": "Age",
             "inquery": 'How old are you?',
-            "options": ['0-21', '22-40', '41-65', '65 +']
+            "options": ['0-21', '22-40', '41-65', '65 +'],
+            "help": ""
         }, {
             "index": 1,
             "folder": "Sex",
