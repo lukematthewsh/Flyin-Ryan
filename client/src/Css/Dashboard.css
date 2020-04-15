@@ -117,20 +117,26 @@ div[id$='-link']:hover{
 
 
 #share{
-    filter: opacity(12%)
+    order: 3;
+    filter: opacity(20%)
 }
 #edit{
-    margin-right: 1.5vw;
-    filter: opacity(12%)
+    order: 2;
+    filter: opacity(20%)
+}
+#value{
+    position: absolute;
+    left: 13vw;
 }
  
 #button-core-container{
     align-items: center;
     box-shadow: 2px 2px 2px #778a9f;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     list-style-type: none;
     background-color: #aabdd2 ;
+    padding: 5px;
     margin: 5px;
     font-size: 15px;
     height: auto;
@@ -150,6 +156,8 @@ div[id$='-link']:hover{
     
 }
 #blog-list{
+    height: 50vh;
+    overflow: scroll;
     width:80vw;
     margin-left: 10vw;
     margin-right: 10vw;
@@ -176,22 +184,22 @@ div[id$='-link']:hover{
 }
 
 #get-started{
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        border-radius: 15px 15px 15px 15px;
-        background-color: #008542;
-        width: 80px;
-        color:white;
-        font-size: 13px;
-        margin-top: 9px;
-        margin-left: 10vw;;
-        height: 20px;
-        -webkit-box-shadow: 0px 6px 0px #008542;
-        -moz-box-shadow: 0px 6px 0px #008542;
-        box-shadow: 0px 2px 0px black;
-        border: 1px solid #008575;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #008542;
+    width: 80px;
+    color:white;
+    font-size: 13px;
+    margin-top: 9px;
+    margin-left: 10vw;;
+    height: 20px;
+    -webkit-box-shadow: 0px 6px 0px #008542;
+    -moz-box-shadow: 0px 6px 0px #008542;
+    box-shadow: 0px 2px 0px black;
+    border: 1px solid #008575;
     }
 
     #rasta-border-core{
