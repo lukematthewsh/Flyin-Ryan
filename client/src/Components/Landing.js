@@ -16,7 +16,7 @@ class Landing extends React.Component {
                     <div id="title">
                         <h1>Core Values Matter</h1>
                         <br></br>
-                        <h3>Get Involved!</h3>
+                        <h3>Take the Challenge!</h3>
                     </div>
                     <div id="button-container">
                         <div id="inner-container">
