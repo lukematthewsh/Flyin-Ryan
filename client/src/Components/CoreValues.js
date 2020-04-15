@@ -3,6 +3,7 @@ import '../Css/Dashboard.css'
 import { database } from '../firebaseApp.js'
 import ShareIco from '../images/share.png'
 import editIco from '../images/editIco.png'
+import { Link } from 'react-router-dom'
 class CoreValues extends React.Component {
 
     constructor(props) {
@@ -28,10 +29,6 @@ class CoreValues extends React.Component {
         })
     }
 
-    componentWillUnmount() {
-        window.removeEventListener('load', this.getCoreValues)
-    }
-
     share = async (event) => {
         let content = (event.target.parentNode.parentNode.textContent)
         let author = this.state.user.displayName
@@ -52,8 +49,9 @@ class CoreValues extends React.Component {
 
 
     render() {
-        console.log(this.state.userData)
+        console.log(this.state.userData) 
         return (
+            this.state.userData !== null ?
             <div id='core-values'>
                 <h1>Your Core Values</h1>
                 <br></br>
@@ -71,7 +69,7 @@ class CoreValues extends React.Component {
                 </div>
                 <br></br>
 
-            </div>
+            </div> : <Link to="/questions"><h1 style={{marginTop: 200}}>Take the Core Values Challenge!</h1></Link>
         )
     }
 }
