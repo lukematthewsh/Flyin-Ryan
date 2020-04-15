@@ -108,12 +108,12 @@ class Dashboard extends React.Component {
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL ||  User : ""} alt="User Photo" />
                         <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
-                        <div id="dash-date">{this.state.user ? this.state.user.creationTime : "Creation Time"}</div>
+        
                     </div>
                     <div id="dash-links">
                         <div id="more-link" className={Mclasses} onClick={this.toggleContent}>Feed</div>
                         <div id="cv-link" className={CVclasses} onClick={this.toggleContent}>My Core Values</div>
-                        <div id="g-link" className={Vclasses} onClick={this.toggleContent}>My Goals</div>
+                        <div id="g-link" className={Vclasses} onClick={this.toggleContent}>Profile</div>
                         
                     </div>
                 </div>

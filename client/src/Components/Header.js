@@ -3,6 +3,7 @@ import FRFlogo from '../images/flyinLogo.svg'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
 import classnames from "classnames";
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
     constructor(props, context) {
@@ -47,7 +48,7 @@ class Header extends Component {
     render() {
         return (
             <div className={classnames("nav-bar",{"navbar--hidden" : !this.state.visible})}>
-                <img id="flyin-logo" src={FRFlogo} />
+                <Link to = "/"> <img id="flyin-logo" src={FRFlogo} /></Link>
                 <MenuButton handleMouseDown={this.handleMouseDown} />
                 <Menu closeMenu={this.handleMouseDown}
                     menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} />

@@ -125,3 +125,7 @@ margin: 5px;
     box-shadow: 0px 2px 0px black;
     border: 1px solid #008575;
 }
+
+#signup-text{
+    text-align: center;
+}
