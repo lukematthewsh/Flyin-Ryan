@@ -98,7 +98,8 @@ class App extends React.Component {
     await firebaseApp.auth().signOut()
 
     this.setState({
-      user: firebaseApp.auth().currentUser
+      user: firebaseApp.auth().currentUser,
+      admin: null
     })
     alert('Signed Out')
   }
@@ -129,14 +130,24 @@ class App extends React.Component {
     }
   }
 
+  async componentDidUpdate() {
+    if (firebaseApp.auth().currentUser && !this.state.admin) {
+      let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
+        return snapshot.val()
+      })
+      this.setState({
+        admin: isAdmin
+      })
+    }
+  }
+
 
   render() {
-    console.log(this.state.user)
     return (
       <div id='app'>
         <Switch>
-          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
-          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} /> : <Redirect to='/login' />)} />
+          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} admin={this.state.admin}/>} />
+          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard admin={this.state.admin} user={this.state.user} logOut={this.logOut} /> : <Redirect to='/login' />)} />
           <Route path='/questions' render={() => (firebaseApp.auth().currentUser ? <Questions user={this.state.user} /> : <Redirect to='/signup' />)} />
           <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ? <Signup
             modalContent={this.state.modal}

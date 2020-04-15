@@ -27,6 +27,7 @@ class Menu extends Component {
           <h2><a href="https://flyinryanhawks.org/event-directory/">Events</a></h2>
           <h2><a href="https://flyinryanhawks.org/contact/">Contact</a></h2>
           {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu} style={{ textDecoration: 'none', color: 'black' }} ><h2><a>Sign Out</a></h2></Link> : null}
+          {this.props.admin ? 'ADMIN LINK' : null}
         </div>
         
       </div>

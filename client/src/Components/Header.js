@@ -51,7 +51,7 @@ class Header extends Component {
                 <Link to = "/"> <img id="flyin-logo" src={FRFlogo} /></Link>
                 <MenuButton handleMouseDown={this.handleMouseDown} />
                 <Menu closeMenu={this.handleMouseDown}
-                    menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} />
+                    menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} admin={this.props.admin}/>
                 <div>
                 </div>
             </div>

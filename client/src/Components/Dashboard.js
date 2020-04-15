@@ -102,7 +102,7 @@ class Dashboard extends React.Component {
         console.log(this.state.user)
         return (
             <div id='dash-page'>
-                <Header user={this.state.user} logOut={this.props.logOut} />
+                <Header user={this.state.user} logOut={this.props.logOut} admin={this.props.admin}/>
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL || User : ""} alt="User Photo" />
