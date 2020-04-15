@@ -55,9 +55,9 @@ class CoreValues extends React.Component {
             return(
                 <div id = "core-values">
                 <h1>Your Core Values</h1>
-                <br></br>
+                <div id = "rasta-border-core"></div>
                 <h4>It appears you havent filled out you core values yet! Click below to start!</h4>
-                <Link to = {"/questions"} style={{ textDecoration: 'none' }}><div id="sign-up-bottom-button" >Lets Go</div></Link>
+                <Link to = {"/questions"} style={{ textDecoration: 'none' }}><div id="get-started" >Get Started</div></Link>
                 </div>
             )
         }
