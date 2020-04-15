@@ -30,10 +30,6 @@ class CoreValues extends React.Component {
         })
     }
 
-    componentWillUnmount() {
-        window.removeEventListener('load', this.getCoreValues)
-    }
-
     share = async (event) => {
         let content = (event.target.parentNode.parentNode.textContent)
         let author = this.state.user.displayName
@@ -67,6 +63,7 @@ class CoreValues extends React.Component {
         }
         else{ 
         return (
+            this.state.userData !== null ?
             <div id='core-values'>
                 <h1>Your Core Values</h1>
                 <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
@@ -83,7 +80,7 @@ class CoreValues extends React.Component {
                 </div>
                 <br></br>
 
-            </div>
+            </div> : <Link to="/questions"><h1 style={{marginTop: 200}}>Take the Core Values Challenge!</h1></Link>
         )
     }
 }

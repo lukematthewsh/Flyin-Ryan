@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
     }
 
     componentDidUpdate() {
-        if(this.state.user !== this.props.user) {
+        if (this.state.user !== this.props.user) {
             this.setState({
                 user: this.props.user
             })
@@ -89,10 +89,10 @@ class Dashboard extends React.Component {
                 CVbutt: {
                     active: false,
                 }
-       
-        })
+
+            })
+        }
     }
-}
 
 
     render() {
@@ -101,31 +101,28 @@ class Dashboard extends React.Component {
         let Mclasses = classnames('m-button', { 'm-button-active': this.state.Mbutt.active });
         console.log(this.state.user)
         return (
-            this.state.user ?
             <div id='dash-page'>
                 <Header user={this.state.user} logOut={this.props.logOut} />
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
-                        <img id="dash-pic" src={this.state.user ? this.state.user.photoURL ||  User : ""} alt="User Photo" />
+                        <img id="dash-pic" src={this.state.user ? this.state.user.photoURL || User : ""} alt="User Photo" />
                         <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
-        
+
                     </div>
                     <div id="dash-links">
                         <div id="more-link" className={Mclasses} onClick={this.toggleContent}>Feed</div>
                         <div id="cv-link" className={CVclasses} onClick={this.toggleContent}>My Core Values</div>
                         <div id="g-link" className={Vclasses} onClick={this.toggleContent}>Profile</div>
-                        
+
                     </div>
                 </div>
                 <div id="dash-content">
                     {this.state.isCV ? <CoreValues user={this.state.user} />
                         : this.state.isG ? <Goals user={this.state.user} /> :
-                            <Feed user={this.state.user}/>
+                            <Feed user={this.state.user} />
                     }
                 </div>
-                </div> : <Link to="/login"><h1 style={{marginTop: 200}}>Back To Log In</h1></Link>
-                    
-            
+            </div>
         )
     }
 }
