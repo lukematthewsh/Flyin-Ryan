@@ -1,0 +1,41 @@
+
+  
+  .modal {
+    position: fixed;
+    left: 20vw;
+    width: 60vw;
+    margin-top: 10vh;
+    background: white;
+    border: 1px solid #ccc;
+    animation: fadeIn .5s ease-in-out;
+    box-shadow: 7px 7px 50px 5000px rgb(1,1,1,.6);
+    }
+    #top-close{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #modal h2 {
+      border-bottom: 1px solid #ccc;
+      padding: 1rem;
+    }
+    .content {
+      padding: 1rem;
+    }
+    #close-message{
+        font-size: 10px;
+        padding: 1rem;
+    }
+    @keyframes fadeIn {
+        from{
+            left: -100vw;
+            opacity: 0;
+        }
+        to{
+            left: 20vw;
+            opacity: 1;
+        }
+        
+        
+    }
+   

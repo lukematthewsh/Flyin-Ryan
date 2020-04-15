@@ -24,12 +24,10 @@
 #user-greeting{
     margin-top: 10vh;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: row;
 }
 
 #dashboard-wrapper {
-    
     background-color:#3e6a99;
     box-shadow: 0 4px 9px 2px black;
     width: 100vw;
@@ -57,8 +55,6 @@
     margin-top: 5px;
     height: 100vh;
     width: 100vw;
-    display: flex;
-    justify-content: center;
 }
 #dash-date{
     margin-left: 2vw;
@@ -95,7 +91,11 @@ div[id$='-link']:hover{
     font-family: 'Questrial', sans-serif;
 }
 
-#core-values{
+#core-values h1{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+#core-values h4{
     padding: 10px;
 }
 #goals{
@@ -133,14 +133,23 @@ div[id$='-link']:hover{
     font-size: 15px;
     height: auto;
 }
-#feed-display{
+#feed-display h1{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+#feed-display h4{
     padding: 10px;
+}
+#feed-display{
+
     display: flex; 
     flex-direction: column;
-    align-items: center;
+    
 }
 #blog-list{
     width:80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 #button-feed-container{
     box-shadow: 2px 2px 2px #778a9f;

@@ -5,7 +5,7 @@ import FRHeadShot from '../images/headshot.jpg'
 import snowFace from '../images/snow-face.png'
 import fallLine from '../images/fall-line.jpg'
 import { Link } from 'react-router-dom'
-
+import coaster from '../images/coaster.png'
 
 
 class About extends React.Component {
@@ -14,7 +14,7 @@ class About extends React.Component {
         return (
             <div id="about-page">
                 <div id="about-text">
-                    <h1>What are Core Values?</h1>
+                    <h2>What are Core Values?</h2>
                     <div id='rasta-border'></div>
                     <br></br>
                     <p>“Before his death in 2011 in a Freeride World Tour event, “Flyin” Ryan Hawks wrote his 14 Core Principles for Living.
@@ -69,29 +69,9 @@ class About extends React.Component {
                     </div>
                     <br></br>
                     <br></br>
-                    <div id='img-container-fall'>
-                        <img id='fall-line' src={fallLine} />
-                        <ul>
-                            <li>Live every day, all day</li>
-                            <li>Never stop exploring life</li>
-                            <li>Never lose my adventuresome spirit</li>
-                            <li>Be the best friend I can be</li>
-                            <li>Be the best brother, son, uncle I can be</li>
-                            <li>Play like I am 13</li>
-                            <li>Look out for others</li>
-                        </ul>
-                    </div>
-                    <div id='img-container-face'>
-                        <ul>
-                            <li>Look out for myself</li>
-                            <li>Look out for our surroundings</li>
-                            <li>Be self-sufficient</li>
-                            <li>Don’t be afraid to ask for help</li>
-                            <li>Work hard</li>
-                            <li>Live easy</li>
-                            <li>Live simply</li>
-                        </ul>
-                        <img id='snow-face' src={snowFace} />
+                    <div id='img-container-coaster'>
+                    <img id ='coaster-img' src = {coaster}/>
+
                     </div>
                 </div>
                 <div id="signup-text">
