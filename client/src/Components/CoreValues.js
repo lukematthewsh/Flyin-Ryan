@@ -55,9 +55,9 @@ class CoreValues extends React.Component {
             return(
                 <div id = "core-values">
                 <h1>Your Core Values</h1>
-                <br></br>
+                <div id = "rasta-border-core"></div>
                 <h4>It appears you havent filled out you core values yet! Click below to start!</h4>
-                <Link to = {"/questions"} style={{ textDecoration: 'none' }}><div id="sign-up-bottom-button" >Lets Go</div></Link>
+                <Link to = {"/questions"} style={{ textDecoration: 'none' }}><div id="get-started" >Get Started</div></Link>
                 </div>
             )
         }
@@ -66,12 +66,14 @@ class CoreValues extends React.Component {
             this.state.userData !== null ?
             <div id='core-values'>
                 <h1>Your Core Values</h1>
+                <div id = "rasta-border-core"></div>
                 <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
                 <br></br>
                 <div id="corevalues-content">
                     <ul id="core-values-list">
                         {this.state.userData.map(item => (
-                            <div id="button-core-container" key={item}>{item}
+                            <div id="button-core-container" key={item}>
+                                <h5 id = "value">{item}</h5>
                                 <button id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></button>
                                 <button onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></button>
                             </div>

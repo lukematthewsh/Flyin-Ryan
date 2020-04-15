@@ -27,7 +27,7 @@ class Questions extends React.Component {
             help: data.questions[0].help,
             userAnswers: '',
             selectedAnswer: '',
-            percentage: 5.263,
+            percentage: 7.692,
             cvArray: [],
             show: false
         }
@@ -47,7 +47,7 @@ class Questions extends React.Component {
             await database.ref().update(userAnswers)
         }
         this.setState({
-            percentage: this.state.percentage + 5.623,
+            percentage: this.state.percentage + 7.692,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
             help: data.questions[newIndex].help,
@@ -72,7 +72,7 @@ class Questions extends React.Component {
             await database.ref().update(userAnswers)
         }
         this.setState({
-            percentage: this.state.percentage - 5.263,
+            percentage: this.state.percentage - 7.692,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
             userAnswers: ''
