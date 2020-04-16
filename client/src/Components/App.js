@@ -83,7 +83,7 @@ class App extends React.Component {
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
       if (user && user.emailVerified) {
-        
+
         this.setState({
           user: firebaseApp.auth().currentUser,
         })
@@ -114,8 +114,12 @@ class App extends React.Component {
         console.log(user)
         console.log(token)
         this.setState({
-          user: user
+          user: firebaseApp.auth().currentUser
         })
+      })
+      .catch((err) => {
+        let errMess = err.message
+        alert(errMess)
       })
   }
 
@@ -150,20 +154,22 @@ class App extends React.Component {
       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
         return snapshot.val()
       })
-      this.setState({
-        admin: isAdmin
-      })
+      if (isAdmin) {
+        this.setState({
+          admin: isAdmin
+        })
+      }
     }
   }
 
 
   render() {
-    console.log(this.state.user)
+    console.log(this.state.admin)
     return (
       <div id='app'>
         <Switch>
           <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
-          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} /> : <Redirect to='/login' />)} />
+          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} admin={this.state.admin} /> : <Redirect to='/login' />)} />
           <Route path='/questions' render={() => (this.state.user ? <Questions user={this.state.user} /> : <Login modalContent={this.state.modal}
             signupHandler={this.signupHandler}
             closeHandler={this.closeHandler}

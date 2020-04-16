@@ -16,6 +16,7 @@ class Menu extends Component {
     if (this.props.menuVisibility) {
       visibility = "show";
     }
+    console.log(this.props.admin)
 
     return (
       <div id="flyoutMenu" className={visibility}>
