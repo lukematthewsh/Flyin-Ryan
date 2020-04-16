@@ -144,6 +144,7 @@ class Questions extends React.Component {
     }
 
     checkForAnswer = () => {
+        console.log(this.props.user)
         let uid = auth().currentUser.uid;
         let textAnswers = this.textAnswers
         let _this = this
