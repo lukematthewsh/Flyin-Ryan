@@ -114,8 +114,12 @@ class App extends React.Component {
         console.log(user)
         console.log(token)
         this.setState({
-          user: user
+          user: firebaseApp.auth().currentUser
         })
+      })
+      .catch((err) => {
+        let errMess = err.message
+        alert(errMess)
       })
   }
 
