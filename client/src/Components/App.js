@@ -146,7 +146,7 @@ class App extends React.Component {
   }
 
   async componentDidUpdate() {
-    if (firebaseApp.auth().currentUser) {
+    if (firebaseApp.auth().currentUser && !this.state.admin) {
       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
         return snapshot.val()
       })
@@ -160,7 +160,7 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.user)
+    console.log(this.state.admin)
     return (
       <div id='app'>
         <Switch>
