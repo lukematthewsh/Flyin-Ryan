@@ -11,7 +11,7 @@ class Landing extends React.Component {
     render() {
         return (
             <div id="home-page">
-                <Header user={this.props.user} logOut={this.props.logOut} />
+                <Header user={this.props.user} logOut={this.props.logOut} admin={this.props.admin}/>
                 <div id="landing-page">
                     <div id="title">
                         <h1>Core Values Matter</h1>
