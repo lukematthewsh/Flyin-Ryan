@@ -4,6 +4,7 @@ import { database } from '../firebaseApp.js'
 import ShareIco from '../images/share.png'
 import editIco from '../images/editIco.png'
 import { Link } from 'react-router-dom'
+import shareFacebook from 'share-facebook'
 
 class CoreValues extends React.Component {
 
@@ -49,6 +50,15 @@ class CoreValues extends React.Component {
     edit = () => { }
 
 
+    facebook = () => {
+        let test = shareFacebook({
+            href: 'https://localhost:3000/dashboard#corevalues-content',
+            redirect_uri: 'https://www.google.com',
+            app_id: '2367781363516455'
+          })
+          console.log(test)
+    }
+
     render() {
         console.log(this.state.userData)
         if (this.state.userData === null){
@@ -76,6 +86,7 @@ class CoreValues extends React.Component {
                                 <h5 id = "value">{item}</h5>
                                 <button id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></button>
                                 <button onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></button>
+                                <button onClick={this.facebook}>FB</button>
                             </div>
                         ))}
                     </ul>
