@@ -28,7 +28,9 @@ class Feed extends React.Component{
         return(
             <div id = "feed-display">
                 <h1>User Feed</h1>
+                <div id = "rasta-border-feed"></div>
                 <h4>Check out other users awesome Core Values!</h4>
+                <br></br>
                 <ul id="blog-list">
                         {this.state.feed.map(item => (
                             <div id="button-feed-container" key={item}>{item}

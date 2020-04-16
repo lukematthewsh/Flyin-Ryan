@@ -78,9 +78,8 @@ margin: 5px;
     display: flex;
     justify-content: flex-end;
 }
-#img-container-face li {
-    text-align: left;
-    margin: 5px;
+#img-container-coaster {
+
    }
 #img-container-face ul {
     list-style: square;

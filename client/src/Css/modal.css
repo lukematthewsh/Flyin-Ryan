@@ -82,6 +82,7 @@
 #google-signin{
     padding: 3px;
     border-radius: 20px;
+    color:white;
     width: 70vw;
     height: 5vh;
     display: flex;

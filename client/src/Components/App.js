@@ -96,7 +96,8 @@ class App extends React.Component {
     await firebaseApp.auth().signOut()
 
     this.setState({
-      user: firebaseApp.auth().currentUser
+      user: firebaseApp.auth().currentUser,
+      admin: null
     })
     alert('Signed Out')
   }
@@ -123,6 +124,17 @@ class App extends React.Component {
     if (!this.state.database) {
       this.setState({
         database: database
+      })
+    }
+  }
+
+  async componentDidUpdate() {
+    if (firebaseApp.auth().currentUser && !this.state.admin) {
+      let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
+        return snapshot.val()
+      })
+      this.setState({
+        admin: isAdmin
       })
     }
   }

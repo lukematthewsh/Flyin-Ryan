@@ -16,8 +16,10 @@
 
 #dash-name {
     font-family: 'Questrial', sans-serif;
+    align-self: flex-end;
     margin-left: 2vw;
-    font-size: 20px;
+    padding-bottom: 2vh;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -31,7 +33,7 @@
     background-color:#3e6a99;
     box-shadow: 0 4px 9px 2px black;
     width: 100vw;
-    height: 37vh;
+    height: 32vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -92,18 +94,18 @@ div[id$='-link']:hover{
 }
 
 #core-values h1{
+    
     padding-top: 15px;
-    padding-left: 10px;
+    margin-left: 10vw;
 }
 #core-values h4{
-    padding: 10px;
+    padding-top: 9px;
+    margin-left: 10vw;
 }
-#goals{
-    padding:10px;
-}
-/*-==============Testing==================-*/
 
 #corevalues-content{
+    width: 80vw;
+    margin-left: 10vw;
     display: flex; 
     flex-direction: column;
     align-items: center;
@@ -115,30 +117,37 @@ div[id$='-link']:hover{
 
 
 #share{
-    filter: opacity(12%)
+    order: 3;
+    filter: opacity(20%)
 }
 #edit{
-    margin-right: 1.5vw;
-    filter: opacity(12%)
+    order: 2;
+    filter: opacity(20%)
+}
+#value{
+    position: absolute;
+    left: 13vw;
 }
  
 #button-core-container{
     align-items: center;
     box-shadow: 2px 2px 2px #778a9f;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     list-style-type: none;
     background-color: #aabdd2 ;
+    padding: 5px;
     margin: 5px;
     font-size: 15px;
     height: auto;
 }
 #feed-display h1{
     padding-top: 15px;
-    padding-left: 10px;
+    margin-left: 10vw;
 }
 #feed-display h4{
-    padding: 10px;
+    padding-top: 9px;
+    margin-left: 10vw;
 }
 #feed-display{
 
@@ -147,6 +156,8 @@ div[id$='-link']:hover{
     
 }
 #blog-list{
+    height: 50vh;
+    overflow: scroll;
     width:80vw;
     margin-left: 10vw;
     margin-right: 10vw;
@@ -163,3 +174,58 @@ div[id$='-link']:hover{
     font-size: 15px;
     height: 20px;
 }
+#goals h1{
+    padding-top: 15px;
+    margin-left: 10vw;
+}
+#goals h4{
+    padding-top: 9px;
+    margin-left: 10vw;
+}
+
+#get-started{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #008542;
+    width: 80px;
+    color:white;
+    font-size: 13px;
+    margin-top: 9px;
+    margin-left: 10vw;;
+    height: 20px;
+    -webkit-box-shadow: 0px 6px 0px #008542;
+    -moz-box-shadow: 0px 6px 0px #008542;
+    box-shadow: 0px 2px 0px black;
+    border: 1px solid #008575;
+    }
+
+    #rasta-border-core{
+        justify-self: center;
+        margin-left: 10vw;
+        width: 25vw;
+        height: 3px;
+        border-bottom: 2px solid;
+        border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+        margin-bottom: 10px;
+    }
+    #rasta-border-feed{
+        justify-self: center;
+        margin-left: 10vw;
+        width: 18vw;
+        height: 3px;
+        border-bottom: 2px solid;
+        border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+        margin-bottom: 10px;
+    }
+    #rasta-border-goals{
+        justify-self: center;
+        margin-left: 10vw;
+        width: 18vw;
+        height: 3px;
+        border-bottom: 2px solid;
+        border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+        margin-bottom: 10px;
+    }
