@@ -75,6 +75,7 @@ class Questions extends React.Component {
             percentage: this.state.percentage - 7.692,
             question: data.questions[newIndex],
             category: data.questions[newIndex].folder,
+            help: data.questions[newIndex].help,
             userAnswers: ''
         })
 

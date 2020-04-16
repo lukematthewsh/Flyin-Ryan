@@ -71,7 +71,6 @@ class About extends React.Component {
                     <br></br>
                     <div id='img-container-coaster'>
                     <img id ='coaster-img' src = {coaster}/>
-
                     </div>
                 </div>
                 <div id="signup-text">
