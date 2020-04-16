@@ -83,7 +83,7 @@ class App extends React.Component {
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
       if (user && user.emailVerified) {
-        
+
         this.setState({
           user: firebaseApp.auth().currentUser,
         })
@@ -150,9 +150,11 @@ class App extends React.Component {
       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
         return snapshot.val()
       })
-      this.setState({
-        admin: isAdmin
-      })
+      if (isAdmin) {
+        this.setState({
+          admin: isAdmin
+        })
+      }
     }
   }
 
