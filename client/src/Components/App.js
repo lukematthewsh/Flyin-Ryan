@@ -165,7 +165,7 @@ class App extends React.Component {
       <div id='app'>
         <Switch>
           <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
-          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} /> : <Redirect to='/login' />)} />
+          <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} admin={this.state.admin} /> : <Redirect to='/login' />)} />
           <Route path='/questions' render={() => (this.state.user ? <Questions user={this.state.user} /> : <Login modalContent={this.state.modal}
             signupHandler={this.signupHandler}
             closeHandler={this.closeHandler}
