@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Css/App.css';
 import Landing from "./Landing.js";
-import { firebaseApp, database, googleProvider } from '../firebaseApp';
+import { firebaseApp, database, googleProvider, facebookProvider } from '../firebaseApp';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Signup from './Signup.js';
 import Dashboard from './Dashboard';
@@ -51,10 +51,15 @@ class App extends React.Component {
     let name = document.getElementById('up-name').value
 
     await firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+      .then(async () => {
+        await firebaseApp.auth().currentUser.updateProfile({
+          displayName: name
+        })
+      })
       .then(() => {
         firebaseApp.auth().currentUser.sendEmailVerification()
           .then(() => {
-            alert('Email Sent!')
+            alert("We have sent you a verification email. You must verify your email before you can log in to Flyin' Ryan Core Values!")
             console.log(firebaseApp.auth().currentUser)
           })
           .catch((err) => {
@@ -73,13 +78,12 @@ class App extends React.Component {
         console.log(error);
       })
 
-    await firebaseApp.auth().currentUser.updateProfile({
-      displayName: name
-    })
+
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
       if (user && user.emailVerified) {
+        
         this.setState({
           user: firebaseApp.auth().currentUser,
         })
@@ -99,6 +103,19 @@ class App extends React.Component {
       user: firebaseApp.auth().currentUser
     })
     alert('Signed Out')
+  }
+
+  facebookHandler = async () => {
+    await firebaseApp.auth().signInWithPopup(facebookProvider)
+      .then((result) => {
+        let token = result.credential.accessToken
+        let user = result.user
+        console.log(user)
+        console.log(token)
+        this.setState({
+          user: user
+        })
+      })
   }
 
   googleHandler = async () => {
@@ -144,6 +161,7 @@ class App extends React.Component {
             googleHandler={this.googleHandler}
             logOut={this.logOut} />)} />
           <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ? <Signup
+            facebookHandler={this.facebookHandler}
             modalContent={this.state.modal}
             signupHandler={this.signupHandler}
             closeHandler={this.closeHandler}
@@ -153,6 +171,7 @@ class App extends React.Component {
             googleHandler={this.googleHandler}
             logOut={this.logOut} /> : <Redirect to='/questions' />)} />
           <Route path='/login' render={() => (!firebaseApp.auth().currentUser ? <Login
+            facebookHandler={this.facebookHandler}
             modalContent={this.state.modal}
             signupHandler={this.signupHandler}
             closeHandler={this.closeHandler}

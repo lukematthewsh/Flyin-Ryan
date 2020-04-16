@@ -19,6 +19,7 @@ const firebaseApp = !firebase.apps.length ? firebase.initializeApp(credentials) 
 
 const database = firebaseApp.database()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
+const facebookProvider = new firebase.auth.FacebookAuthProvider()
 const auth = firebase.auth
 
-export { firebaseApp, database, auth, googleProvider }
+export { firebaseApp, database, auth, googleProvider, facebookProvider }
