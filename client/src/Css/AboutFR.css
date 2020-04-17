@@ -15,6 +15,9 @@
     width: 40vw;
     height: 3px;
     border-bottom: 2px solid;
+    border-left:none;
+    border-top:none;
+    border-right:none;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
     margin-bottom: 10px;
 }
