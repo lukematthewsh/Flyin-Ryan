@@ -21,9 +21,7 @@
     z-index: 500;
 
 }
-.navbar--hidden {
-    top: -10vh;
-  }
+
 
 #rasta-border-menu{
     position: absolute;
@@ -255,9 +253,6 @@ div[id$="-landing-button"]{
     .nav-bar{
         height:20vh;
         }
-    .navbar--hidden{
-        top:-20vh;
-    }
     #landing-page{
         background-image:url("../images/fall-line.jpg");
         background-position: 40%;

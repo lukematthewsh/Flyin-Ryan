@@ -5,6 +5,7 @@ import ShareIco from '../images/share.png'
 import editIco from '../images/editIco.png'
 import { Link } from 'react-router-dom'
 import shareFacebook from 'share-facebook'
+import facebook from '../images/facebook.png'
 
 class CoreValues extends React.Component {
 
@@ -37,7 +38,6 @@ class CoreValues extends React.Component {
         let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
             return snapshot.val() || []
         })    
-        console.log(prevPosts)
         prevPosts.push(content + author)
 
         let feedAnswers = {}
@@ -84,9 +84,10 @@ class CoreValues extends React.Component {
                         {this.state.userData.map(item => (
                             <div id="button-core-container" key={item}>
                                 <h5 id = "value">{item}</h5>
+                                {console.log(item)}
                                 <button id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></button>
                                 <button onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></button>
-                                <button onClick={this.facebook}>FB</button>
+                                <button onClick={this.facebook}><img id="facebook-img" src={facebook} /></button>
                             </div>
                         ))}
                     </ul>
