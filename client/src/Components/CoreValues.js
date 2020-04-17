@@ -52,7 +52,7 @@ class CoreValues extends React.Component {
 
     facebook = () => {
         let test = shareFacebook({
-            href: 'https://localhost:3000/dashboard#corevalues-content',
+            href: 'http://localhost:3000/dashboard',
             redirect_uri: 'https://www.google.com',
             app_id: '2367781363516455'
           })
