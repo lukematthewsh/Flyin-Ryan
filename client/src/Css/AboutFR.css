@@ -14,8 +14,8 @@
     margin-left: 25vw;
     width: 40vw;
     height: 3px;
-    background-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
-    margin-bottom: 10px;
+    background-color:  green;
+      margin-bottom: 10px;
 }
 .player-wrapper {
     font-family: 'Questrial', sans-serif;
