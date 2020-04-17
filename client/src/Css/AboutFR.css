@@ -1,7 +1,6 @@
 
 #about-page{
     font-family: 'Questrial', sans-serif;
-    
     height: 100vh;
     width:100vw;
     display: flex;
@@ -14,8 +13,8 @@
     margin-left: 25vw;
     width: 40vw;
     height: 3px;
-    background-color:  green;
-      margin-bottom: 10px;
+    background:  linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 100%;
+    margin-bottom: 10px;
 }
 .player-wrapper {
     font-family: 'Questrial', sans-serif;

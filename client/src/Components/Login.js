@@ -16,14 +16,19 @@ class LogIn extends React.Component {
         return (
             <div id='modalWrapper'>
                 <Link to={'/'}> <img id="flyin-modal" src={FRFlogo} /> </Link>
+                <div>
                 <h1 className="title">Log In</h1>
+                <div id = 'title-underline'></div>
+                </div>
                 <form id='sign-in-out' onSubmit={(event) => { event.preventDefault() }}>
                     <div id='modal-form'>
                         <div>
                             <input id="email" className='text-line' type="email" name='email' placeholder='Email' />
+                            <div id='text-line-underline'></div>
                         </div>
                         <div>
                             <input id="password" className='text-line' type='password' name='password' placeholder='Password' />
+                            <div id='text-line-underline'></div>
                         </div>
                     </div>
                     <div id='modal-buttons'>
