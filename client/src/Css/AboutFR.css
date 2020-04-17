@@ -20,7 +20,7 @@
     border-top:none;
     border-right:none;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
-    -webkit-border-image: -webkit-linear-gradient(left,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+    -webkit-border-image: -webkit-linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
     margin-bottom: 10px;
 }
 .player-wrapper {
