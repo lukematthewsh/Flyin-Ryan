@@ -1,7 +1,7 @@
 
 #about-page{
     font-family: 'Questrial', sans-serif;
-    margin-top: 7vh;;
+    
     height: 100vh;
     width:100vw;
     display: flex;
@@ -14,8 +14,13 @@
     margin-left: 25vw;
     width: 40vw;
     height: 3px;
-    border-bottom: 2px solid;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-left:none;
+    border-top:none;
+    border-right:none;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
+    -webkit-border-image: linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
     margin-bottom: 10px;
 }
 .player-wrapper {
@@ -35,6 +40,7 @@
   }
   
   #about-text{
+      margin-top: 5vh;
       width: 90vw;
       text-align: center;
   }
@@ -58,43 +64,12 @@
     display: flex;
     justify-content: flex-start;
 }
-#img-container-fall ul {
-    
-    display: flex;
-    flex-direction: column;
-    margin-left:4vw;
-    list-style: square;
-}
-#img-container-fall li {
-text-align: left;
-margin: 5px;
-}
-#fall-line{
-    margin-top: 1vh;
-    max-height: 23vh;
-    margin-bottom: 3vh;
-}
-#img-container-face{
-    display: flex;
-    justify-content: flex-end;
-}
 #img-container-coaster {
-
-   }
-#img-container-face ul {
-    list-style: square;
-}
-#snow-face{
-    margin-top: 30vh;
-    margin-top: 1vh;
-    max-height: 30vh;
-    max-width:90vw;
-    margin-bottom: 3vh; 
-}
-#list-container{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
+
+
 #bottom-signup{
     display: flex;
     flex-direction: row;
@@ -114,7 +89,6 @@ margin: 5px;
     width: 90px;
     color:white;
     font-size: 16px;
-    margin-left: 3vw;;
     height: 25px;
     -webkit-box-shadow: 0px 6px 0px #008542;
     -moz-box-shadow: 0px 6px 0px #008542;
@@ -127,5 +101,104 @@ margin: 5px;
 }
 
 #coaster-img{
+    margin-top: 2vh;
     width:90vw;
+}
+
+@media (min-width: 700px){
+    h2{
+        font-size: 32px;
+    }
+    p{
+        font-size: 20px;
+    }
+    #coaster-img{
+        width:70vw;
+    }
+    #sign-up-bottom-button{
+        
+        width: 120px;
+        color:white;
+        font-size: 26px;
+
+        height: 32px;
+       
+    }
+}
+@media (min-width: 1000px){
+    h2{
+        font-size: 48px;
+    }
+    p{
+        font-size: 29px;
+    }
+    #coaster-img{
+        width:70vw;
+    }
+    #sign-up-bottom-button{
+        
+        width: 150px;
+        color:white;
+        font-size: 30px;
+
+        height: 35px;
+       
+    }
+}
+@media (min-width: 1200px){
+    #rasta-border{
+        justify-self: center;
+        margin-left: 15vw!important;
+        width: 30vw;
+    }
+    #full-page{
+        display: flex;
+        flex-direction:row;
+    }
+    #about-page{
+        height: 95vh;
+        overflow: scroll;
+        
+        width: 60vw;
+        align-items:center;
+        justify-items: center;
+        flex-direction: column;  
+        
+
+    }
+    #page-wrapper{
+        width: 20vw;
+        height: 100vh;
+        background-image:url("../images/FlyinRyanHawks.jpg");
+        background-size: cover;
+        box-shadow: inset 5px 0 8px -4px black,inset -5px 0 8px -4px black;
+        background-position: 50% 50%
+    }
+    #page-wrapper-right{
+        width: 20vw;
+        height: 100vh;
+        background-image:url("../images/flyin-right.jpg");
+        background-size: cover;
+        box-shadow: inset 5px 0 8px -4px black,inset -5px 0 8px -4px black;
+        background-position: 20% 70%
+    }
+    #about-text{
+        width: 60vw;
+    }
+    .player-wrapper{
+        width: 60vw;
+        height: 60vh;
+    }
+    #meet-ryan{
+        width: 60vw;
+    }
+    #signup-text{
+        width: 60vw;
+    }
+    #coaster-img{
+        width:25vw;
+    }
+   
+      
+   
 }

@@ -6,12 +6,16 @@ import snowFace from '../images/snow-face.png'
 import fallLine from '../images/fall-line.jpg'
 import { Link } from 'react-router-dom'
 import coaster from '../images/coaster.png'
+import { whitesmoke } from 'color-name';
 
 
 class About extends React.Component {
 
     render() {
         return (
+            <div id = "full-page">
+            <div id = 'page-wrapper'></div>
+            
             <div id="about-page">
                 <div id="about-text">
                     <h2>What are Core Values?</h2>
@@ -91,6 +95,8 @@ class About extends React.Component {
                     </div>
                 </div>
             </div >
+            <div id = 'page-wrapper-right'></div>
+            </div>
         )
     }
 }
