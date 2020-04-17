@@ -24,19 +24,36 @@ class Admin extends React.Component {
         })
     }
 
+
+
+    cvHandler = () => {
+        let cvhandlerArray = []
+        for (let user in this.state.userData) {
+            let value = this.state.userData[user]['Key Core Values']
+            let age = this.state.userData[user].Age.answer
+            let jsxCV = (
+                <div id='admin-user-display-wrapper'>
+                    <div id='admin-user-display'>
+                        <div id='age'>
+                            User Age: {age}
+                        </div>
+                    User Values: {value
+                            ? value.map(value => {
+                                return <div>{value}</div>
+                            })
+                            : <div>User hasn't filled out questions</div>}
+                    </div>
+                    <br></br><br></br>
+                </div>)
+            cvhandlerArray.push(jsxCV)
+        }
+        return cvhandlerArray
+    }
+
     contentHandler = (event) => {
         this.setState({
             content: event.target.id
         })
-        if (event.target.id === 'userInfo') {
-            let cvData = []
-            for (let user in this.state.userData) {
-                cvData.push(this.state.userData[user]['Key Core Values'])
-            }
-            this.setState({
-                userCV: cvData
-            })
-        }
     }
 
     // upgrade = () => {
@@ -47,8 +64,9 @@ class Admin extends React.Component {
     // }
 
     render() {
-        // console.log(this.state.userData)
+        console.log(this.state.userData)
         let adminContent;
+
         if (this.state.content.includes('general')) {
             adminContent =
                 <div id='admin-content'>
@@ -67,14 +85,7 @@ class Admin extends React.Component {
                 <div id='admin-content'>
                     <div id="admin-corevalues-content">
                         <ul id="core-values-list">
-                            {this.state.userCV.map(item => (
-                                <div id='admin-user-display-wrapper'>
-                                    <div id='admin-user-display'>
-                                        <CoreValuesDisplay item={item} />
-                                    </div>
-                                    <br></br>
-                                </div>
-                            ))}
+                            {this.cvHandler()}
                         </ul>
                     </div>
                 </div>
@@ -120,29 +131,3 @@ class Admin extends React.Component {
 }
 
 export default Admin;
-
-function CoreValuesDisplay(props) {
-    if (props.item) {
-        return (
-            <div>
-            <div id='admin-user-displayName'>
-                User Name: 
-            </div>
-            <br></br>
-            <div>
-                User Age: 
-            </div>
-            <br></br>
-            <div>
-                Core Values:
-                <br></br>
-            {props.item.map(usercv => {
-                return <p>{usercv}</p>
-            })}
-            </div>
-            </div>
-        )
-    } else {
-        return null
-    }
-}
