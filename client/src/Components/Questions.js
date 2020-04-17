@@ -211,7 +211,7 @@ class Questions extends React.Component {
                 disabled={!this.state.userAnswers || !isEnabled}
             >Next</button>
         } else if (category.includes('Key Core')) {
-            headerText = 'My Core Values: Time to Start Writing'
+            headerText = 'My Core Values'
             answerStyle = <div id="finalTextinput">
                 <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
                 <button

@@ -1,6 +1,7 @@
 #questions-wrapper {
     display: flex;
     flex-direction: column;
+
     height: 100vh;
     width: 100vw;
     font-family: 'Do Hyeon', sans-serif;
@@ -48,7 +49,7 @@
 #questionTitleWrapper {
     display: flex;
     width: 100vw;
-    justify-content: center;
+    align-content: center;
     margin-bottom: 10px;
     margin-top: 7vh;
 }
@@ -71,6 +72,8 @@
 
 #questions {
     width: 70vw;
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin: 1vh;
     font-size: 6.5vw;
@@ -86,7 +89,10 @@
 }
 
 #answerStyleWrapper {
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     height: 45vh;
     overflow: scroll;
 }
@@ -95,7 +101,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3vh;
+    margin: 1vh;
     width: 70vw;
     height: 7vh;
     font-size: 4.5vw;
