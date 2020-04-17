@@ -53,6 +53,15 @@ class App extends React.Component {
 
     await firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(async () => {
+        let userName = {}
+        userName[`/users/${firebaseApp.auth().currentUser.uid}/Name`] = { Name: name }
+
+        await database.ref().update(userName)
+        console.log(userName)
+        console.log(firebaseApp.auth().currentUser.uid)
+
+      })
+      .then(async () => {
         await firebaseApp.auth().currentUser.updateProfile({
           displayName: name
         })
@@ -104,7 +113,6 @@ class App extends React.Component {
       user: firebaseApp.auth().currentUser,
       admin: null
     })
-    alert('Signed Out')
   }
 
   facebookHandler = async () => {
@@ -168,12 +176,12 @@ class App extends React.Component {
     // console.log(this.state.user)
     return (
       <div id='app'>
-       <Switch>
-          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} admin={this.state.admin}/>} />
+        <Switch>
+          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} admin={this.state.admin} />} />
           <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} admin={this.state.admin} /> : <Redirect to='/login' />)} />
-          <Route path='/admin' render={() => (this.state.admin ? <Admin user={this.state.user}/> : <Redirect to='/' />)} />
-          <Route path='/questions' render={() => (this.state.user 
-            ? <Questions user={this.state.user} /> 
+          <Route path='/admin' render={() => (this.state.admin ? <Admin user={this.state.user} /> : <Redirect to='/' />)} />
+          <Route path='/questions' render={() => (this.state.user
+            ? <Questions user={this.state.user} />
             : <Login modalContent={this.state.modal}
               signupHandler={this.signupHandler}
               closeHandler={this.closeHandler}
@@ -182,7 +190,7 @@ class App extends React.Component {
               loginHandler={this.loginHandler}
               googleHandler={this.googleHandler}
               logOut={this.logOut} />)} />
-          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser 
+          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser
             ? <Signup
               facebookHandler={this.facebookHandler}
               modalContent={this.state.modal}
@@ -192,9 +200,9 @@ class App extends React.Component {
               currentPath={this.state.currentPath}
               loginHandler={this.loginHandler}
               googleHandler={this.googleHandler}
-              logOut={this.logOut} /> 
+              logOut={this.logOut} />
             : <Redirect to='/questions' />)} />
-          <Route path='/login' render={() => (!firebaseApp.auth().currentUser 
+          <Route path='/login' render={() => (!firebaseApp.auth().currentUser
             ? <Login
               facebookHandler={this.facebookHandler}
               modalContent={this.state.modal}
@@ -204,7 +212,7 @@ class App extends React.Component {
               currentPath={this.state.currentPath}
               loginHandler={this.loginHandler}
               googleHandler={this.googleHandler}
-              logOut={this.logOut} /> 
+              logOut={this.logOut} />
             : <Redirect to='/dashboard' />)} />
         </Switch>
 
