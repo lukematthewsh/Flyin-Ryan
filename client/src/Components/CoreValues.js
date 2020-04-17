@@ -85,9 +85,9 @@ class CoreValues extends React.Component {
                             <div id="button-core-container" key={item}>
                                 <h5 id = "value">{item}</h5>
                                 {console.log(item)}
-                                <button id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></button>
-                                <button onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></button>
-                                <button onClick={this.facebook}><img id="facebook-img" src={facebook} /></button>
+                                <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
+                                <div onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
+                                <div onClick={this.facebook}><img id="facebook-img" src={facebook} /></div>
                             </div>
                         ))}
                     </ul>

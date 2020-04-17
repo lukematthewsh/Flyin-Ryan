@@ -16,9 +16,10 @@
     width: 80vw;
 }
 .title{
+    width: 35vw;
     padding-right: 2vw;
     padding-left: 2vw;
-   margin-top: 10vh;
+    margin-top: 10vh;
 }
 #title-underline{
     background: linear-gradient(to right, #3e6a99 1%, rgb(255, 255, 255,.8) 25%, rgb(255, 255, 255,.8) 75%, #3e6a99 99%) 100%;
