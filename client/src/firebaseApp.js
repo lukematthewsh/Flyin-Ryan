@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 import 'firebase/auth'
 
+
 const credentials = {
     apiKey: "AIzaSyAIivJHZIf8S0tS4vASoZXGeLaPN2pJ-58",
     authDomain: "flyin-ryan-database.firebaseapp.com",

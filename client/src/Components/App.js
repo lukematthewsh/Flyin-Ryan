@@ -7,6 +7,7 @@ import Signup from './Signup.js';
 import Dashboard from './Dashboard';
 import Questions from './Questions';
 import Login from './Login';
+import Admin from './Admin'
 
 
 
@@ -164,44 +165,50 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.admin)
+    // console.log(this.state.user)
     return (
       <div id='app'>
-        <Switch>
-          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} />} />
+       <Switch>
+          <Route exact path='/' render={() => <Landing user={this.state.user} logOut={this.logOut} admin={this.state.admin}/>} />
           <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} admin={this.state.admin} /> : <Redirect to='/login' />)} />
-          <Route path='/questions' render={() => (this.state.user ? <Questions user={this.state.user} /> : <Login modalContent={this.state.modal}
-            signupHandler={this.signupHandler}
-            closeHandler={this.closeHandler}
-            pageUpdate={this.pageUpdate}
-            currentPath={this.state.currentPath}
-            loginHandler={this.loginHandler}
-            googleHandler={this.googleHandler}
-            logOut={this.logOut} />)} />
-          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser ? <Signup
-            facebookHandler={this.facebookHandler}
-            modalContent={this.state.modal}
-            signupHandler={this.signupHandler}
-            closeHandler={this.closeHandler}
-            pageUpdate={this.pageUpdate}
-            currentPath={this.state.currentPath}
-            loginHandler={this.loginHandler}
-            googleHandler={this.googleHandler}
-            logOut={this.logOut} /> : <Redirect to='/questions' />)} />
-          <Route path='/login' render={() => (!firebaseApp.auth().currentUser ? <Login
-            facebookHandler={this.facebookHandler}
-            modalContent={this.state.modal}
-            signupHandler={this.signupHandler}
-            closeHandler={this.closeHandler}
-            pageUpdate={this.pageUpdate}
-            currentPath={this.state.currentPath}
-            loginHandler={this.loginHandler}
-            googleHandler={this.googleHandler}
-            logOut={this.logOut} /> : <Redirect to='/dashboard' />)} />
+          <Route path='/admin' render={() => (this.state.admin ? <Admin user={this.state.user}/> : <Redirect to='/' />)} />
+          <Route path='/questions' render={() => (this.state.user 
+            ? <Questions user={this.state.user} /> 
+            : <Login modalContent={this.state.modal}
+              signupHandler={this.signupHandler}
+              closeHandler={this.closeHandler}
+              pageUpdate={this.pageUpdate}
+              currentPath={this.state.currentPath}
+              loginHandler={this.loginHandler}
+              googleHandler={this.googleHandler}
+              logOut={this.logOut} />)} />
+          <Route path='/signup' render={() => (!firebaseApp.auth().currentUser 
+            ? <Signup
+              facebookHandler={this.facebookHandler}
+              modalContent={this.state.modal}
+              signupHandler={this.signupHandler}
+              closeHandler={this.closeHandler}
+              pageUpdate={this.pageUpdate}
+              currentPath={this.state.currentPath}
+              loginHandler={this.loginHandler}
+              googleHandler={this.googleHandler}
+              logOut={this.logOut} /> 
+            : <Redirect to='/questions' />)} />
+          <Route path='/login' render={() => (!firebaseApp.auth().currentUser 
+            ? <Login
+              facebookHandler={this.facebookHandler}
+              modalContent={this.state.modal}
+              signupHandler={this.signupHandler}
+              closeHandler={this.closeHandler}
+              pageUpdate={this.pageUpdate}
+              currentPath={this.state.currentPath}
+              loginHandler={this.loginHandler}
+              googleHandler={this.googleHandler}
+              logOut={this.logOut} /> 
+            : <Redirect to='/dashboard' />)} />
         </Switch>
 
-        {/* <Questions /> */}
-
+        {/* <Admin users={this.state.user}/> */}
       </div>
     )
   }
