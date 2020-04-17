@@ -54,6 +54,7 @@ class Header extends Component {
                     menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} admin={this.props.admin}/>
                 <div>
                 </div>
+                <div id="rasta-border-menu"> </div>
             </div>
 
         );

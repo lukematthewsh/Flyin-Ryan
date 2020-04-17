@@ -60,6 +60,7 @@
   #X{
     margin-top: 2vh;
     width: 12vw;
+    height: 12vw;
   }
   #X:hover{
     transform: scale(2);
