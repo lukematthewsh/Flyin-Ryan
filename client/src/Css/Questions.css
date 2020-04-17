@@ -124,7 +124,7 @@
     outline: none;
     padding: 8px;
     border: 1px solid;
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
     background-color: #3e6a99;
     box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
@@ -192,10 +192,10 @@
     border: 1px solid black;
     border-radius: 20px;
     background-color: white;
-    margin-top: 3vh;
+    margin-top: 2vh;
     font-family: 'Do Hyeon', sans-serif;
     position: absolute;
-    bottom: 5vh;
+    bottom: 1vh;
 }
 
 #finishButton {

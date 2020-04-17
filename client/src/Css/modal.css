@@ -73,29 +73,57 @@
     width: 100vw;
 }
 #signIn-button{
-    width: 70vw;
+    margin: 5px;
+    width: 50vw;
     height: 5vh;
     border: 1px solid black;
     border-radius: 20px;
     background-color: transparent;
-    margin-top: 3vh;
+    
 }
 #google-img{
     max-width: 20px;
 }
 #google-signin{
+    margin: 5px;
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 70vw;
+    width: 50vw;
     height: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color:rgb(104, 104, 104);
 }
+#facebook-signin{
+    margin: 5px;
+    padding: 3px;
+    border-radius: 20px;
+    color:white;
+    width: 50vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#3b5998;
+}
 #google-signin:hover{
     cursor: pointer;
     box-shadow: 1px 1px 1px black;
+}
+#facebook-img{
+    max-width: 20px;
+}
+
+
+@media (max-height:450px){
+    #flyin-modal{
+        width:30vw;
+    }
+    .title{
+        font-size: 20px
+    }
+    
 }
 

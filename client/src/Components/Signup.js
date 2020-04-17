@@ -3,6 +3,7 @@ import '../Css/modal.css'
 import Goog from '../images/googlesvg.png'
 import FRFlogo from '../images/flyinLogo.svg'
 import { Link } from 'react-router-dom'
+import facebook from '../images/facebook.png'
 
 class Signup extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Signup extends React.Component {
                     <div id='modal-buttons'>
                         <Link onClick={this.props.signupHandler} to={'/questions'}><button id='signIn-button' type='submit'>Sign Up</button></Link>
                         <Link id="google-signin" to={'/questions'} onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><img id="google-img" src={Goog} />Sign up with Google</Link>
-                        <Link id="google-signin" to={'/questions'} onClick={this.props.facebookHandler}><img id="google-img" src={Goog} />Sign up with Facebook</Link>
+                        <Link id="facebook-signin" to={'/questions'} onClick={this.props.facebookHandler}style={{ textDecoration: 'none' }}><img id="facebook-img" src={facebook}/>Sign up with Facebook</Link>
                     </div>
                 </form>
             </div>

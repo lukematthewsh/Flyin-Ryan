@@ -48,7 +48,7 @@
 
 #ryan-headshot{
     margin-top: 1vh;
-    max-height: 40vh;
+    height: 40vh;
     max-width:90vw;
     margin-bottom: 3vh;
 }
@@ -195,4 +195,19 @@
    
       
    
+}
+
+@media (max-height: 450px){
+    .player-wrapper{
+        height:90vh;
+    }
+    #ryan-headshot{
+        height: 90vh !important;
+    }
+    #coaster-img{
+        margin-top: 2vh;
+        width:60vw;
+        height: 60vw;
+    }
+
 }
