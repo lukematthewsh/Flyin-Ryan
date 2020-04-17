@@ -3,7 +3,8 @@
     margin-top: 2vh;
     margin-left: 2vw;
     margin-bottom: 2vh;
-    max-width: 65px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background-color: rgb(255,255,255, .2);
     backdrop-filter: blur(10px);
