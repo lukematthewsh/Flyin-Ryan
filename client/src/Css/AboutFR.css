@@ -13,15 +13,11 @@
     justify-self: center;
     margin-left: 25vw;
     width: 40vw;
-    height: 3px;
-    border-bottom-style: solid;
-    border-width: 2px;
-    border-left:none;
-    border-top:none;
-    border-right:none;
+    height: .2px;
+    border-bottom:  solid;
+    border-width: 1px;
     border-image:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
-    -webkit-border-image: -webkit-linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 5;
-    margin-bottom: 10px;
+   margin-bottom: 10px;
 }
 .player-wrapper {
     font-family: 'Questrial', sans-serif;
