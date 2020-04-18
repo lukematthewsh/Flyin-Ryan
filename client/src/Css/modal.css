@@ -63,6 +63,7 @@
 
 }
 .text-line::placeholder{
+    z-index: 150;
     color: rgba(255, 255, 255, 0.425);
     font-family: 'Do Hyeon', sans-serif;
 }
@@ -80,7 +81,7 @@
     align-items :center;
     color: white;
     margin: 5px;
-    width: 50vw;
+    width: 55vw;
     height: 4vh;
     padding: 3px;
     border-radius: 20px;
@@ -96,7 +97,7 @@
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 50vw;
+    width: 55vw;
     height: 4vh;
     display: flex;
     align-items: center;
@@ -109,7 +110,7 @@
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 50vw;
+    width: 55vw;
     height: 4vh;
     display: flex;
     align-items: center;
