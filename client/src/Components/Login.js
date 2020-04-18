@@ -13,19 +13,19 @@ class LogIn extends React.Component {
         super(props)
 
         this.state = {
-            passwordReset: false
+            
+            show: false
         }
     }
 
-    showModal = (event) => {
+    openReset = (e) => {
         this.setState({
-            passwordReset: true
-        })
+            show: !this.state.show
+        })  
     }
-
-    closeModal = (event) => {
+    closeReset = (e)=>{
         this.setState({
-            passwordReset: false
+            show: !this.state.show
         })
     }
 
@@ -47,8 +47,8 @@ class LogIn extends React.Component {
         return (
 
             <div>
-                {!this.state.passwordReset ?
                     <div id='modalWrapper'>
+                    <PasswordModal show ={this.state.show}  closeReset={this.closeReset}/>
                         <Link to={'/'}> <img id="flyin-modal" src={FRFlogo} /> </Link>
                         <div>
                             <h1 className="title">Log In</h1>
@@ -69,10 +69,10 @@ class LogIn extends React.Component {
                                 <Link onClick={this.props.loginHandler} to='/dashboard' style={{ textDecoration: 'none' }}><div id='signIn-button' type='submit'>Sign In</div></Link>
                                 <Link  to='/dashboard' onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><div id="google-signin" ><img id="google-img" src={Goog} /> Sign in with Google</div></Link>
                                 <Link  to='/dashboard' onClick={this.props.facebookHandler} style={{ textDecoration: 'none' }}><div id="facebook-signin"><img id="facebook-img" src={facebook} />Sign in with Facebook</div></Link>
-                                <div id ="forgot-password" onClick={this.showModal}><img src = {lock} style = {{maxWidth: "15px"}}/> Forgot Password?</div>
+                                <div id ="forgot-password" onClick={this.openReset}><img src = {lock} style = {{maxWidth: "15px"}}/> Forgot Password?</div>
                             </div>
                         </form>
-                    </div> : <PasswordModal passResetHandler={this.passResetHandler} close={this.closeModal} />}
+                    </div> 
             </div>
         )
     }
