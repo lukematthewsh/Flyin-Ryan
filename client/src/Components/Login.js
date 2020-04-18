@@ -13,7 +13,6 @@ class LogIn extends React.Component {
         super(props)
 
         this.state = {
-            
             show: false
         }
     }
@@ -29,7 +28,8 @@ class LogIn extends React.Component {
         })
     }
 
-    passResetHandler = () => {
+    passResetHandler = (event) => {
+        event.preventDefault()
         let email = document.getElementById('pass-res-email').value
 
         firebaseApp.auth().sendPasswordResetEmail(email)
@@ -45,10 +45,9 @@ class LogIn extends React.Component {
     render() {
         console.log(firebaseApp.auth().currentUser)
         return (
-
             <div>
                     <div id='modalWrapper'>
-                    <PasswordModal show ={this.state.show}  closeReset={this.closeReset}/>
+                    <PasswordModal show ={this.state.show}  closeReset={this.closeReset} passResetHandler={this.passResetHandler}/>
                         <Link to={'/'}> <img id="flyin-modal" src={FRFlogo} /> </Link>
                         <div>
                             <h1 className="title">Log In</h1>
