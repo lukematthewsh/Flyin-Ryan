@@ -67,8 +67,8 @@ class App extends React.Component {
           displayName: name
         })
       })
-      .then(() => {
-        firebaseApp.auth().currentUser.sendEmailVerification()
+      .then(async () => {
+        await firebaseApp.auth().currentUser.sendEmailVerification()
           .then(() => {
             alert("We have sent you a verification email. You must verify your email before you can log in to Flyin' Ryan Core Values!")
             console.log(firebaseApp.auth().currentUser)
