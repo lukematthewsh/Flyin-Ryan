@@ -33,8 +33,8 @@ class Feed extends React.Component{
                 <br></br>
                 <ul id="blog-list">
                         {this.state.feed.map(item => (
-                            <div id="button-feed-container" key={item}>{item}
-                                    
+                            <div id="button-feed-container" key={item}>
+                            {item}
                             </div>
                         ))}
                     </ul>

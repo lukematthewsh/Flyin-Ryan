@@ -125,7 +125,8 @@ div[id$='-link']:hover{
  
 #button-core-container{
     align-items: center;
-    box-shadow: 2px 2px 2px #778a9f;
+    box-shadow: 2px 2px 2px #778a9f, inset 1px 1px 9px -1px #444c54;
+    border: 1px solid #444c54 ;
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
@@ -157,16 +158,25 @@ div[id$='-link']:hover{
     margin-right: 10vw;
 }
 #button-feed-container{
-    box-shadow: 2px 2px 2px #778a9f;
+    box-shadow: 2px 2px 2px #778a9f, inset 1px 1px 9px -1px #444c54;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
     list-style-type: none;
     background-color: #aabdd2 ;
+    border: 1px solid  #444c54;
     margin: 5px;
+    padding: 5px;
     font-size: 15px;
-    height: 20px;
+    height: auto;
+}
+#author{
+    font-size: 20px;
+    border-bottom: 4px solid black;
+    margin-bottom: 3vh;
+}
+#content{
+    font-size: 18px;
 }
 #goals h1{
     padding-top: 15px;

@@ -23,17 +23,15 @@ class Menu extends Component {
 
         <div id="menu-list">
           <Link to='/' style={{ textDecoration: 'none' }}><h2><a>Home</a></h2> </Link>
-          {this.props.user ? <Link to='/dashboard' style={{ textDecoration: 'none' }}><h2><a>Dashboard</a></h2> </Link> : null}
-          <h2><a href="https://flyinryanhawks.org/event-directory/">Events</a></h2>
-
+          {this.props.user ? <Link to='/dashboard' style={{ textDecoration: 'none', color: 'black' }}><h2><a>Dashboard</a></h2> </Link> : null}
           <div>
-            <Link to={'/Contact'} style={{ textDecoration: 'none' }}>
+            <Link to={'/Contact'} style={{ textDecoration: 'none' , color: 'black'}}>
               <h2>Contact</h2>
             </Link>
           </div>
 
           {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu} style={{ textDecoration: 'none', color: 'black', whiteSpace: "nowrap" }} ><h2><a>Sign Out</a></h2></Link> : null}
-          {this.props.admin ? <Link to = '/admin' style={{ textDecoration: 'none' }}>Admin</Link> : null}
+          {this.props.admin ? <Link to = '/admin' style={{ textDecoration: 'none', color: 'black' }}>Admin</Link> : null}
         </div>
 
       </div>

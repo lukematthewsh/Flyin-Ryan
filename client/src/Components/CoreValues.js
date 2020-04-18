@@ -32,13 +32,15 @@ class CoreValues extends React.Component {
         })
     }
 
+
     share = async (event) => {
         let content = (event.target.parentNode.parentNode.textContent)
         let author = this.state.user.displayName
+    
         let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
             return snapshot.val() || []
         })    
-        prevPosts.push(content + author)
+        prevPosts.push(author + content)
 
         let feedAnswers = {}
         feedAnswers[`/feed`] = prevPosts
@@ -60,7 +62,7 @@ class CoreValues extends React.Component {
     }
 
     render() {
-        console.log(this.state.userData)
+
         if (this.state.userData === null){
             return(
                 <div id = "core-values">
@@ -84,7 +86,6 @@ class CoreValues extends React.Component {
                         {this.state.userData.map(item => (
                             <div id="button-core-container" key={item}>
                                 <h5 id = "value">{item}</h5>
-                                {console.log(item)}
                                 <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                 <div onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
                                 <div onClick={this.facebook}><img id="facebook-img" src={facebook} /></div>
