@@ -4,7 +4,7 @@ import Goog from '../images/googlesvg.png'
 import FRFlogo from '../images/flyinLogo.svg'
 import { Link } from 'react-router-dom'
 import facebook from '../images/facebook.png'
-
+import lock from '../images/lock.svg'
 import PasswordModal from './PasswordModal'
 import { firebaseApp } from '../firebaseApp'
 
@@ -66,10 +66,10 @@ class LogIn extends React.Component {
                                 </div>
                             </div>
                             <div id='modal-buttons'>
-                                <Link onClick={this.props.loginHandler} to='/dashboard'><button id='signIn-button' type='submit'>Sign In</button></Link>
-                                <div onClick={this.showModal}>Forgot Password?</div>
-                                <Link id="google-signin" to='/dashboard' onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><img id="google-img" src={Goog} />Sign in with Google</Link>
+                                <Link onClick={this.props.loginHandler} to='/dashboard' style={{ textDecoration: 'none' }}><div id='signIn-button' type='submit'>Sign In</div></Link>
+                                <Link id="google-signin" to='/dashboard' onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><img id="google-img" src={Goog} /> Sign in with Google</Link>
                                 <Link id="facebook-signin" to='/dashboard' onClick={this.props.facebookHandler} style={{ textDecoration: 'none' }}><img id="facebook-img" src={facebook} />Sign in with Facebook</Link>
+                                <div id ="forgot-password" onClick={this.showModal}><img src = {lock} style = {{maxWidth: "15px"}}/> Forgot Password?</div>
                             </div>
                         </form>
                     </div> : <PasswordModal passResetHandler={this.passResetHandler} close={this.closeModal} />}
