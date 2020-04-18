@@ -43,7 +43,7 @@
     margin-top: 1vh;
 }
 .text-line{
-    height: 3vh;
+    height: 5vh;
     width: 70vw;
     margin-top: 2vh;
     background-color: transparent;
@@ -81,7 +81,7 @@
     align-items :center;
     color: white;
     margin: 5px;
-    width: 60vw;
+    width: 68vw;
     height: 4vh;
     padding: 3px;
     border-radius: 20px;
@@ -97,7 +97,7 @@
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 60vw;
+    width: 68vw;
     height: 4vh;
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 60vw;
+    width: 68vw;
     height: 4vh;
     display: flex;
     align-items: center;

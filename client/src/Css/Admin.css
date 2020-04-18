@@ -11,49 +11,144 @@
 #admin-header {
     display: flex;
     justify-content: center;
-    padding: 15px;
-
+    align-items: center;
+    height: 10vh;
+    font-size: 5vh;
+    border-bottom: 2px solid black;
 }
 
 #admin-midSection{
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
-    height: 80vh;
+    height: 90vh;
     width: 100vw;
 }
 
 #admin-sidebarWrapper {
-    background-color: lightblue;
     height: 100%;
-    width: 15vw;
+    width: 20vw;
+    background-color: #3e6a99;
+    color: white;
+    font-size: 2vw;
 }
 
 #admin-sidebar {
-    height: 50%;
+    height: 80%;
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    
 }
 
 #admin-contentWrapper{
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    background-color: lightgray;
     overflow: scroll;
+    padding-top: 3vh
 
 }
 
 #admin-content {
+    display: flex;
     height: 100%;
     width: 75vw;
 
 }
 
-#admin-user-display {
-    background-color: lightseagreen;
+#coreValueDiv {
+    padding-left: 8px;
+}
+
+#adminEditWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.664);
+    z-index: 1000;
+    position: absolute;
+}
+
+#adminEditModal {
+    height: 60vh;
+    width: 60vw;
+    background-color: white;
+}
+
+#adminModalHeader{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    width: 95%;
+    margin: 15px;
+    font-size: 4vh;
+}
+
+#adminModalCVTitle{
+    font-size: 3vh;
+    text-decoration: underline;
+    font-weight: bold;
+    padding-left: 10px;
+
+}
+
+#adminCVContainer{
+    display: flex;
+    flex-direction: column;
+    height: 78%;
+    width: 94%;
+    overflow: scroll;
+    padding-left: 30px;
+
+}
+
+#updateButtonWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 4vh;
+    width: 7vw;
+    background-color: #3e6a99;
+    color: white;
+    cursor: pointer;
+}
+
+#adminEditValue{
+    font-size: 2.5vh;
+    padding: 10px;
+}
+
+.editButtonWrapper{
+    cursor: pointer;
+    border: 1px solid black;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #3e6a99;
+    color: white;
+}
+
+.adminEditButton{
+    text-align: center;
+}
+
+#emptyWrapper{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.emptyValues{
+    justify-self: center;
+    align-self: center;
+}
+
+#name, #age {
+    display: flex
 }
