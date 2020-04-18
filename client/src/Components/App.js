@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Questions from './Questions';
 import Login from './Login';
 import Admin from './Admin'
+import Contact from './Contact'
 
 
 
@@ -214,6 +215,7 @@ class App extends React.Component {
               googleHandler={this.googleHandler}
               logOut={this.logOut} />
             : <Redirect to='/dashboard' />)} />
+          <Route path='/Contact' render={() => <Contact/>} />
         </Switch>
 
         {/* <Admin users={this.state.user}/> */}

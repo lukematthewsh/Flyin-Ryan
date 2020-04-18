@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import coaster from '../images/coaster.png'
 import { whitesmoke } from 'color-name';
 
+import Mailer from './Mailer.js'
 
 class About extends React.Component {
 
@@ -94,6 +95,7 @@ class About extends React.Component {
                         <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
                     </div>
                 </div>
+                <Mailer/>
             </div >
             <div id = 'page-wrapper-right'></div>
             </div>
