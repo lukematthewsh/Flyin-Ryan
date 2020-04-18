@@ -88,11 +88,11 @@ div[id$='-link']:hover{
     font-family: 'Questrial', sans-serif;
 }
 
-#core-values h1{
-    
+#core-values h1{ 
     padding-top: 15px;
     margin-left: 10vw;
 }
+
 #core-values h4{
     padding-top: 9px;
     margin-left: 10vw;
@@ -105,10 +105,10 @@ div[id$='-link']:hover{
     flex-direction: column;
     align-items: center;
 }
+
 #core-values-list{
     width: 80vw;
 }
-
 
 
 #share{
@@ -116,7 +116,6 @@ div[id$='-link']:hover{
     filter: opacity(20%)
 }
 #edit{
-    order: 2;
     filter: opacity(20%)
 }
 #value{

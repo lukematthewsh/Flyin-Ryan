@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/static/css/main.a9079fbd.chunk.css",
     "main.js": "/static/js/main.b5274d1d.chunk.js",
     "main.js.map": "/static/js/main.b5274d1d.chunk.js.map",
@@ -17,6 +18,24 @@
     "static/media/AboutFR.css": "/static/media/flyin-right.ded02cef.jpg",
     "static/media/coaster.png": "/static/media/coaster.a4b7b35f.png",
     "static/media/fall-line.jpg": "/static/media/fall-line.2ec01f14.jpg",
+=======
+    "main.css": "/static/css/main.af69dcef.chunk.css",
+    "main.js": "/static/js/main.5e67ef0f.chunk.js",
+    "main.js.map": "/static/js/main.5e67ef0f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0d7df7ae.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0d7df7ae.js.map",
+    "static/js/2.925e1d4c.chunk.js": "/static/js/2.925e1d4c.chunk.js",
+    "static/js/2.925e1d4c.chunk.js.map": "/static/js/2.925e1d4c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.0cf20e4ede67c569913c3a31f2b6dd6b.js": "/precache-manifest.0cf20e4ede67c569913c3a31f2b6dd6b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.af69dcef.chunk.css.map": "/static/css/main.af69dcef.chunk.css.map",
+    "static/js/2.925e1d4c.chunk.js.LICENSE.txt": "/static/js/2.925e1d4c.chunk.js.LICENSE.txt",
+    "static/media/Arrow-down.svg": "/static/media/Arrow-down.7fc62e6e.svg",
+    "static/media/coaster.png": "/static/media/coaster.a4b7b35f.png",
+    "static/media/fall-line.jpg": "/static/media/fall-line.2ec01f14.jpg",
+    "static/media/App.css": "/static/media/fillerBg.5a331254.jpeg",
+>>>>>>> working mailChimp
     "static/media/flyinLogo.svg": "/static/media/flyinLogo.4312cc7e.svg",
     "static/media/headshot.jpg": "/static/media/headshot.3a729fb6.jpg",
     "static/media/help.svg": "/static/media/help.5814adc1.svg",
@@ -25,8 +44,14 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0d7df7ae.js",
+<<<<<<< HEAD
     "static/js/2.99db8c43.chunk.js",
     "static/css/main.a9079fbd.chunk.css",
     "static/js/main.b5274d1d.chunk.js"
+=======
+    "static/js/2.925e1d4c.chunk.js",
+    "static/css/main.af69dcef.chunk.css",
+    "static/js/main.5e67ef0f.chunk.js"
+>>>>>>> working mailChimp
   ]
 }
