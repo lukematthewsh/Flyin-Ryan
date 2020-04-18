@@ -87,6 +87,7 @@
     border-radius: 20px;
     background-color:#5179a3 ;
     box-shadow: 2px 2px black;
+    font-size: 14px;
     
 }
 #google-img{
@@ -104,6 +105,7 @@
     justify-content: center;
     background-color:rgb(104, 104, 104);
     box-shadow: 2px 2px black;
+    font-size: 14px;
 }
 #facebook-signin{
     margin: 5px;
@@ -117,6 +119,7 @@
     justify-content: center;
     background-color:#3b5998;
     box-shadow: 2px 2px black;
+    font-size: 14px;
 }
 #facebook:hover{
     cursor: pointer;
