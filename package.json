@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
     "firebase": "^7.13.1",
@@ -21,6 +22,7 @@
     "prop-types": "^15.7.2",
     "react-player": "^1.15.3",
     "react-router-dom": "^5.1.2",
+    "request": "^2.88.2",
     "share-facebook": "^1.0.1",
     "styled-components": "^5.1.0"
   }
