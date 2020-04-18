@@ -82,7 +82,7 @@
     text-align: center;
     color: white;
     margin: 5px;
-    width: 68vw;
+    width: 65vw;
     height: 4vh;
     padding: 3px;
     border-radius: 20px;
@@ -98,12 +98,14 @@
     margin: 5px;
     padding: 3px;
     border-radius: 20px;
-    text-align:center;
+    padding-top: 3px;
+    padding-bottom: 3px;
     color:white;
-    width: 68vw;
+    width: 65vw;
     height: 4vh;
     display: flex;
     align-items: center;
+    text-align:center;
     justify-content: center;
     background-color:rgb(104, 104, 104);
     box-shadow: 2px 2px black;
@@ -111,15 +113,15 @@
 }
 #facebook-signin{
     margin: 5px;
-    padding: 3px;
-    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    justify-content: center;
     border-radius: 20px;
     color:white;
-    width: 68vw;
+    width: 65vw;
     height: 4vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color:#3b5998;
     box-shadow: 2px 2px black;
     font-size: 14px;
