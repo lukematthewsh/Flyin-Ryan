@@ -57,10 +57,10 @@
     font-size: 4vh;
 }
 #text-line-underline{
-    background: linear-gradient(to right, #3e6a99 1%, rgb(255, 255, 255,.8) 15%, white 85%, #3e6a99 99%) 100%;
-    width: 70vw;
+    
+    background: linear-gradient(to right, #3e6a99 0%, rgb(255, 255, 255,.8) 15%, white 85%, #3e6a99 100%) 100%;
+    width: 100%;
     height: 2px;
-
 }
 .text-line::placeholder{
     z-index: 150;
@@ -81,7 +81,7 @@
     align-items :center;
     color: white;
     margin: 5px;
-    width: 55vw;
+    width: 60vw;
     height: 4vh;
     padding: 3px;
     border-radius: 20px;
@@ -97,7 +97,7 @@
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 55vw;
+    width: 60vw;
     height: 4vh;
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
     padding: 3px;
     border-radius: 20px;
     color:white;
-    width: 55vw;
+    width: 60vw;
     height: 4vh;
     display: flex;
     align-items: center;
