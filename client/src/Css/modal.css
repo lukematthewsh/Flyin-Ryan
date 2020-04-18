@@ -79,6 +79,7 @@
     display: flex;
     justify-content: center;
     align-items :center;
+    text-align: center;
     color: white;
     margin: 5px;
     width: 68vw;
@@ -97,6 +98,7 @@
     margin: 5px;
     padding: 3px;
     border-radius: 20px;
+    text-align:center;
     color:white;
     width: 68vw;
     height: 4vh;
@@ -110,6 +112,7 @@
 #facebook-signin{
     margin: 5px;
     padding: 3px;
+    text-align: center;
     border-radius: 20px;
     color:white;
     width: 68vw;
