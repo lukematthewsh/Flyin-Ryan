@@ -76,6 +76,7 @@
     width: 100vw;
 }
 #signIn-button{
+    white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items :center;
@@ -95,6 +96,7 @@
     max-width: 20px;
 }
 #google-signin{
+    white-space: nowrap;
     margin: 5px;
     padding: 3px;
     border-radius: 20px;
@@ -112,6 +114,7 @@
     font-size: 14px;
 }
 #facebook-signin{
+    white-space: nowrap;
     margin: 5px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -150,6 +153,7 @@
     
 }
 #forgot-password{
+    white-space: nowrap;
     font-size: 15px;
     
 }
