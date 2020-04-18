@@ -43,7 +43,7 @@ class LogIn extends React.Component {
     }
 
     render() {
-        console.log(firebaseApp.auth().currentUser)
+      
         return (
             <div>
                     <div id='modalWrapper'>

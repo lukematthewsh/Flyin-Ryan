@@ -6,13 +6,17 @@ import editIco from '../images/editIco.png'
 import { Link } from 'react-router-dom'
 import shareFacebook from 'share-facebook'
 import facebook from '../images/facebook.png'
+import ShareModal from './ShareModal.js'
+
 
 class CoreValues extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
+            show:  false,
             user: this.props.user,
+            content: [],
             userData: [],
             author: this.props.user.displayName
         }
@@ -31,23 +35,22 @@ class CoreValues extends React.Component {
             userData: answers
         })
     }
-
-
-    share = async (event) => {
-        let content = (event.target.parentNode.parentNode.textContent)
-        let author = this.state.user.displayName
-    
-        let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
-            return snapshot.val() || []
-        })    
-        prevPosts.push(author + content)
-
-        let feedAnswers = {}
-        feedAnswers[`/feed`] = prevPosts
-
-        await database.ref().update(feedAnswers)
+    openShareModal = (event) =>{
+        this.setState({
+            show: !this.state.show,
+            content: (event.target.parentNode.parentNode.textContent)
+        }
+        )
 
     }
+    closeShareModal = (e) =>{
+        this.setState({
+            show: !this.state.show
+        }
+        )
+
+    }
+
 
     edit = () => { }
 
@@ -75,8 +78,10 @@ class CoreValues extends React.Component {
         }
         else{ 
         return (
+            
             this.state.userData !== null ?
             <div id='core-values'>
+                <ShareModal  show={this.state.show}  closeShareModal={this.closeShareModal} content ={this.state.content} author ={this.state.author}/>
                 <h1>Your Core Values</h1>
                 <div id = "rasta-border-core"></div>
                 <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
@@ -87,7 +92,7 @@ class CoreValues extends React.Component {
                             <div id="button-core-container" key={item}>
                                 <h5 id = "value">{item}</h5>
                                 <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
-                                <div onClick={this.share}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
+                                <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
                                 <div onClick={this.facebook}><img id="facebook-img" src={facebook} /></div>
                             </div>
                         ))}

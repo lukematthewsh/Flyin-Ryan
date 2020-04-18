@@ -1,0 +1,59 @@
+#share-modal{
+    position: fixed;
+    left: 15vw;
+    height: 30vh;
+    width: 70vw;
+    z-index: 5000;
+    background:#95ADC7;
+    border: 1px solid #ccc;
+    color: black;
+    animation: fadeInShare .5s ease-in-out;
+    box-shadow: 7px 7px 50px 5000px rgb(1,1,1,.6);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Do Hyeon', sans-serif;
+    padding: 5px;
+    }
+    #share-modal h2{
+        font-family: 'Do Hyeon', sans-serif;
+        color: white;
+    }
+    #post-content{
+        color:white;
+    }
+#share-to-feed{
+    width: 20vw !important;
+    padding: 3px;
+    width: auto;
+    outline: none;
+    font-size: 15px;
+    border:none;
+    background-color: #3e6a99;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 25vw;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px black;
+    font-family: 'Do Hyeon', sans-serif;
+    color:white;
+
+}
+#preshare{
+    font-size:15px;
+}
+    @keyframes fadeInShare {
+        from{
+            left: -100vw;
+            opacity: 0;
+        }
+        to{
+            left: 15vw;
+            opacity: 1;
+        }
+        
+        
+    }
+   

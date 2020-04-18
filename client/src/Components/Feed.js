@@ -8,7 +8,8 @@ class Feed extends React.Component{
 
         this.state = {
             feed: [],
-            user: this.props.user
+            user: this.props.user,
+            postsArray:[],
             
         }
     }
