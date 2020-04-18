@@ -67,8 +67,8 @@ class LogIn extends React.Component {
                             </div>
                             <div id='modal-buttons'>
                                 <Link onClick={this.props.loginHandler} to='/dashboard' style={{ textDecoration: 'none' }}><div id='signIn-button' type='submit'>Sign In</div></Link>
-                                <Link id="google-signin" to='/dashboard' onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><img id="google-img" src={Goog} /> Sign in with Google</Link>
-                                <Link id="facebook-signin" to='/dashboard' onClick={this.props.facebookHandler} style={{ textDecoration: 'none' }}><img id="facebook-img" src={facebook} />Sign in with Facebook</Link>
+                                <Link  to='/dashboard' onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><div id="google-signin" ><img id="google-img" src={Goog} /> Sign in with Google</div></Link>
+                                <Link  to='/dashboard' onClick={this.props.facebookHandler} style={{ textDecoration: 'none' }}><div id="facebook-signin"><img id="facebook-img" src={facebook} />Sign in with Facebook</div></Link>
                                 <div id ="forgot-password" onClick={this.showModal}><img src = {lock} style = {{maxWidth: "15px"}}/> Forgot Password?</div>
                             </div>
                         </form>
