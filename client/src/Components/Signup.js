@@ -30,13 +30,13 @@ class Signup extends React.Component {
                         </div>
                         <div>
                             <input id='up-password' className='text-line' type='password' name='password' placeholder='Password' />
-                            <div id='text-line-underline'></div>
+                            <div id='text-line-underline-password'></div>
                         </div>
                     </div>
                     <div id='modal-buttons'>
-                        <Link onClick={this.props.signupHandler} to={'/questions'}><div id='signIn-button' type='submit'>Sign Up</div></Link>
-                        <Link id="google-signin" to={'/questions'} onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><img id="google-img" src={Goog} />Sign up with Google</Link>
-                        <Link id="facebook-signin" to={'/questions'} onClick={this.props.facebookHandler}style={{ textDecoration: 'none' }}><img id="facebook-img" src={facebook}/>Sign up with Facebook</Link>
+                        <Link onClick={this.props.signupHandler} to={'/questions'} style={{ textDecoration: 'none' }}><div id='signIn-button' type='submit'>Sign Up</div></Link>
+                        <Link  to={'/questions'} onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><div id="google-signin"><img id="google-img" src={Goog}/>Sign up with Google</div></Link>
+                        <Link  to={'/questions'} onClick={this.props.facebookHandler}style={{ textDecoration: 'none' }}><div id="facebook-signin"><img id="facebook-img" src={facebook}/>Sign up with Facebook</div></Link>
                         <div id = "spacing-div"></div>
                     </div>
                 </form>
