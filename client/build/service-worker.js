@@ -14,11 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-<<<<<<< HEAD
-  "/precache-manifest.b58fc0aece4b9f1835b4e9a34d6657c9.js"
-=======
-  "/precache-manifest.0cf20e4ede67c569913c3a31f2b6dd6b.js"
->>>>>>> working mailChimp
+  "/precache-manifest.bb2aba412640724c1babd7d573957e46.js"
 );
 
 self.addEventListener('message', (event) => {
