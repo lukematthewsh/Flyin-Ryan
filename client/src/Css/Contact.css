@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#contact-page {
+    display: flex;
+    flex-direction: column;
+    background-color:#3e6a99;
+    height: 100vh;;
+}
+
+#contact-newsletter {
+    margin-top: 5vh;
+    width: 90vw;
+    text-align: center;
+}
+
+#subscribe {
+    margin-top: 10vh; 
+}
+
+#contact-contact {
+    margin-top: 5vh;
+    width: 90vw;
+    text-align: center;
+}
+
+#contact-connect {
+    margin-top: 5vh;
+    width: 90vw;
+    text-align: center;
+}
+
+#contact-social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon {
+    margin: 5px;
+}
+
+.logo-blip {
+    width: 30px;
+    height: 30px;
+}

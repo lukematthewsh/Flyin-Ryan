@@ -95,7 +95,6 @@ class About extends React.Component {
                         <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
                     </div>
                 </div>
-                <Mailer/>
             </div >
             <div id = 'page-wrapper-right'></div>
             </div>
