@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 import helpButton from '../images/help.svg'
 import HelpModal from './helpModal';
 
+
 const ProgressBarContainer = styled.div`
 width: 300px;
 `;
@@ -22,14 +23,15 @@ class Questions extends React.Component {
         this.textAnswers = React.createRef()
 
         this.state = {
-            question: data.questions[0],
-            category: data.questions[0].folder,
-            help: data.questions[0].help,
+            question: '',
+            category: '',
+            help: '',
             userAnswers: '',
             selectedAnswer: '',
             percentage: 7.692,
             cvArray: [],
-            show: false
+            show: false,
+          
         }
     }
 
@@ -40,7 +42,7 @@ class Questions extends React.Component {
     nextQuestion = async () => {
         const newIndex = this.state.question.index + 1;
         let userAnswers = {}
-        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquery, answer: this.state.userAnswers }
+        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquiry, answer: this.state.userAnswers }
 
 
         if (this.state.userAnswers) {
@@ -48,9 +50,9 @@ class Questions extends React.Component {
         }
         this.setState({
             percentage: this.state.percentage + 7.692,
-            question: data.questions[newIndex],
-            category: data.questions[newIndex].folder,
-            help: data.questions[newIndex].help,
+            question: this.state.data.questions[newIndex],
+            category: this.state.data.questions[newIndex].folder,
+            help: this.state.data.questions[newIndex].help,
             userAnswers: ''
         })
 
@@ -66,16 +68,16 @@ class Questions extends React.Component {
     prevQuestion = async () => {
         const newIndex = this.state.question.index - 1;
         let userAnswers = {}
-        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquery, answer: this.state.userAnswers }
+        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquiry, answer: this.state.userAnswers }
 
         if (this.state.userAnswers) {
             await database.ref().update(userAnswers)
         }
         this.setState({
             percentage: this.state.percentage - 7.692,
-            question: data.questions[newIndex],
-            category: data.questions[newIndex].folder,
-            help: data.questions[newIndex].help,
+            question: this.state.data.questions[newIndex],
+            category: this.state.data.questions[newIndex].folder,
+            help: this.state.data.questions[newIndex].help,
             userAnswers: ''
         })
 
@@ -88,17 +90,27 @@ class Questions extends React.Component {
     }
 
     async componentDidMount() {
-        this.checkForAnswer()
         let cvAnswers = await database.ref(`/users/${this.props.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             return currentUserAnswers
         })
         if (cvAnswers) {
             this.setState({
-                cvArray: cvAnswers || ''
+                cvArray: cvAnswers || '',
+
             })
         }
+        if (this.props.data) {
+            this.setState({
+                data: this.props.data,
+                question: this.props.data.questions[0],
+                category: this.props.data.questions[0].folder,
+                help: this.props.data.questions[0].help,
+            })
+        this.checkForAnswer()
+        }
     }
+
 
     cvSubmit = async () => {
         let cvArray = this.state.cvArray
@@ -144,7 +156,6 @@ class Questions extends React.Component {
     }
 
     checkForAnswer = () => {
-        console.log(this.props.user)
         let uid = auth().currentUser.uid;
         let textAnswers = this.textAnswers
         let _this = this
@@ -174,9 +185,9 @@ class Questions extends React.Component {
     openHelp = (e) => {
         this.setState({
             show: !this.state.show
-        })  
+        })
     }
-    closeHelp = (e)=>{
+    closeHelp = (e) => {
         this.setState({
             show: !this.state.show
         })
@@ -184,51 +195,51 @@ class Questions extends React.Component {
     render() {
         const { question } = this.state;
         const category = this.state.category
-        const cvArray = this.state.cvArray
         const isEnabled = this.canBeSubmitted();
         let answerStyle
         let headerText
         let nextButton
         let reviewAnswer
-        if (!category.includes('Core Value Questions') && !category.includes('Key')) {
-            headerText = 'Demographic Questions'
-            answerStyle = question.options.map(option => {
-                return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
-            })
-            nextButton = <button
-                id="nextButton"
-                onClick={this.nextQuestion}
-                disabled={!isEnabled}
-            >Next</button>
-        } else if (category.includes('Core Value Questions')) {
-            headerText = 'Core Value Questions'
-            answerStyle = <div id="textinput">
-                <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
-            </div>
-            nextButton = <button
-                id="nextButton"
-                onClick={this.nextQuestion}
-                disabled={!this.state.userAnswers || !isEnabled}
-            >Next</button>
-        } else if (category.includes('Key Core')) {
-            headerText = 'My Core Values'
-            answerStyle = <div id="finalTextinput">
-                <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
-                <button
-                    id='cvSubmit'
-                    onClick={this.cvSubmit}
-                >Submit</button>
-            </div>
-            reviewAnswer =
-                <div id='reviewCV'>
-                    {this.state.cvArray.map((answer) => (
-                        <div onClick={this.removeCV}>{answer}</div>
-                    ))}
+        if (this.state.data) {
+            if (!category.includes('Core Value Questions') && !category.includes('Key')) {
+                headerText = 'Demographic Questions'
+                answerStyle = question.options.map(option => {
+                    return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
+                })
+                nextButton = <button
+                    id="nextButton"
+                    onClick={this.nextQuestion}
+                    disabled={!isEnabled}
+                >Next</button>
+            } else if (category.includes('Core Value Questions')) {
+                headerText = 'Core Value Questions'
+                answerStyle = <div id="textinput">
+                    <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
                 </div>
-            nextButton = <Link to='/dashboard' id="nextButton"><button onClick={this.questionsFinish} id='finishButton'
-            >Finish</button> </Link>
+                nextButton = <button
+                    id="nextButton"
+                    onClick={this.nextQuestion}
+                    disabled={!this.state.userAnswers || !isEnabled}
+                >Next</button>
+            } else if (category.includes('Key Core')) {
+                headerText = 'My Core Values'
+                answerStyle = <div id="finalTextinput">
+                    <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
+                    <button
+                        id='cvSubmit'
+                        onClick={this.cvSubmit}
+                    >Submit</button>
+                </div>
+                reviewAnswer =
+                    <div id='reviewCV'>
+                        {this.state.cvArray.map((answer) => (
+                            <div onClick={this.removeCV}>{answer}</div>
+                        ))}
+                    </div>
+                nextButton = <Link to='/dashboard' id="nextButton"><button onClick={this.questionsFinish} id='finishButton'
+                >Finish</button> </Link>
+            }
         }
-
         return (
 
             <div id="questions-wrapper">
@@ -239,10 +250,10 @@ class Questions extends React.Component {
                         alt='back button' />
                     <img id='helpButton'
                         onClick={this.openHelp}
-                        src = {helpButton}
-                        alt= 'help button' />
+                        src={helpButton}
+                        alt='help button' />
                 </div>
-                <HelpModal show ={this.state.show} help={this.state.help} closeHelp={this.closeHelp}/>
+                <HelpModal show={this.state.show} help={this.state.help} closeHelp={this.closeHelp} />
                 <ProgressBarContainer>
                     <div id='questionTitleWrapper'>
                         <div id='questionTitle'>{headerText}</div>
