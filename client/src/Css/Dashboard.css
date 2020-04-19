@@ -208,27 +208,26 @@ div[id$='-link']:hover{
 
     #rasta-border-core{
         justify-self: center;
+        background:rgb(255,255,255, .3);
         margin-left: 10vw;
-        width: 25vw;
-        height: 3px;
-        background :  linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 100%;
-        margin-bottom: 10px;
+        width: 80vw;
+        height: 2px;
+    
     }
     #rasta-border-feed{
         justify-self: center;
         margin-left: 10vw;
-        width: 18vw;
-        height: 3px;
-        background:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 100%;
-        margin-bottom: 10px;
+        background: rgb(255,255,255, .3);
+        margin-left: 10vw;
+        width: 80vw;
+        height: 2px;
     }
     #rasta-border-goals{
         justify-self: center;
         margin-left: 10vw;
-        width: 18vw;
-        height: 3px;
-        background:   linear-gradient(to right,#e70001 33%,#ffe000 33%, #ffe000 66%, #008542 66%) 100%;
-        margin-bottom: 10px;
+        background: rgb(255,255,255, .3);
+        width: 80vw;
+        height: 2px;
     }
 
     @media (max-height: 450px){

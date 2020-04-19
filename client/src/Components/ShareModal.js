@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import X from "../images/x.png"
 import "../Css/ShareModal.css"
 import { database } from '../firebaseApp.js'

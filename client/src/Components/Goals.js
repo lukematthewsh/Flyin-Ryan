@@ -18,9 +18,8 @@ class Goals extends React.Component {
     render() {
         return (
             <div id='goals'>
-                <h1>Your Info:</h1>
+                <h1>Your Info</h1>
                 <div id = "rasta-border-goals"></div>
-                <br></br>
                 <h4>{this.state.userData}</h4>
                 </div>
                 )

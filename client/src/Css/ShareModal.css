@@ -1,7 +1,7 @@
 #share-modal{
     position: fixed;
     left: 15vw;
-    height: 30vh;
+    height: 40vh;
     width: 70vw;
     z-index: 5000;
     background:#95ADC7;
