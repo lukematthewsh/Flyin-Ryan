@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom'
 import coaster from '../images/coaster.png'
 import { whitesmoke } from 'color-name';
 
-import Mailer from './Mailer.js'
-
 class About extends React.Component {
 
     render() {
