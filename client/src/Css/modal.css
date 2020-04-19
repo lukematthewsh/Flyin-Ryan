@@ -16,10 +16,11 @@
     width: 80vw;
 }
 .title{
-    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
     width: 35vw;
-    padding-right: 2vw;
-    padding-left: 2vw;
+
     margin-top: 10vh;
 }
 #title-underline{
@@ -68,6 +69,7 @@
     font-family: 'Do Hyeon', sans-serif;
 }
 #modal-buttons{
+    margin-top: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -76,47 +78,58 @@
     width: 100vw;
 }
 #signIn-button{
+    white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items :center;
+    text-align: center;
     color: white;
     margin: 5px;
-    width: 68vw;
+    width: 65vw;
     height: 4vh;
     padding: 3px;
     border-radius: 20px;
     background-color:#5179a3 ;
     box-shadow: 2px 2px black;
+    font-size: 14px;
     
 }
 #google-img{
     max-width: 20px;
 }
 #google-signin{
+    white-space: nowrap;
     margin: 5px;
     padding: 3px;
     border-radius: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     color:white;
-    width: 68vw;
+    width: 65vw;
     height: 4vh;
     display: flex;
     align-items: center;
+    text-align:center;
     justify-content: center;
     background-color:rgb(104, 104, 104);
     box-shadow: 2px 2px black;
+    font-size: 14px;
 }
 #facebook-signin{
+    white-space: nowrap;
     margin: 5px;
-    padding: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    justify-content: center;
     border-radius: 20px;
     color:white;
-    width: 68vw;
+    width: 65vw;
     height: 4vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color:#3b5998;
     box-shadow: 2px 2px black;
+    font-size: 14px;
 }
 #facebook:hover{
     cursor: pointer;
@@ -142,10 +155,17 @@
     
 }
 #forgot-password{
+    white-space: nowrap;
     font-size: 15px;
     
 }
 #forgot-password:hover{
     cursor: pointer;
 }
+#text-line-underline-password{
+    
+    background: linear-gradient(to right, #3e6a99 0%, rgb(255, 255, 255,.8) 15%, white 85%, #3e6a99 100%) 100%;
+    width: 100%;
+    height: 2px;
 
+}

@@ -10,6 +10,8 @@ import Login from './Login';
 import Admin from './Admin'
 import Contact from './Contact'
 
+import dbFetch from './QuestionsData'
+
 
 
 class App extends React.Component {
@@ -20,10 +22,11 @@ class App extends React.Component {
       user: null,
       database: null,
       currentPath: undefined,
+      dbInfo: null,
     }
   }
 
-  loginHandler = async (event) => {
+  loginHandler = async () => {
 
 
     let password = document.getElementById('password').value
@@ -143,7 +146,7 @@ class App extends React.Component {
       })
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     firebaseApp.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -152,9 +155,12 @@ class App extends React.Component {
       }
     });
 
+    let dbInfo = await dbFetch()
+
     if (!this.state.database) {
       this.setState({
-        database: database
+        database: database,
+        questions: dbInfo
       })
     }
   }
@@ -174,7 +180,7 @@ class App extends React.Component {
 
 
   render() {
-    // console.log(this.state.user)
+    console.log(this.state.questions)
     return (
       <div id='app'>
         <Switch>
@@ -182,7 +188,7 @@ class App extends React.Component {
           <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} admin={this.state.admin} /> : <Redirect to='/login' />)} />
           <Route path='/admin' render={() => (this.state.admin ? <Admin user={this.state.user} /> : <Redirect to='/' />)} />
           <Route path='/questions' render={() => (this.state.user
-            ? <Questions user={this.state.user} />
+            ? <Questions user={this.state.user} data={this.state.questions}/>
             : <Login modalContent={this.state.modal}
               signupHandler={this.signupHandler}
               closeHandler={this.closeHandler}

@@ -1,10 +1,10 @@
 import React from 'react'
 
 function QuestionCard({ question }) {
-    const { inquery } = question
+    const { inquiry } = question
     return (
         <div>
-            {inquery}
+            {inquiry}
         </div>
     )
 }

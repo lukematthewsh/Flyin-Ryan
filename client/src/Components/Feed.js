@@ -8,7 +8,8 @@ class Feed extends React.Component{
 
         this.state = {
             feed: [],
-            user: this.props.user
+            user: this.props.user,
+            postsArray:[],
             
         }
     }
@@ -33,8 +34,8 @@ class Feed extends React.Component{
                 <br></br>
                 <ul id="blog-list">
                         {this.state.feed.map(item => (
-                            <div id="button-feed-container" key={item}>{item}
-                                    
+                            <div id="button-feed-container" key={item}>
+                            {item}
                             </div>
                         ))}
                     </ul>

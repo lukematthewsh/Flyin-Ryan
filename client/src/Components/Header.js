@@ -47,7 +47,7 @@ class Header extends Component {
     }
     render() {
         return (
-            <div className={classnames("nav-bar",{"navbar--hidden" : !this.state.visible})}>
+            <div className="nav-bar">
                 <Link to = "/"> <img id="flyin-logo" src={FRFlogo} /></Link>
                 <MenuButton handleMouseDown={this.handleMouseDown} />
                 <Menu closeMenu={this.handleMouseDown}
