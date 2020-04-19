@@ -2,7 +2,7 @@ import React, { useReducer } from 'react'
 import '../Css/Questions.css'
 import data from './QuestionsData.js'
 import QuestionCard from './QuestionCard.js'
-import { database, auth } from '../firebaseApp.js'
+import { database, firebaseApp, auth } from '../firebaseApp.js'
 import Progress from './ProgressBar'
 import styled from 'styled-components'
 import backButton from '../images/arrow-invert.png'
@@ -145,7 +145,7 @@ class Questions extends React.Component {
 
     checkForAnswer = () => {
         console.log(this.props.user)
-        let uid = auth().currentUser.uid;
+        let uid = firebaseApp.auth().currentUser.uid;
         let textAnswers = this.textAnswers
         let _this = this
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {

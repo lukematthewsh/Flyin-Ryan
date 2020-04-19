@@ -34,7 +34,7 @@ class Signup extends React.Component {
                         </div>
                     </div>
                     <div id='modal-buttons'>
-                        <Link onClick={this.props.signupHandler} to={'/questions'}><div id='signIn-button' type='submit'>Sign Up</div></Link>
+                        <Link onClick={this.props.signupHandler} to={'/verify'}><div id='signIn-button' type='submit'>Sign Up</div></Link>
                         <Link id="google-signin" to={'/questions'} onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><img id="google-img" src={Goog} />Sign up with Google</Link>
                         <Link id="facebook-signin" to={'/questions'} onClick={this.props.facebookHandler}style={{ textDecoration: 'none' }}><img id="facebook-img" src={facebook}/>Sign up with Facebook</Link>
                         <div id = "spacing-div"></div>
