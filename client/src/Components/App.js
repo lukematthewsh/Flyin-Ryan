@@ -9,6 +9,7 @@ import Questions from './Questions';
 import Login from './Login';
 import Admin from './Admin'
 import Contact from './Contact'
+import Holding from './Holding'
 
 import dbFetch from './QuestionsData'
 
@@ -23,6 +24,7 @@ class App extends React.Component {
       database: null,
       currentPath: undefined,
       dbInfo: null,
+      verSent: false,
     }
   }
 
@@ -40,11 +42,17 @@ class App extends React.Component {
 
     firebaseApp.auth().onAuthStateChanged(async (user) => {
 
-      if (user) {
+      if (user && user.emailVerified) {
         this.setState({
           user: firebaseApp.auth().currentUser,
           modal: false
         })
+      } else {
+        await firebaseApp.auth().signOut()
+        this.setState({
+          user: null
+        })
+        
       }
     })
   }
@@ -54,6 +62,10 @@ class App extends React.Component {
     let password = document.getElementById('up-password').value
     let email = document.getElementById('up-email').value
     let name = document.getElementById('up-name').value
+
+    let actionCodeSettings = {
+      url: 'http://localhost:3000/login'
+    }
 
     await firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(async () => {
@@ -70,15 +82,12 @@ class App extends React.Component {
           displayName: name
         })
       })
-      .then(() => {
-        firebaseApp.auth().currentUser.sendEmailVerification()
+      .then(async () => {
+        await firebaseApp.auth().currentUser.sendEmailVerification(actionCodeSettings)
           .then(() => {
-            alert("We have sent you a verification email. You must verify your email before you can log in to Flyin' Ryan Core Values!")
-            console.log(firebaseApp.auth().currentUser)
-          })
-          .catch((err) => {
-            let errMess = err.message
-            alert(errMess)
+            this.setState({
+              verSent: true
+            })
           })
       })
       .catch((error) => {
@@ -89,7 +98,7 @@ class App extends React.Component {
         } else {
           alert(errorMessage);
         }
-        console.log(error);
+
       })
 
 
@@ -102,10 +111,12 @@ class App extends React.Component {
           user: firebaseApp.auth().currentUser,
         })
       } else {
-        firebaseApp.auth().signOut()
-        this.setState({
-          user: null
-        })
+      firebaseApp.auth().signOut()
+      this.setState({
+        user: null
+      })
+      console.log(firebaseApp.auth().currentUser)
+      console.log(this.state.user)
       }
     })
   }
@@ -166,16 +177,17 @@ class App extends React.Component {
   }
 
   async componentDidUpdate() {
-    if (firebaseApp.auth().currentUser && !this.state.admin) {
-      let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
-        return snapshot.val()
-      })
-      if (isAdmin) {
-        this.setState({
-          admin: isAdmin
-        })
-      }
-    }
+   
+     if (firebaseApp.auth().currentUser && !this.state.admin) {
+       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
+         return snapshot.val()
+       })
+       if (isAdmin) {
+         this.setState({
+           admin: isAdmin
+         })
+       }
+     } 
   }
 
 
@@ -221,7 +233,8 @@ class App extends React.Component {
               googleHandler={this.googleHandler}
               logOut={this.logOut} />
             : <Redirect to='/dashboard' />)} />
-          <Route path='/Contact' render={() => <Contact/>} />
+          <Route path='/Contact' render={() => <Contact />} />
+          <Route path='/verify' render={() => <Holding />} />
         </Switch>
 
         {/* <Admin users={this.state.user}/> */}
