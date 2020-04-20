@@ -25,14 +25,14 @@ class Menu extends Component {
           <Link to='/' style={{ textDecoration: 'none' }}><h2><a>Home</a></h2> </Link>
           {this.props.user ? <Link to='/dashboard' style={{ textDecoration: 'none', color: 'black' }}><h2><a>Dashboard</a></h2> </Link> : null}
           <div>
-            <Link to={'/Contact'} style={{ textDecoration: 'none' , color: 'black'}}>
+            <Link to={'/Contact'} style={{ textDecoration: 'none', color: 'black' }}>
               <h2>Contact</h2>
             </Link>
           </div>
-    {this.props.user ? <Link id = 'sign-in-link' style={{ textDecoration: 'none' , color: 'black'}} to={'/login'} ><h2>Login</h2></Link> : null}
+          {!this.props.user ? <Link id='sign-in-link' style={{ textDecoration: 'none', color: 'black' }} to={'/login'} ><h2>Login</h2></Link> : null}
 
           {this.props.user ? <Link to='/' id="sign-out-button" onClick={this.props.logOut} onMouseUp={this.props.closeMenu} style={{ textDecoration: 'none', color: 'black', whiteSpace: "nowrap" }} ><h2><a>Sign Out</a></h2></Link> : null}
-          {this.props.admin ? <Link to = '/admin' style={{ textDecoration: 'none', color: 'black' }}>Admin</Link> : null}
+          {this.props.admin ? <Link to='/admin' style={{ textDecoration: 'none', color: 'black' }}>Admin</Link> : null}
         </div>
 
       </div>

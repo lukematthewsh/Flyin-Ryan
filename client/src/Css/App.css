@@ -11,7 +11,7 @@
     background-color: white;
     height: 10vh;
     width:100vw;
-    position: fixed;
+    position: absolute;
     z-index: 500;
     top: 0;
     display: flex;

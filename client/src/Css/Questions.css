@@ -100,6 +100,7 @@
 .answerOption {
     display: flex;
     justify-content: center;
+    white-space: nowrap;
     align-items: center;
     margin: 1vh;
     width: 70vw;
@@ -166,10 +167,9 @@
 }
 #reviewCV{
     height: 18vh;
-    width: 64.5vw;
     margin-top: 2vh;
     overflow: scroll;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid;
     margin-top: 1vh;
     border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
