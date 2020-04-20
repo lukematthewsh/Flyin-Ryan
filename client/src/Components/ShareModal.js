@@ -36,7 +36,7 @@ class ShareModal extends React.Component{
                 <br></br>
                 <div onClick={this.props.closeShareModal}><img id='close-button' src={X} style={{ maxWidth: "40px" }}></img>
                 <div id = 'preshare'>
-               <div>Hey <span id = "author-post">{this.props.author}</span> you are about to post this value to the feed: <div id ="post-content">{this.props.content}</div></div>
+               <div>Hey, <span id = "author-post">{this.props.author}</span>, you are about to post this value to the feed: <div id ="post-content">{this.props.content}</div></div>
                <div>If this is the value you would like to share click below!</div>
                </div>
               

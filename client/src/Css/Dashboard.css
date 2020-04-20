@@ -230,6 +230,11 @@ div[id$='-link']:hover{
         height: 2px;
     }
 
+    #plus-sign {
+        width: 10vw;
+        height: 7vh
+    }
+
     @media (max-height: 450px){
 
         #dashboard-wrapper{
