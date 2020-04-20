@@ -40,6 +40,10 @@
     box-shadow: 2px 2px black;
     font-family: 'Do Hyeon', sans-serif;
     color:white;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+
 
 }
 #preshare{

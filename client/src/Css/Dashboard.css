@@ -88,10 +88,16 @@ div[id$='-link']:hover{
     cursor: pointer;
     font-family: 'Questrial', sans-serif;
 }
-
+#core-title{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items: center;
+    width:80vw;
+    margin-left:10vw;
+}
 #core-values h1{ 
     padding-top: 15px;
-    margin-left: 10vw;
 }
 
 #core-values h3{
@@ -99,13 +105,19 @@ div[id$='-link']:hover{
     margin-left: 10vw;
 }
 
-
-
 #core-values-list{
     margin-left: 10vw;
     width: 80vw;
 }
 
+#add-container{
+    width: 80vw;
+    margin-left: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
 #share{
     order: 3;
@@ -123,7 +135,7 @@ div[id$='-link']:hover{
     padding: 10px;
     text-align: left;
     left: 0;
-    width: 80%;
+    width: 75%;
     height: auto;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -143,7 +155,9 @@ div[id$='-link']:hover{
 }
 #core-tools{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
 }
  
 #button-core-container{
@@ -277,10 +291,6 @@ div[id$='-link']:hover{
         height: 2px;
     }
 
-    #plus-sign {
-        width: 10vw;
-        height: 7vh
-    }
 
     @media (max-height: 450px){
 

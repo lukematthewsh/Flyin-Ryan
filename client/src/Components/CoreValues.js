@@ -8,7 +8,7 @@ import shareFacebook from 'share-facebook'
 import facebook from '../images/facebook.png'
 import ShareModal from './ShareModal.js'
 import AddModal from './AddModal'
-import PlusSign from '../images/Plus Sign.jpg'
+import PlusSign from '../images/plus.png'
 import X from "../images/x.png"
 import RemoveModal from './RemoveModal'
 
@@ -99,7 +99,7 @@ class CoreValues extends React.Component {
         let cvArray = this.state.userData
         let cValue = document.getElementById('post-content').innerHTML
         let indexNum = cvArray.indexOf(cValue)
-        //cvArray.splice(indexNum, 1)
+        cvArray.splice(indexNum, 1)
         console.log(cValue)
         console.log(indexNum)
 
@@ -147,11 +147,14 @@ class CoreValues extends React.Component {
                         <ShareModal show={this.state.show} closeShareModal={this.closeShareModal} content={this.state.content} author={this.state.author} />
                         <AddModal addValue={this.addValue} user={this.state.user} userData={this.state.userData} show={this.state.showAdd} closeAddModal={this.closeAddModal} author={this.state.author} />
                         <RemoveModal delete={this.delete} show={this.state.showRem} closeRemModal={this.closeRemModal} content={this.state.content} author={this.state.author} />
-                        <h1>Your Core Values</h1>
+                        <div id ='core-title'>
+                        <h1>Your Core Values</h1> 
+                        </div>
                         <div id="rasta-border-core"></div>
-                        <h3>Here you can view your Core Values! You can add, delete, edit or share you core values to the feed!</h3>
+                        <h3>Here you can view your Core Values! You can also add, delete, edit or share you core values to the feed!</h3>
                         <br></br>
-
+                        <div id ="add-container"><p>Click the plus to add a new value</p> <div id='plus'><img onClick={this.openAddModal} id='plus-sign' src={PlusSign} alt='plus-sign' style ={{maxHeight: "25px", maxWidth: "25px"}}/></div>
+                        </div>
                         <div id="core-values-list">
                             {this.state.userData.map(item => (
                                 <div id="button-core-container" key={item}>
@@ -159,14 +162,14 @@ class CoreValues extends React.Component {
                                     <div id="core-tools">
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
-                                        <div onClick={this.openRemModal}><img id='close-remove-button' src={X} style={{ maxWidth: "20px" }} /></div>
+                                        <div onClick={this.openRemModal}><img id='close-remove-button' src={X} style={{ maxWidth: "20px", opacity: "50%"}} /></div>
                                     </div>
                                 </div>
                             ))}
                         </div>
 
                         <br></br>
-                        <div id='plus'><img onClick={this.openAddModal} id='plus-sign' src={PlusSign} alt='plus-sign' /></div>
+                       
 
                     </div> : <Link to="/questions"><h1 style={{ marginTop: 200 }}>Take the Core Values Challenge!</h1></Link>
             )
