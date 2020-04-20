@@ -176,19 +176,19 @@ class App extends React.Component {
     }
   }
 
-  async componentDidUpdate() {
+  // async componentDidUpdate() {
    
-     if (firebaseApp.auth().currentUser && !this.state.admin) {
-       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
-         return snapshot.val()
-       })
-       if (isAdmin) {
-         this.setState({
-           admin: isAdmin
-         })
-       }
-     } 
-  }
+  //    if (firebaseApp.auth().currentUser && !this.state.admin) {
+  //      let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
+  //        return snapshot.val()
+  //      })
+  //      if (isAdmin) {
+  //        this.setState({
+  //          admin: isAdmin
+  //        })
+  //      }
+  //    } 
+  // }
 
 
   render() {

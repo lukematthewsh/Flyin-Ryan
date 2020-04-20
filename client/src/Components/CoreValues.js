@@ -9,6 +9,8 @@ import facebook from '../images/facebook.png'
 import ShareModal from './ShareModal.js'
 import AddModal from './AddModal'
 import PlusSign from '../images/Plus Sign.jpg'
+import X from "../images/x.png"
+import RemoveModal from './RemoveModal'
 
 
 class CoreValues extends React.Component {
@@ -18,8 +20,9 @@ class CoreValues extends React.Component {
         this.state = {
             show: false,
             showAdd: false,
+            showRem: false,
             user: this.props.user,
-            content: [],
+            content: "",
             userData: [],
             author: this.props.user.displayName
         }
@@ -55,6 +58,13 @@ class CoreValues extends React.Component {
 
     }
 
+    openRemModal = (event) => {
+        this.setState({
+            showRem: !this.state.showRem,
+            content: (event.target.parentNode.parentNode.textContent)
+        })
+    }
+
     closeAddModal = (event) => {
         this.setState({
             showAdd: !this.state.showAdd
@@ -69,6 +79,12 @@ class CoreValues extends React.Component {
 
     }
 
+    closeRemModal = (event) => {
+        this.setState({
+            showRem: !this.state.showRem
+        })
+    }
+
     addValue = async () => {
         let newValue = document.getElementById('add-value-text').value
         this.state.userData.push(newValue)
@@ -78,6 +94,26 @@ class CoreValues extends React.Component {
         this.setState({
             showAdd: !this.state.showAdd
         })
+    }
+
+    delete = (event) => {
+        let cvArray = this.state.userData
+        let cValue = document.getElementById('post-content').innerHTML
+        let indexNum = cvArray.indexOf(cValue)
+        //cvArray.splice(indexNum, 1)
+        console.log(cValue)
+        console.log(indexNum)
+
+
+        //let update = {}
+        //update[`/users/${this.state.user.uid}/Key Core Values`] = cvArray
+        //await database.ref().update(update)
+
+        this.setState({
+            // userData: cvArray,
+            showRem: !this.state.showRem
+        })
+               
     }
 
 
@@ -112,6 +148,7 @@ class CoreValues extends React.Component {
                     <div id='core-values'>
                         <ShareModal show={this.state.show} closeShareModal={this.closeShareModal} content={this.state.content} author={this.state.author} />
                         <AddModal addValue={this.addValue} user={this.state.user} userData={this.state.userData} show={this.state.showAdd} closeAddModal={this.closeAddModal} author={this.state.author} />
+                        <RemoveModal delete={this.delete} show={this.state.showRem} closeRemModal={this.closeRemModal} content={this.state.content} author={this.state.author}/>
                         <h1>Your Core Values</h1>
                         <div id="rasta-border-core"></div>
                         <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
@@ -123,7 +160,7 @@ class CoreValues extends React.Component {
                                         <h5 id="value">{item}</h5>
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
-                                        <div onClick={this.facebook}><img id="facebook-img" src={facebook} /></div>
+                                        <div onClick={this.openRemModal}><img id='close-remove-button' src={X} style={{ maxWidth: "20px" }} /></div>
                                     </div>
                                 ))}
                             </ul>

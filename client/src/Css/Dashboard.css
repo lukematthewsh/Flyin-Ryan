@@ -118,6 +118,11 @@ div[id$='-link']:hover{
 #edit{
     filter: opacity(20%)
 }
+/* #close-button {
+    width: 2px;
+    height: 2px;
+    filter: opacity(20%)
+} */
 #value{
     position: absolute;
     left: 13vw;
