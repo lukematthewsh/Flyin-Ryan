@@ -6,21 +6,24 @@ import { database } from '../firebaseApp.js'
 class ShareModal extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            show: this.props.show
+        }
     }
     share = async (event) => {
         let content = this.props.content
         let author = this.props.author
-    
+        let colon = `:  `
         let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
             return snapshot.val() || []
         })    
-        prevPosts.push(author + content)
+        prevPosts.push(author + colon + content)
 
         let feedAnswers = {}
         feedAnswers[`/feed`] = prevPosts
 
         await database.ref().update(feedAnswers)
-
+        this.props.closeShareModal()
     }
 
 

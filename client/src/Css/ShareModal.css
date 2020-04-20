@@ -16,6 +16,9 @@
     justify-content: center;
     font-family: 'Do Hyeon', sans-serif;
     padding: 5px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
     }
     #share-modal h2{
         font-family: 'Do Hyeon', sans-serif;

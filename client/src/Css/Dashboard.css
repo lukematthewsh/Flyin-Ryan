@@ -157,7 +157,7 @@ div[id$='-link']:hover{
     border-radius: 10px;
     position: relative;
 }
-#button-core-container::after{
+#button-feed-container::after{
     background-color: #3e6a99;
     content: "\00a0";
     display: block;
@@ -198,7 +198,7 @@ div[id$='-link']:hover{
     word-wrap: break-word;
     hyphens: auto;
     align-items: center;
-    box-shadow: 2px 2px 2px #778a9f, inset 1px 1px 9px -1px #444c54;
+    box-shadow: 2px 2px 2px #778a9f;
     border: 1px solid #444c54 ;
     display: flex;
     justify-content: space-between;
@@ -206,9 +206,10 @@ div[id$='-link']:hover{
     background-color:  #3e6a99;
     padding: 15px;
     margin: 14px;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 10px;
     height: auto;
+    position: relative;
 
 }
 #author{

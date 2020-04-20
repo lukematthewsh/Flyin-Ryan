@@ -33,7 +33,7 @@ class Feed extends React.Component{
                 <h3>Check out other users awesome Core Values!</h3>
                 <br></br>
                 <ul id="blog-list">
-                        {this.state.feed.map(item => (
+                        {this.state.feed.reverse().map(item => (
                             <div id="button-feed-container" key={item}>
                             <div id="value-feed">{item}</div>
                             </div>

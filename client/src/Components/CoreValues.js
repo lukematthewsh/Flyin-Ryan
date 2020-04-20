@@ -49,7 +49,7 @@ class CoreValues extends React.Component {
     openShareModal = (event) => {
         this.setState({
             show: !this.state.show,
-            content: (event.target.parentNode.parentNode.textContent)
+            content: (event.target.parentNode.parentNode.parentNode.textContent)
         }
         )
 
@@ -120,7 +120,7 @@ class CoreValues extends React.Component {
                             <div id="core-values-list">
                                 {this.state.userData.map(item => (
                                     <div id="button-core-container" key={item}>
-                                        <div id="value">{item}</div>
+                                        <h5 id="value">{item}</h5>
                                         <div id="core-tools"> 
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
