@@ -24,7 +24,8 @@ class CoreValues extends React.Component {
             user: this.props.user,
             content: "",
             userData: [],
-            author: this.props.user.displayName
+            author: this.props.user.displayName,
+            deleteCV: null,
         }
 
     }
@@ -57,16 +58,17 @@ class CoreValues extends React.Component {
 
     }
 
-    openRemModal = (event) => {
+    openRemModal = (event, index) => {
         this.setState({
             showRem: !this.state.showRem,
-            content: (event.target.parentNode.parentNode.textContent)
+            content: (event.target.parentNode.parentNode.parentNode.textContent),
+            deleteCV: index
         })
     }
 
     closeAddModal = (event) => {
         this.setState({
-            showAdd: !this.state.showAdd
+            showAdd: !this.state.showAdd,
         })
     }
 
@@ -80,7 +82,8 @@ class CoreValues extends React.Component {
 
     closeRemModal = (event) => {
         this.setState({
-            showRem: !this.state.showRem
+            showRem: !this.state.showRem,
+            deleteCV: null,
         })
     }
 
@@ -97,11 +100,10 @@ class CoreValues extends React.Component {
 
     delete = (event) => {
         let cvArray = this.state.userData
-        let cValue = document.getElementById('post-content').innerHTML
-        let indexNum = cvArray.indexOf(cValue)
+        let cValue = this.state.content
+        let indexNum = this.state.deleteCV
         cvArray.splice(indexNum, 1)
-        console.log(cValue)
-        console.log(indexNum)
+        console.log(cvArray)
 
 
         //let update = {}
@@ -156,13 +158,17 @@ class CoreValues extends React.Component {
                         <div id ="add-container"><p>Click the plus to add a new value</p> <div id='plus'><img onClick={this.openAddModal} id='plus-sign' src={PlusSign} alt='plus-sign' style ={{maxHeight: "25px", maxWidth: "25px"}}/></div>
                         </div>
                         <div id="core-values-list">
-                            {this.state.userData.map(item => (
+                            {this.state.userData.map((item, index) => (
                                 <div id="button-core-container" key={item}>
                                     <h5 id="value">{item}</h5>
                                     <div id="core-tools">
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
+<<<<<<< HEAD
                                         <div onClick={this.openRemModal}><img id='close-remove-button' src={X} style={{ maxWidth: "20px", opacity: "50%"}} /></div>
+=======
+                                        <div onClick={(e) => {this.openRemModal(e, index)}}><img id='close-remove-button' src={X} style={{ maxWidth: "20px" }} /></div>
+>>>>>>> testing
                                     </div>
                                 </div>
                             ))}
