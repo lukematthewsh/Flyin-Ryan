@@ -16,9 +16,7 @@
     justify-content: center;
     font-family: 'Do Hyeon', sans-serif;
     padding: 5px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+    
     }
     #share-modal h2{
         font-family: 'Do Hyeon', sans-serif;
@@ -46,6 +44,10 @@
 }
 #preshare{
     font-size:15px;
+    width:60vw;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
     @keyframes fadeInShare {
         from{
