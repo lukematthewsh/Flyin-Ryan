@@ -1,4 +1,3 @@
-
 import { database } from '../firebaseApp.js'
 
 async function dbFetch() {

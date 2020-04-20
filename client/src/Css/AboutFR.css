@@ -62,6 +62,11 @@
     justify-content: center;
 }
 
+#social-media-container {
+    display:flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
 
 #bottom-signup{
     display: flex;
@@ -87,6 +92,24 @@
     -moz-box-shadow: 0px 6px 0px #008542;
     box-shadow: 0px 2px 0px black;
     border: 1px solid #008575;
+}
+
+#share-bottom-button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #3b5998;
+    width: 90px;
+    color:white;
+    font-size: 16px;
+    font-family: Segoe UI;
+    height: 25px;
+    -webkit-box-shadow: 0px 6px 0px #3b5998;
+    -moz-box-shadow: 0px 6px 0px #3b5998;
+    box-shadow: 0px 2px 0px black;
+    border: 1px solid #3b5998;
 }
 
 #signup-text{
@@ -130,6 +153,15 @@
         width:70vw;
     }
     #sign-up-bottom-button{
+        
+        width: 150px;
+        color:white;
+        font-size: 30px;
+
+        height: 35px;
+       
+    }
+    #share-bottom-button{
         
         width: 150px;
         color:white;
