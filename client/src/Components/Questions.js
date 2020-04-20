@@ -9,7 +9,8 @@ import backButton from '../images/arrow-invert.png'
 import { Link } from 'react-router-dom'
 import helpButton from '../images/help.svg'
 import HelpModal from './helpModal';
-
+import nextArrow from '../images/white_arrow.png'
+import add from '../images/plus.png'
 
 const ProgressBarContainer = styled.div`
 width: 300px;
@@ -207,28 +208,27 @@ class Questions extends React.Component {
                     return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
                 })
                 nextButton = <button
-                    id="nextButton"
+                    
                     onClick={this.nextQuestion}
                     disabled={!isEnabled}
-                >Next</button>
+                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></button>
             } else if (category.includes('Core Value Questions')) {
                 headerText = 'Core Value Questions'
                 answerStyle = <div id="textinput">
                     <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
                 </div>
                 nextButton = <button
-                    id="nextButton"
+                
                     onClick={this.nextQuestion}
                     disabled={!this.state.userAnswers || !isEnabled}
-                >Next</button>
+                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></button>
             } else if (category.includes('Key Core')) {
                 headerText = 'My Core Values'
                 answerStyle = <div id="finalTextinput">
                     <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
                     <button
-                        id='cvSubmit'
                         onClick={this.cvSubmit}
-                    >Submit</button>
+                    ><img src = {add}/></button>
                 </div>
                 reviewAnswer =
                     <div id='reviewCV'>
@@ -236,8 +236,8 @@ class Questions extends React.Component {
                             <div onClick={this.removeCV}>{answer}</div>
                         ))}
                     </div>
-                nextButton = <Link to='/dashboard' id="nextButton"><button onClick={this.questionsFinish} id='finishButton'
-                >Finish</button> </Link>
+                nextButton = <Link to='/dashboard' ><button onClick={this.questionsFinish} id='finishButton'
+                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></button> </Link>
             }
         }
         return (

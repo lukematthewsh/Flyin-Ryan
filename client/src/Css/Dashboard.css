@@ -159,18 +159,17 @@ div[id$='-link']:hover{
 }
 #button-core-container::after{
     background-color: #3e6a99;
-    
     content: "\00a0";
     display: block;
     height: 20px;
     left: -10px;
     position: absolute;
     top: 20px;
-    transform:             rotate( 45deg );
-        -moz-transform:    rotate( 45deg );
-        -ms-transform:     rotate( 45deg );
-        -o-transform:      rotate( 45deg );
-        -webkit-transform: rotate( 45deg );
+    transform: rotate( 45deg );
+    -moz-transform: rotate( 45deg );
+    -ms-transform: rotate( 45deg );
+    -o-transform: rotate( 45deg );
+    -webkit-transform: rotate( 45deg );
     width:  20px;
 }
 #feed-display h1{
