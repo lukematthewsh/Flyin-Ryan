@@ -64,17 +64,16 @@
 #question-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 25vh;
-    text-align: center;
+    width: 100vw;
     padding-top: 15px;
 }
 
 #questions {
     width: 70vw;
+    text-align: center;
     display: flex;
     justify-content: center;
-    text-align: center;
     margin: 1vh;
     font-size: 6.5vw;
     color: white;
