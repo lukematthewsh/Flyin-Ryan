@@ -4,7 +4,9 @@ import About from './AboutFR'
 import Header from './Header'
 import Signup from '../images/signup-icon.png'
 import Usericon from '../images/user-icon.png'
+import facebook from '../images/facebook.png'
 import { Link } from 'react-router-dom'
+import { FacebookShareButton } from "react-share"
 
 
 class Landing extends React.Component {
@@ -39,6 +41,7 @@ class Landing extends React.Component {
                                 </Link>
 
                             </div>
+
                         </div>
                         <div id="arrow">
                             <img id='arrow-img' src={Arrow} alt='bouncing arrow' />
