@@ -1,7 +1,6 @@
 #questions-wrapper {
     display: flex;
     flex-direction: column;
-
     height: 100vh;
     width: 100vw;
     font-family: 'Do Hyeon', sans-serif;
@@ -16,6 +15,7 @@
     margin-left: 25px;
     transform: rotate(90deg);
 }
+
 #helpButton {
     height: 5vh;
     z-index: 50;
@@ -24,8 +24,8 @@
     margin-top: 25px;
     margin-right: 25px;
     opacity: .3;
-    
 }
+
 #prevButton {
     width: 15vw;
     height: 5vh;
@@ -64,7 +64,6 @@
 #question-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 25vh;
     width: 100vw;
     padding-top: 15px;
@@ -72,9 +71,9 @@
 
 #questions {
     width: 70vw;
+    text-align: center;
     display: flex;
     justify-content: center;
-    text-align: center;
     margin: 1vh;
     font-size: 6.5vw;
     color: white;
@@ -92,7 +91,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    align-items: center;
     height: 45vh;
     overflow: scroll;
 }
@@ -100,6 +99,7 @@
 .answerOption {
     display: flex;
     justify-content: center;
+    white-space: nowrap;
     align-items: center;
     margin: 1vh;
     width: 70vw;
@@ -113,12 +113,14 @@
 .selected {
     background-color: grey;
 }
+
 #finalTextinput{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 #textAnswers {
     resize: none;
     outline: none;
@@ -150,11 +152,13 @@
     font-family: 'Do Hyeon', sans-serif;
     text-align: center;
 }
+
 #finalTextAnswers::placeholder {
     color: rgba(255, 255, 255, 0.425);
     font-family: 'Do Hyeon', sans-serif;
     text-align: center;
 }
+
 #cvSubmit{
     width: 25vw;
     height: 5vh;
@@ -164,19 +168,23 @@
     margin-top: 2vh;
     font-family: 'Do Hyeon', sans-serif;
 }
+
 #reviewCV{
     height: 18vh;
-    width: 64.5vw;
     margin-top: 2vh;
-    overflow: scroll;
-    padding: 8px;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 12px;
     border: 1px solid;
     margin-top: 1vh;
     border-image: linear-gradient(45deg, #adadad9a, #5555554d, #ffffff4d) 1;
     background-color: #3e6a99;
     box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
     font-size: 2vh;
-    color: white
+    color: white;
+    width: 50vw;
 }
 
 #question-inner-container {
@@ -202,4 +210,19 @@
     font-family: 'Do Hyeon', sans-serif;
     width: 25vw;
     height: 5vh;
+}
+
+@media (min-width: 750px){
+    #questions{
+    font-size: 3.5vw;
+    }
+    .answerOption{
+        font-size: 3vw;
+    }
+    #textAnswers{
+        width: 50vw;
+    }
+
+
+
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Css/Dashboard.css'
-import { database } from '../firebaseApp.js'
 
 class Goals extends React.Component {
 
@@ -18,10 +17,9 @@ class Goals extends React.Component {
     render() {
         return (
             <div id='goals'>
-                <h1>Your Info:</h1>
+                <h1>Your Info</h1>
                 <div id = "rasta-border-goals"></div>
-                <br></br>
-                <h4>{this.state.userData}</h4>
+                <h3>{this.state.userData}</h3>
                 </div>
                 )
             }

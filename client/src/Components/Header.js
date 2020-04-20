@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import FRFlogo from '../images/flyinLogo.svg'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
-import classnames from "classnames";
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
@@ -47,7 +46,7 @@ class Header extends Component {
     render() {
         return (
             <div className="nav-bar">
-                <Link to = "/"> <img id="flyin-logo" src={FRFlogo} /></Link>
+                <Link to = "/"> <img id="flyin-logo" src={FRFlogo} alt = "flyin logo" /></Link>
                 <MenuButton handleMouseDown={this.handleMouseDown} />
                 <Menu closeMenu={this.handleMouseDown}
                     menuVisibility={this.state.isHidden} user={this.props.user} logOut={this.props.logOut} admin={this.props.admin}/>

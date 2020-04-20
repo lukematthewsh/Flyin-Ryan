@@ -14,7 +14,7 @@ export default class HelpModal extends React.Component {
         return (
             <div className="modal">
               <h2 id="top-close">Need a Hand
-                <div onClick={this.props.closeHelp}><img id='close-button' src={X} style={{ maxWidth: "40px" }}></img> </div>
+                <div onClick={this.props.closeHelp}><img id='close-button' src={X} style={{ maxWidth: "40px" }}alt = "close X"></img> </div>
                 </h2>
                 <div class='content'>{this.props.help}</div>
                 <p id="close-message">Click the X to close.</p>

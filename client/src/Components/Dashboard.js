@@ -98,8 +98,7 @@ class Dashboard extends React.Component {
     render() {
         let CVclasses = classnames('cv-button', { 'cv-button-active': this.state.CVbutt.active });
         let Vclasses = classnames('v-button', { 'v-button-active': this.state.Vbutt.active });
-        let Mclasses = classnames('m-button', { 'm-button-active': this.state.Mbutt.active });
-        console.log(this.state.user)
+        let Mclasses = classnames('m-button', { 'm-button-active': this.state.Mbutt.active })
         return (
             <div id='dash-page'>
                 <Header user={this.state.user} logOut={this.props.logOut} admin={this.props.admin}/>
