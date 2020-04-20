@@ -111,6 +111,7 @@ class Admin extends React.Component {
         })
     }
 
+    
     questionsHandler = () => {
         let quests = this.state.questionsData.questions.map((quest) => {
             let inquiry = quest.inquiry
