@@ -114,20 +114,22 @@ class CoreValues extends React.Component {
                         <AddModal addValue={this.addValue} user={this.state.user} userData={this.state.userData} show={this.state.showAdd} closeAddModal={this.closeAddModal} author={this.state.author} />
                         <h1>Your Core Values</h1>
                         <div id="rasta-border-core"></div>
-                        <h4>Here you can view your Core Values! You will also be able to update/edit them here.</h4>
+                        <h3>Here you can view your Core Values! You will also be able to update/edit them here.</h3>
                         <br></br>
-                        <div id="corevalues-content">
-                            <ul id="core-values-list">
+                       
+                            <div id="core-values-list">
                                 {this.state.userData.map(item => (
                                     <div id="button-core-container" key={item}>
-                                        <h5 id="value">{item}</h5>
+                                        <div id="value">{item}</div>
+                                        <div id="core-tools"> 
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.facebook}><img id="facebook-img" src={facebook} /></div>
+                                        </div>
                                     </div>
                                 ))}
-                            </ul>
-                        </div>
+                            </div>
+                    
                         <br></br>
                         <div id='plus'><img onClick={this.openAddModal} id='plus-sign' src={PlusSign} alt='plus-sign' /></div>
 

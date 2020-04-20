@@ -20,7 +20,7 @@ class Goals extends React.Component {
             <div id='goals'>
                 <h1>Your Info</h1>
                 <div id = "rasta-border-goals"></div>
-                <h4>{this.state.userData}</h4>
+                <h3>{this.state.userData}</h3>
                 </div>
                 )
             }

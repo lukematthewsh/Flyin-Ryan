@@ -20,13 +20,13 @@ class About extends React.Component {
                     <h2>What are Core Values?</h2>
                     <div id='rasta-border'></div>
                     <br></br>
-                    <p>“Before his death in 2011 in a Freeride World Tour event, “Flyin” Ryan Hawks wrote his 14 Core Principles for Living.
+                    <p>Before his death in 2011 in a Freeride World Tour event, “Flyin” Ryan Hawks wrote his 14 Core Principles for Living.
                     </p>
                     <br></br>
                     <p>These Core Values gave him a compass that guided his decision making in sports, in school, in relationships and in his daily life.
                     </p>
                     <br></br>
-                    <p>People with an established set of self-composed Core Values have a reference point for making decisions, big and small.”
+                    <p>People with an established set of self-composed Core Values have a reference point for making decisions, big and small.
                     </p>
                     <br></br>
                     <br></br>
@@ -90,7 +90,7 @@ class About extends React.Component {
                     <p>Sign up below to begin!</p>
                     <br></br>
                     <div id='bottom-signup'>
-                        <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
+                        <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button">Sign Up</div> </Link>
                     </div>
                 </div>
             </div >
