@@ -22,6 +22,7 @@
     "prop-types": "^15.7.2",
     "react-player": "^1.15.3",
     "react-router-dom": "^5.1.2",
+    "react-share": "^4.1.0",
     "request": "^2.88.2",
     "share-facebook": "^1.0.1",
     "styled-components": "^5.1.0"
