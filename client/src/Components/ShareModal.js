@@ -40,9 +40,9 @@ class ShareModal extends React.Component{
                <div>If this is the value you would like to share click below!</div>
                </div>
               
-               <div id ="share-to-feed" onClick= {this.share}>Share</div>
+               
                 </div>
-
+                <div id ="share-to-feed" onClick= {this.share}>Share</div>
             </div>
         )
     }
