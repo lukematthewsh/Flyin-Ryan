@@ -56,6 +56,22 @@
 
 }
 
+#admin-questions{
+    display: flex;
+    flex-direction: column;
+    font-size: 2vw;
+
+}
+
+.adminQuestionTitle{
+    text-decoration: underline;
+}
+
+.adminOption{
+    padding-left: 15px;
+}
+
+
 #coreValueDiv {
     padding-left: 8px;
 }
@@ -94,6 +110,10 @@
 
 }
 
+#admin-user-display{
+    font-size: 2vw;
+}
+
 #adminCVContainer{
     display: flex;
     flex-direction: column;
@@ -104,7 +124,27 @@
 
 }
 
+#adminModalContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50vh;
+    overflow: scroll;
+    font-size: 2vw;
+}
+
 #updateButtonWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 4vh;
+    width: 7vw;
+    background-color: #696b6d;
+    color: white;
+}
+
+#updateButtonWrapperClick{
     display: flex;
     justify-content: center;
     align-items: center;
