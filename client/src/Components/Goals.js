@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Css/Dashboard.css'
-import { database } from '../firebaseApp.js'
 
 class Goals extends React.Component {
 

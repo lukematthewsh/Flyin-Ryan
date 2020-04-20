@@ -192,7 +192,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.questions)
     return (
       <div id='app'>
         <Switch>

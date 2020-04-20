@@ -37,7 +37,6 @@ class CoreValues extends React.Component {
         this.setState({
             userData: answers
         })
-        console.log(this.state.userData)
     }
 
     openAddModal = (event) => {
@@ -90,7 +89,6 @@ class CoreValues extends React.Component {
             redirect_uri: 'https://www.google.com',
             app_id: '2367781363516455'
         })
-        console.log(test)
     }
 
     render() {
@@ -114,7 +112,7 @@ class CoreValues extends React.Component {
                         <AddModal addValue={this.addValue} user={this.state.user} userData={this.state.userData} show={this.state.showAdd} closeAddModal={this.closeAddModal} author={this.state.author} />
                         <h1>Your Core Values</h1>
                         <div id="rasta-border-core"></div>
-                        <h3>Here you can view your Core Values! You will also be able to update/edit them here.</h3>
+                        <h3>Here you can view your Core Values! You can add, delete, edit or share you core values to the feed!</h3>
                         <br></br>
                        
                             <div id="core-values-list">
@@ -124,8 +122,7 @@ class CoreValues extends React.Component {
                                         <div id="core-tools"> 
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
-                                        <div onClick={this.facebook}><img id="facebook-img" src={facebook} /></div>
-                                        </div>
+                                       </div>
                                     </div>
                                 ))}
                             </div>

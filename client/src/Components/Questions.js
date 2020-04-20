@@ -207,28 +207,28 @@ class Questions extends React.Component {
                 answerStyle = question.options.map(option => {
                     return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
                 })
-                nextButton = <button
+                nextButton = <div
                     
                     onClick={this.nextQuestion}
                     disabled={!isEnabled}
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></button>
+                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div>
             } else if (category.includes('Core Value Questions')) {
                 headerText = 'Core Value Questions'
                 answerStyle = <div id="textinput">
                     <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
                 </div>
-                nextButton = <button
+                nextButton = <div
                 
                     onClick={this.nextQuestion}
                     disabled={!this.state.userAnswers || !isEnabled}
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></button>
+                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div>
             } else if (category.includes('Key Core')) {
                 headerText = 'My Core Values'
                 answerStyle = <div id="finalTextinput">
                     <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
-                    <button
+                    <div
                         onClick={this.cvSubmit}
-                    ><img src = {add}/></button>
+                    ><img src = {add}/></div>
                 </div>
                 reviewAnswer =
                     <div id='reviewCV'>
@@ -236,8 +236,8 @@ class Questions extends React.Component {
                             <div onClick={this.removeCV}>{answer}</div>
                         ))}
                     </div>
-                nextButton = <Link to='/dashboard' ><button onClick={this.questionsFinish} id='finishButton'
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></button> </Link>
+                nextButton = <Link to='/dashboard' ><div onClick={this.questionsFinish} id='finishButton'
+                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div> </Link>
             }
         }
         return (
