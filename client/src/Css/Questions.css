@@ -144,7 +144,8 @@
     background-color: #3e6a99;
     box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
     font-size: 2vh;
-    color: white
+    color: white;
+    width:50vw;
 }
 
 #textAnswers::placeholder {
@@ -209,7 +210,11 @@
 #finishButton {
     font-family: 'Do Hyeon', sans-serif;
     width: 25vw;
-    height: 5vh;
+    height: 45px;
+    display:flex;
+    margin-top: 15px;
+    justify-content: center;
+    align-content: center;
 }
 
 @media (min-width: 750px){
