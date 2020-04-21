@@ -244,7 +244,6 @@ class Questions extends React.Component {
         return (
 
             <div id="questions-wrapper">
-                <img id = "bg-opacity"src ={BGimg}/>
                 <div id='buttonWrapper'>
                     {question.index !== 0 ? <img id='backButton'
                         onClick={this.prevQuestion}
