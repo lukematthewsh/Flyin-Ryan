@@ -17,7 +17,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: top 0.6s;
     z-index: 500;
 
 }
@@ -45,7 +44,7 @@
     justify-content: space-between;
     height: 100vh;
     width: 100vw;
-    background-image: url("../images/HawksBAlate.jpg");
+    background-image: url("../images/flyingSmall.png");
     background-size: cover;
    
     box-shadow: 0 1px 9px .5px black;
@@ -219,7 +218,7 @@ div[id$="-landing-button"]{
 @media (min-width: 1200px){
     #flyin-logo{
         margin-left: 2vw;
-        width: 30vw;
+        width: 20vw;
     }
     div[id$='-box']{
         height: 90px;

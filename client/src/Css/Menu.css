@@ -23,7 +23,7 @@ color:black;
   #menu-list{
     text-decoration: none;
     grid-area: list;
-    margin-top: 10vh;
+    margin-top: 2vh;
     height: 70vh;
     display: flex;
     align-items: center;
@@ -89,4 +89,10 @@ color:black;
     width: 100px;
 
 
+  }
+  @media(min-width: 1200px){
+      #X{
+        width: 3vw;
+        height: 3vw;
+      }
   }
