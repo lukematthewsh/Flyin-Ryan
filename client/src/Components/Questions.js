@@ -32,7 +32,7 @@ class Questions extends React.Component {
             percentage: 7.692,
             cvArray: [],
             show: false,
-          
+
         }
     }
 
@@ -108,7 +108,7 @@ class Questions extends React.Component {
                 category: this.props.data.questions[0].folder,
                 help: this.props.data.questions[0].help,
             })
-        this.checkForAnswer()
+            this.checkForAnswer()
         }
     }
 
@@ -193,6 +193,7 @@ class Questions extends React.Component {
             show: !this.state.show
         })
     }
+
     render() {
         const { question } = this.state;
         const category = this.state.category
@@ -208,27 +209,27 @@ class Questions extends React.Component {
                     return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
                 })
                 nextButton = <div
-                    
+
                     onClick={this.nextQuestion}
                     disabled={!isEnabled}
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div>
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
             } else if (category.includes('Core Value Questions')) {
                 headerText = 'Core Value Questions'
                 answerStyle = <div id="textinput">
                     <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
                 </div>
                 nextButton = <div
-                
+
                     onClick={this.nextQuestion}
                     disabled={!this.state.userAnswers || !isEnabled}
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div>
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
             } else if (category.includes('Key Core')) {
                 headerText = 'My Core Values'
                 answerStyle = <div id="finalTextinput">
                     <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
                     <div
                         onClick={this.cvSubmit}
-                    ><img src = {add}/></div>
+                    ><img src={add} /></div>
                 </div>
                 reviewAnswer =
                     <div id='reviewCV'>
@@ -237,7 +238,7 @@ class Questions extends React.Component {
                         ))}
                     </div>
                 nextButton = <Link to='/dashboard' ><div onClick={this.questionsFinish} id='finishButton'
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div> </Link>
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div> </Link>
             }
         }
         return (
@@ -245,16 +246,16 @@ class Questions extends React.Component {
             <div id="questions-wrapper">
                 <div id='buttonWrapper'>
                     {question.index !== 0 ? <img id='backButton'
-                        onClick= {this.prevQuestion}
+                        onClick={this.prevQuestion}
                         src={backButton}
                         alt='back button' /> : <Link to="/"><img id='backButton'
-                        src={backButton}
-                        alt='back button' /></Link>}
-                    
-                    <img id='helpButton'
+                            src={backButton}
+                            alt='back button' /></Link>}
+
+                    {question.index > 1 ? <img id='helpButton'
                         onClick={this.openHelp}
                         src={helpButton}
-                        alt='help button' />
+                        alt='help button' /> : <></>}
                 </div>
                 <HelpModal show={this.state.show} help={this.state.help} closeHelp={this.closeHelp} />
                 <ProgressBarContainer>

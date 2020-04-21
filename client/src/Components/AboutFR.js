@@ -95,7 +95,7 @@ class About extends React.Component {
                         <div id="social-media-container">
 
                             <div id='bottom-signup'>
-                                <FacebookShareButton style={{ textDecoration: 'none' }} url={'https://flyinryanhawks.org/promote-core-values/'} ><div id="share-bottom-button" ><img id='share-icon' src={facebook} alt='share icon' />Share</div> </FacebookShareButton>
+                                <FacebookShareButton style={{ textDecoration: 'none' }} url={'https://flyinryanchallenge.herokuapp.com/'} ><div id="share-bottom-button" ><img id='share-icon' src={facebook} alt='share icon' />Share</div> </FacebookShareButton>
                             </div>
 
                             <div id='bottom-signup'>
