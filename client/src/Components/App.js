@@ -52,7 +52,7 @@ class App extends React.Component {
         this.setState({
           user: null
         })
-        
+
       }
     })
   }
@@ -111,12 +111,12 @@ class App extends React.Component {
           user: firebaseApp.auth().currentUser,
         })
       } else {
-      firebaseApp.auth().signOut()
-      this.setState({
-        user: null
-      })
-      console.log(firebaseApp.auth().currentUser)
-      console.log(this.state.user)
+        firebaseApp.auth().signOut()
+        this.setState({
+          user: null
+        })
+        console.log(firebaseApp.auth().currentUser)
+        console.log(this.state.user)
       }
     })
   }
@@ -132,11 +132,15 @@ class App extends React.Component {
 
   facebookHandler = async () => {
     await firebaseApp.auth().signInWithPopup(facebookProvider)
-      .then((result) => {
-        let token = result.credential.accessToken
-        let user = result.user
-        console.log(user)
-        console.log(token)
+      .then(async () => {
+        let userName = {}
+        let name = firebaseApp.auth().currentUser.displayName
+        userName[`/users/${firebaseApp.auth().currentUser.uid}/Name`] = { Name: name }
+
+        await database.ref().update(userName)
+
+      })
+      .then(() => {
         this.setState({
           user: firebaseApp.auth().currentUser
         })
@@ -152,6 +156,14 @@ class App extends React.Component {
     googleProvider.addScope('email')
 
     await firebaseApp.auth().signInWithPopup(googleProvider)
+      .then(async () => {
+        let userName = {}
+        let name = firebaseApp.auth().currentUser.displayName
+        userName[`/users/${firebaseApp.auth().currentUser.uid}/Name`] = { Name: name }
+
+        await database.ref().update(userName)
+
+      })
       .then(() => {
         this.setState({ user: firebaseApp.auth().currentUser, modal: false })
       })
@@ -176,19 +188,19 @@ class App extends React.Component {
     }
   }
 
-  // async componentDidUpdate() {
-   
-  //    if (firebaseApp.auth().currentUser && !this.state.admin) {
-  //      let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
-  //        return snapshot.val()
-  //      })
-  //      if (isAdmin) {
-  //        this.setState({
-  //          admin: isAdmin
-  //        })
-  //      }
-  //    } 
-  // }
+  async componentDidUpdate() {
+
+     if (firebaseApp.auth().currentUser && !this.state.admin) {
+       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
+         return snapshot.val()
+       })
+       if (isAdmin) {
+         this.setState({
+           admin: isAdmin
+         })
+       }
+     } 
+  }
 
 
   render() {
@@ -199,7 +211,7 @@ class App extends React.Component {
           <Route path='/dashboard' render={() => (firebaseApp.auth().currentUser ? <Dashboard user={this.state.user} logOut={this.logOut} admin={this.state.admin} /> : <Redirect to='/login' />)} />
           <Route path='/admin' render={() => (this.state.admin ? <Admin user={this.state.user} /> : <Redirect to='/' />)} />
           <Route path='/questions' render={() => (this.state.user
-            ? <Questions user={this.state.user} data={this.state.questions}/>
+            ? <Questions user={this.state.user} data={this.state.questions} />
             : <Login modalContent={this.state.modal}
               signupHandler={this.signupHandler}
               closeHandler={this.closeHandler}
