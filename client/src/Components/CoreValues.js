@@ -106,12 +106,12 @@ class CoreValues extends React.Component {
         console.log(cvArray)
 
 
-        //let update = {}
-        //update[`/users/${this.state.user.uid}/Key Core Values`] = cvArray
-        //await database.ref().update(update)
+        let update = {}
+        update[`/users/${this.state.user.uid}/Key Core Values`] = cvArray
+        database.ref().update(update)
 
         this.setState({
-            // userData: cvArray,
+            userData: cvArray,
             showRem: !this.state.showRem
         })
 
@@ -134,9 +134,11 @@ class CoreValues extends React.Component {
         if (this.state.userData === null) {
             return (
                 <div id="core-values">
-                    <h1>Your Core Values</h1>
+                     <div id ='core-title'>
+                        <h1>Your Core Values</h1> 
+                    </div>
                     <div id="rasta-border-core"></div>
-                    <h4>It appears you havent filled out you core values yet! Click below to start!</h4>
+                    <h3>It appears you havent filled out you core values yet! Click below to start!</h3>
                     <Link to={"/questions"} style={{ textDecoration: 'none' }}><div id="get-started" >Get Started</div></Link>
                 </div>
             )
