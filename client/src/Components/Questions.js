@@ -11,6 +11,8 @@ import helpButton from '../images/help.svg'
 import HelpModal from './helpModal';
 import nextArrow from '../images/white_arrow.png'
 import add from '../images/plus.png'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 
 const ProgressBarContainer = styled.div`
 width: 300px;
@@ -24,6 +26,7 @@ class Questions extends React.Component {
         this.textAnswers = React.createRef()
 
         this.state = {
+
             question: '',
             category: '',
             help: '',
@@ -32,12 +35,19 @@ class Questions extends React.Component {
             percentage: 7.692,
             cvArray: [],
             show: false,
-          
+
         }
     }
 
     enterText = (event) => {
         this.setState({ userAnswers: event.target.value })
+    }
+
+    changeDate = (date) => {
+        this.setState({
+            userAnswers: date
+        })
+
     }
 
     nextQuestion = async () => {
@@ -108,7 +118,7 @@ class Questions extends React.Component {
                 category: this.props.data.questions[0].folder,
                 help: this.props.data.questions[0].help,
             })
-        this.checkForAnswer()
+            this.checkForAnswer()
         }
     }
 
@@ -163,7 +173,14 @@ class Questions extends React.Component {
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             if (currentUserAnswers) {
-                if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
+                console.log(currentUserAnswers)
+                if (currentUserAnswers[_this.state.category] === currentUserAnswers.Age) {
+                    let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
+                    _this.setState({
+                        userAnswers: new Date(prevAnswer),
+
+                    })
+                } else if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
                     if (currentUserAnswers[_this.state.category].answer) {
                         let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
                         _this.setState({
@@ -202,33 +219,47 @@ class Questions extends React.Component {
         let nextButton
         let reviewAnswer
         if (this.state.data) {
-            if (!category.includes('Core Value Questions') && !category.includes('Key')) {
+            if (category.includes('Age') && !category.includes('Key')) {
+                headerText = 'Demographic Questions'
+                answerStyle = <div id='dateWrapper'>
+                    <DatePicker
+                        id='datePicker'
+                        selected={this.state.userAnswers}
+                        onChange={date => this.changeDate(date)}
+                        placeholderText='DD/MM/YYYY'
+                    />
+                    <div id='text-line-underline'></div>
+                </div>
+                nextButton = <div
+                    onClick={this.nextQuestion}
+                    disabled={!isEnabled}
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
+            } else if (category.includes('Sex') && !category.includes('Key')) {
                 headerText = 'Demographic Questions'
                 answerStyle = question.options.map(option => {
                     return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
                 })
                 nextButton = <div
-                    
                     onClick={this.nextQuestion}
                     disabled={!isEnabled}
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div>
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
             } else if (category.includes('Core Value Questions')) {
                 headerText = 'Core Value Questions'
                 answerStyle = <div id="textinput">
                     <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
                 </div>
                 nextButton = <div
-                
+
                     onClick={this.nextQuestion}
                     disabled={!this.state.userAnswers || !isEnabled}
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div>
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
             } else if (category.includes('Key Core')) {
                 headerText = 'My Core Values'
                 answerStyle = <div id="finalTextinput">
                     <textarea id="finalTextAnswers" placeholder="Please enter one Value at a time." ref={this.textAnswers} value={this.state.userAnswers} onChange={this.enterText} cols="37" rows="5"></textarea>
                     <div
                         onClick={this.cvSubmit}
-                    ><img src = {add}/></div>
+                    ><img src={add} /></div>
                 </div>
                 reviewAnswer =
                     <div id='reviewCV'>
@@ -237,7 +268,7 @@ class Questions extends React.Component {
                         ))}
                     </div>
                 nextButton = <Link to='/dashboard' ><div onClick={this.questionsFinish} id='finishButton'
-                ><img src = {nextArrow} style = {{maxWidth: "45px"}}/></div> </Link>
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div> </Link>
             }
         }
         return (
@@ -245,12 +276,12 @@ class Questions extends React.Component {
             <div id="questions-wrapper">
                 <div id='buttonWrapper'>
                     {question.index !== 0 ? <img id='backButton'
-                        onClick= {this.prevQuestion}
+                        onClick={this.prevQuestion}
                         src={backButton}
                         alt='back button' /> : <Link to="/"><img id='backButton'
-                        src={backButton}
-                        alt='back button' /></Link>}
-                    
+                            src={backButton}
+                            alt='back button' /></Link>}
+
                     <img id='helpButton'
                         onClick={this.openHelp}
                         src={helpButton}
