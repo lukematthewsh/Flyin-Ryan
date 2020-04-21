@@ -8,7 +8,7 @@ class AddModal extends React.Component {
     constructor(props) {
         super(props)
     }
-    
+
     render() {
         if (!this.props.show) {
             return null;
@@ -19,10 +19,10 @@ class AddModal extends React.Component {
                 <br></br>
                 <br></br>
                 <div onClick={this.props.closeAddModal}><img id='close-button' src={X} style={{ maxWidth: "40px" }}></img></div>
-                    <textarea id='add-value-text' placeholder="Enter a New Core Value Here!" ></textarea>
+                <textarea id='add-value-text' placeholder="Enter a New Core Value Here!" ></textarea>
 
-                    <div id="share-to-feed" onClick={this.props.addValue}>Add Value</div>
-                
+                <div id="share-to-feed" onClick={this.props.addValue}>Add</div>
+
 
             </div>
         )
