@@ -16,7 +16,10 @@
     overflow: scroll;
     text-decoration: none;
   }
- 
+ #menu-list h2{
+font-size: 25px;
+color:black;
+ }
   #menu-list{
     text-decoration: none;
     grid-area: list;
@@ -24,7 +27,7 @@
     height: 70vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     flex-direction: column;
   }
