@@ -244,10 +244,13 @@ class Questions extends React.Component {
 
             <div id="questions-wrapper">
                 <div id='buttonWrapper'>
-                    <img id='backButton'
-                        onClick={question.index !== 0 ? this.prevQuestion : null}
+                    {question.index !== 0 ? <img id='backButton'
+                        onClick= {this.prevQuestion}
                         src={backButton}
-                        alt='back button' />
+                        alt='back button' /> : <Link to="/"><img id='backButton'
+                        src={backButton}
+                        alt='back button' /></Link>}
+                    
                     <img id='helpButton'
                         onClick={this.openHelp}
                         src={helpButton}
