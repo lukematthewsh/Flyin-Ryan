@@ -107,30 +107,9 @@
 }
 
 #X:hover {
-  transform: scale(2);
+  transform: scale(1.1);
   cursor: pointer;
   animation: spin 1.5s infinite;
-}
-
-<<<<<<< HEAD @keyframes spin {
-  from {
-    transform: rotate(0deg)
-  }
-  to {
-    transform: rotate(360deg)
-  }
-}
-
-#sign-out-button {
-  font-family: 'Questrial', sans-serif;
-  font-size: 25px;
-  display: flex;
-  margin: 0;
-  height: 25px;
-  width: 100px;
-}
-
-=======
 }
 
 @media(min-width: 1200px) {
@@ -140,4 +119,3 @@
   }
 }
 
->>>>>>>b0b952644a2ca1978102f14266b603f662e2b1a8
