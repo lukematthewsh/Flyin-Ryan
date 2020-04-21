@@ -8,7 +8,7 @@ function Mailer() {
             <section class="row mt-5 text-center">
                 <div class="col-md-6 m-auto">
                     <form action="/signup" method="POST">
-                        <div class="form-group">
+                        {/* <div class="form-group">
                             <input
                                 type="text"
                                 name="firstName"
@@ -25,7 +25,7 @@ function Mailer() {
                                 class="form-control"
                                 placeholder="Last Name"
                             />
-                        </div>
+                        </div> */}
                         <div class="form-group">
                             <input
                                 type="email"

@@ -164,11 +164,8 @@ class CoreValues extends React.Component {
                                     <div id="core-tools">
                                         <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
-<<<<<<< HEAD
                                         <div onClick={this.openRemModal}><img id='close-remove-button' src={X} style={{ maxWidth: "20px", opacity: "50%"}} /></div>
-=======
                                         <div onClick={(e) => {this.openRemModal(e, index)}}><img id='close-remove-button' src={X} style={{ maxWidth: "20px" }} /></div>
->>>>>>> testing
                                     </div>
                                 </div>
                             ))}
