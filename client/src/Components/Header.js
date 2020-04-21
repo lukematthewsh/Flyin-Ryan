@@ -9,23 +9,13 @@ class Header extends Component {
         super(props, context);
 
         this.state = {
-            prevScrollpos: window.pageYOffset,
             visible: true,
             isHidden: false
         };
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
     }
-    handleScroll = () => {
-        const { prevScrollpos } = this.state;
-        const currentScrollPos = window.pageYOffset;
-        const visible = prevScrollpos > currentScrollPos;
 
-        this.setState({
-            prevScrollpos: currentScrollPos,
-            visible
-        });
-    };
     handleMouseDown(e) {
         this.toggleMenu();
 
@@ -36,13 +26,7 @@ class Header extends Component {
             isHidden: !this.state.isHidden
         });
     }
-    componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", this.handleScroll);
-    }
+  
     render() {
         return (
             <div className="nav-bar">

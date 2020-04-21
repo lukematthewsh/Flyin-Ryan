@@ -8,6 +8,7 @@ import shareFacebook from 'share-facebook'
 import facebook from '../images/facebook.png'
 import ShareModal from './ShareModal.js'
 import AddModal from './AddModal'
+import EditModal from './EditModal'
 import PlusSign from '../images/plus.png'
 import X from "../images/x.png"
 import RemoveModal from './RemoveModal'
@@ -21,11 +22,13 @@ class CoreValues extends React.Component {
             show: false,
             showAdd: false,
             showRem: false,
+            showEdit: false,
             user: this.props.user,
             content: "",
             userData: [],
             author: this.props.user.displayName,
             deleteCV: null,
+            editedVal: ''
         }
 
     }
@@ -87,6 +90,21 @@ class CoreValues extends React.Component {
         })
     }
 
+    openEditModal = (event, index) => {
+        this.setState({
+            showEdit: !this.state.showEdit,
+            content: (event.target.parentNode.parentNode.parentNode.textContent),
+            deleteCV: index 
+
+        })
+    }
+
+    closeEditModal = () => {
+        this.setState({
+            showEdit: !this.state.showEdit
+        })
+    }
+
     addValue = async () => {
         let newValue = document.getElementById('add-value-text').value
         this.state.userData.push(newValue)
@@ -118,7 +136,24 @@ class CoreValues extends React.Component {
     }
 
 
-    edit = () => { }
+    edit = (event) => {
+        let cvArray = this.state.userData
+        let indexNum = this.state.deleteCV
+        cvArray[indexNum] = this.state.editedVal
+
+        let update = {}
+        update[`/users/${this.state.user.uid}/Key Core Values`] = cvArray
+        database.ref().update(update)
+
+        this.setState({
+            userData: cvArray,
+            showEdit: !this.state.showEdit
+        })
+    }
+
+    enterText = (event) => {
+        this.setState({ editedVal: event.target.value })
+    }
 
 
     facebook = () => {
@@ -151,6 +186,7 @@ class CoreValues extends React.Component {
                         <ShareModal show={this.state.show} closeShareModal={this.closeShareModal} content={this.state.content} author={this.state.author} />
                         <AddModal addValue={this.addValue} user={this.state.user} userData={this.state.userData} show={this.state.showAdd} closeAddModal={this.closeAddModal} author={this.state.author} />
                         <RemoveModal delete={this.delete} show={this.state.showRem} closeRemModal={this.closeRemModal} content={this.state.content} author={this.state.author} />
+                        <EditModal enterText={this.enterText} edit={this.edit} show={this.state.showEdit} closeEditModal={this.closeEditModal} content={this.state.content} author={this.state.author} />
                         <div id ='core-title'>
                         <h1>Your Core Values</h1> 
                         </div>
@@ -164,7 +200,7 @@ class CoreValues extends React.Component {
                                 <div id="button-core-container" key={item}>
                                     <h5 id="value">{item}</h5>
                                     <div id="core-tools">
-                                        <div id="edit" onClick={this.edit}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
+                                        <div id="edit" onClick={(e) => {this.openEditModal(e, index)}}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
                                         <div onClick={(e) => {this.openRemModal(e, index)}}><img id='close-remove-button' src={X} style={{ maxWidth: "20px" }} /></div>
                                     </div>

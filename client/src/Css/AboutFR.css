@@ -95,21 +95,26 @@
 }
 
 #share-bottom-button{
+
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     border-radius: 15px 15px 15px 15px;
     background-color: #3b5998;
     width: 90px;
     color:white;
     font-size: 16px;
-    font-family: Segoe UI;
     height: 25px;
     -webkit-box-shadow: 0px 6px 0px #3b5998;
     -moz-box-shadow: 0px 6px 0px #3b5998;
     box-shadow: 0px 2px 0px black;
     border: 1px solid #3b5998;
+    position: relative;
+}
+#share-icon{
+    height: 27px;
+    width:auto;
 }
 
 #signup-text{
@@ -175,7 +180,7 @@
     #rasta-border{
         justify-self: center;
         margin-left: 15vw!important;
-        width: 30vw;
+        width: 20vw;
     }
     #full-page{
         display: flex;
@@ -184,8 +189,8 @@
     #about-page{
         height: 95vh;
         overflow: scroll;
-        
-        width: 60vw;
+        padding: 15px;
+        width: 50vw;
         align-items:center;
         justify-items: center;
         flex-direction: column;  
@@ -193,7 +198,7 @@
 
     }
     #page-wrapper{
-        width: 20vw;
+        width: 25vw;
         height: 100vh;
         background-image:url("../images/FlyinRyanHawks.jpg");
         background-size: cover;
@@ -201,7 +206,7 @@
         background-position: 50% 50%
     }
     #page-wrapper-right{
-        width: 20vw;
+        width: 25vw;
         height: 100vh;
         background-image:url("../images/flyin-right.jpg");
         background-size: cover;
@@ -209,20 +214,22 @@
         background-position: 20% 70%
     }
     #about-text{
-        width: 60vw;
+        width: 50vw;
     }
     .player-wrapper{
-        width: 60vw;
+        width: 50vw;
         height: 60vh;
+
     }
     #meet-ryan{
-        width: 60vw;
+        width: 50vw;
     }
     #signup-text{
-        width: 60vw;
+        width: 50vw;
     }
     #coaster-img{
         width:25vw;
+        height: 25vw;
     }
    
       

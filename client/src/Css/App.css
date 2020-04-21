@@ -19,15 +19,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 500;
+
 }
 
-#rasta-border-menu {
+#rasta-border-menu{
     position: absolute;
     bottom: 0;
     width: 100vw;
     height: 3px;
-    background: linear-gradient(to right, #e70001 10%, #ffe000 10%, #ffe000 20%, #008542 20%, #008542 30%, #e70001 30%, #e70001 40%, #ffe000 40%, #ffe000 50%, #008542 50%, #008542 60%, #e70001 60%, #e70001 70%, #ffe000 70%, #ffe000 80%, #008542 80%, #008542 90%, #e70001 90%) 100%;
+    background:  linear-gradient(to right,#e70001 10%,#ffe000 10%, #ffe000 20%,#008542 20%, #008542 30%,#e70001 30%, #e70001  40%,#ffe000 40%, #ffe000 50%, #008542 50%, #008542 60%, #e70001 60%, #e70001 70%, #ffe000 70%, #ffe000 80%,#008542 80%, #008542 90%, #e70001 90%) 100%;
 }
 
 #flyin-logo {
@@ -42,7 +42,7 @@
     justify-content: space-between;
     height: 100vh;
     width: 100vw;
-    background-image: url("../images/HawksBAlate.jpg");
+    background-image: url("../images/smallFly.png");
     background-size: cover;
     box-shadow: 0 1px 9px .5px black;
 }
@@ -50,7 +50,7 @@
 #title {
     color: white;
     text-shadow: 2px 2px 2px black;
-    margin-top: 15vh;
+    margin-top: 30vh;
     text-align: center;
     font-family: 'Do Hyeon', sans-serif;
 }
@@ -155,9 +155,15 @@ div[id$="-landing-button"] {
 /*-------------------------------------------------------------------------------------------*/
 
 /*----------Media Queries App.css----------*/
-
-@media (min-width: 700px) {
-    #title {
+@media (min-width: 520px){
+    #landing-page{
+      background-image: url("../images/flyingMedium.jpg");
+      background-size: cover;
+      background-position:50% 50%;
+    }
+}
+@media (min-width: 700px){
+    #title{
         font-size: 28px;
     }
     div[id$='-box'] {
@@ -222,7 +228,7 @@ div[id$="-landing-button"] {
 @media (min-width: 1200px) {
     #flyin-logo {
         margin-left: 2vw;
-        width: 30vw;
+        width: 20vw;
     }
     div[id$='-box'] {
         height: 90px;
