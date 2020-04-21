@@ -11,7 +11,7 @@ import helpButton from '../images/help.svg'
 import HelpModal from './helpModal';
 import nextArrow from '../images/white_arrow.png'
 import add from '../images/plus.png'
-
+import BGimg from '../images/blendFR.png'
 const ProgressBarContainer = styled.div`
 width: 300px;
 `;
@@ -244,6 +244,7 @@ class Questions extends React.Component {
         return (
 
             <div id="questions-wrapper">
+                <img id = "bg-opacity"src ={BGimg}/>
                 <div id='buttonWrapper'>
                     {question.index !== 0 ? <img id='backButton'
                         onClick={this.prevQuestion}
