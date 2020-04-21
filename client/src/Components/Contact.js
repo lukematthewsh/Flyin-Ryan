@@ -15,7 +15,7 @@ class Contact extends React.Component {
     render() {
         return (
             <div id="contact-page">
-                <Header />
+                <Header user={this.props.user} />
                 <div id="contact-newsletter">
                     <h2 id="subscribe">Subscribe!</h2>
                     <div id='rasta-border'></div>

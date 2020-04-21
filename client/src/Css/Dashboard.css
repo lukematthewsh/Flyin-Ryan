@@ -66,6 +66,7 @@
 
 .cv-button-active{
     color:white;
+    
     background:none;
     transition: .3s ease-in-out;
 }

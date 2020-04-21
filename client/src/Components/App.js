@@ -232,7 +232,7 @@ class App extends React.Component {
               googleHandler={this.googleHandler}
               logOut={this.logOut} />
             : <Redirect to='/dashboard' />)} />
-          <Route path='/Contact' render={() => <Contact />} />
+          <Route path='/Contact' render={() => <Contact user={this.state.user}/>} />
           <Route path='/verify' render={() => <Holding />} />
         </Switch>
 
