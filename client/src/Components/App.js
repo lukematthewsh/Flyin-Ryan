@@ -111,12 +111,9 @@ class App extends React.Component {
           user: firebaseApp.auth().currentUser,
         })
       } else {
-        firebaseApp.auth().signOut()
-        this.setState({
-          user: null
-        })
-        console.log(firebaseApp.auth().currentUser)
-        console.log(this.state.user)
+        
+        await firebaseApp.auth().signOut()
+
       }
     })
   }
@@ -212,14 +209,7 @@ class App extends React.Component {
           <Route path='/admin' render={() => (this.state.admin ? <Admin user={this.state.user} /> : <Redirect to='/' />)} />
           <Route path='/questions' render={() => (this.state.user
             ? <Questions user={this.state.user} data={this.state.questions} />
-            : <Login modalContent={this.state.modal}
-              signupHandler={this.signupHandler}
-              closeHandler={this.closeHandler}
-              pageUpdate={this.pageUpdate}
-              currentPath={this.state.currentPath}
-              loginHandler={this.loginHandler}
-              googleHandler={this.googleHandler}
-              logOut={this.logOut} />)} />
+            : <Redirect to='/signup' />)} />
           <Route path='/signup' render={() => (!firebaseApp.auth().currentUser
             ? <Signup
               facebookHandler={this.facebookHandler}
@@ -245,7 +235,7 @@ class App extends React.Component {
               logOut={this.logOut} />
             : <Redirect to='/dashboard' />)} />
           <Route path='/Contact' render={() => <Contact />} />
-          <Route path='/verify' render={() => <Holding />} />
+          <Route path='/verify' render={() => <Holding user={this.state.user} />} />
         </Switch>
 
         {/* <Admin users={this.state.user}/> */}

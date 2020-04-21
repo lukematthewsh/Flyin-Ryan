@@ -4,7 +4,7 @@ import { firebaseApp } from '../firebaseApp'
 class Holding extends React.Component {
 
     render() {
-        console.log(firebaseApp.auth().currentUser)
+        console.log(this.props.user)
         return(
             <h1>
                 A link to verify your email has been sent to the email address you provided. Please click the link in the email to complete sign up!
