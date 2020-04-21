@@ -157,7 +157,7 @@ class CoreValues extends React.Component {
                         <div id="rasta-border-core"></div>
                         <h3>Here you can view your Core Values! You can also add, delete, edit or share you core values to the feed!</h3>
                         <br></br>
-                        <div id ="add-container"><p>Click the plus to add a new value</p> <div id='plus'><img onClick={this.openAddModal} id='plus-sign' src={PlusSign} alt='plus-sign' style ={{maxHeight: "25px", maxWidth: "25px"}}/></div>
+                        <div id ="add-container"><p>Add a new value</p> <div id='plus'><img onClick={this.openAddModal} id='plus-sign' src={PlusSign} alt='plus-sign' style ={{maxHeight: "25px", maxWidth: "25px"}}/></div>
                         </div>
                         <div id="core-values-list">
                             {this.state.userData.map((item, index) => (
