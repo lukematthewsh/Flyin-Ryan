@@ -1,92 +1,93 @@
 #flyoutMenu {
   font-family: 'Questrial', sans-serif;
-    z-index: 10000;
-    width: 100vw;
-    height: 100vh;
-    background-color:white;
-    display: grid;
-    grid-template-columns: 33vw 33vw 33vw;;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    ". list x" ;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: transform .7s ease-in-out;
-    overflow: scroll;
-    text-decoration: none;
-  }
- #menu-list h2{
-font-size: 25px;
-color:black;
- }
-  #menu-list{
-    text-decoration: none;
-    grid-area: list;
-    margin-top: 10vh;
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    flex-direction: column;
-  }
-   
-  #flyoutMenu.hide {
-    transform: translate3d(0, -100vh, 0);
-  }
-   
-  #flyoutMenu.show {
-    transform: translate3d(0vw, 0, 0);
-    overflow: hidden;
-  }
-   
-  #flyoutMenu h2 a {
-    display: flex;
-    align-items:center;
-    font-size: 25px;
-    color:black;
-    text-decoration: none;
-  }
-   
-  #flyoutMenu h2 a:hover {
-    text-decoration: underline;
-  }
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  ;
+  grid-template-rows: auto;
+  grid-template-areas: ". list x";
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform .7s ease-in-out;
+  overflow: scroll;
+  text-decoration: none;
+}
 
-  #close-menu{
-    grid-area: x;
-    display: flex;
-    align-self: flex-start;
-    justify-content: flex-end;
-  }
+#menu-list h2 {
+  font-size: 25px;
+  color: black;
+}
 
-  #X{
-    margin-top: 2vh;
-    width: 12vw;
-    height: 12vw;
-  }
-  #X:hover{
-    transform: scale(2);
-    cursor: pointer;
-    animation: spin 1.5s infinite;
-  }
+#menu-list {
+  text-decoration: none;
+  grid-area: list;
+  margin-top: 10vh;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  flex-direction: column;
+}
 
-  @keyframes spin{
-     from{
-      transform: rotate(0deg)
-     } 
-     to{
-       transform: rotate(360deg)
-     }
+#flyoutMenu.hide {
+  transform: translate3d(0, -100vh, 0);
+}
+
+#flyoutMenu.show {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
+}
+
+#flyoutMenu h2 a {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+#flyoutMenu h2 a:hover {
+  text-decoration: underline;
+}
+
+#close-menu {
+  grid-area: x;
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-end;
+}
+
+#X {
+  margin-top: 2vh;
+  width: 12vw;
+  height: 12vw;
+}
+
+#X:hover {
+  transform: scale(2);
+  cursor: pointer;
+  animation: spin 1.5s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg)
   }
-
-  #sign-out-button{
-    font-family: 'Questrial', sans-serif;
-    font-size: 25px;
-    display: flex;
-    margin: 0;
-    height: 25px;
-    width: 100px;
-
-
+  to {
+    transform: rotate(360deg)
   }
+}
+
+#sign-out-button {
+  font-family: 'Questrial', sans-serif;
+  font-size: 25px;
+  display: flex;
+  margin: 0;
+  height: 25px;
+  width: 100px;
+}

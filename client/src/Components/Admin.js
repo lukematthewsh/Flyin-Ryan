@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Css/Admin.css'
 import { database } from '../firebaseApp.js'
+import { Link } from 'react-router-dom'
+import FRFlogo from '../images/flyinLogo.svg'
 
 
 class Admin extends React.Component {
@@ -20,6 +22,10 @@ class Admin extends React.Component {
     }
 
     async componentDidMount() {
+        this.pullDB()
+    }
+
+    pullDB = async () => {
         let questObjs = await database.ref('/data').once('value').then(function (snapshot) {
             let response = snapshot.val()
             return response
@@ -49,7 +55,6 @@ class Admin extends React.Component {
     }
 
     questionEdit = (quest) => {
-        console.log(quest.options)
         this.setState({
             editModal: "questions",
             folder: quest.folder,
@@ -66,6 +71,7 @@ class Admin extends React.Component {
             editModal: false,
             currentUID: null,
         })
+        this.pullDB()
     }
 
     enterText = (event, value) => {
@@ -111,7 +117,28 @@ class Admin extends React.Component {
         })
     }
 
-    
+    updateHelp = async (e, index) => {
+        e.preventDefault()
+        let currentIndex = index
+
+        let newHelp = this.state.adminEdit
+        let update = {}
+        update[`/data/questions/${currentIndex}/help`] = newHelp
+        await database.ref().update(update)
+
+        this.setState({
+            help: newHelp,
+            adminEdit: null
+        })
+    }
+
+    updateOptions = async (e, index) => {
+        e.preventDefault()
+        let currentIndex = index
+        let newOption = this.state.adminEdit
+    }
+
+
     questionsHandler = () => {
         let quests = this.state.questionsData.questions.map((quest) => {
             let inquiry = quest.inquiry
@@ -123,8 +150,8 @@ class Admin extends React.Component {
             if (quest.options) {
                 options = quest.options
                 let jsxOption = options.map(option => {
-                    return <div className='adminOption'>
-                        {option}
+                    return <div key={option} className='adminOption'>
+                        - {option}
                     </div>
                 })
                 optionArray.push(jsxOption)
@@ -146,7 +173,11 @@ class Admin extends React.Component {
                     <span className='adminQuestionTitle'>Options:</span>
                 </div>
                 <div>
-                    {options ? optionArray : <div className="adminOption">N/A</div>}
+                    {options
+                        ? optionArray.map(option => {
+                            return <div key={option}>{option}</div>
+                        })
+                        : <div className="adminOption">N/A</div>}
                 </div>
                 <br></br>
                 <div id='question' onClick={() => { this.questionEdit(quest) }}>
@@ -247,7 +278,7 @@ class Admin extends React.Component {
             adminContent =
                 <div id='admin-content'>
                     <div id="admin-corevalues-content">
-                        <ul id="core-values-list">
+                        <ul id="admin-core-values-list">
                             {this.cvHandler()}
                         </ul>
                     </div>
@@ -313,7 +344,7 @@ class Admin extends React.Component {
                             </form>
                             <div>
                                 {this.state.help !== "''"
-                                    ? <form onSubmit={(e) => { this.updateHelp(e, this.state.help) }}>
+                                    ? <form onSubmit={(e) => { this.updateHelp(e, this.state.index) }}>
                                         <div>
                                             <span id="adminModalCVTitle">Help:</span> {this.state.help}
                                         </div>
@@ -322,20 +353,14 @@ class Admin extends React.Component {
                                         </div>
                                         <input type='submit' value="Update" disabled={this.state.updateButton !== this.state.help} />
                                     </form>
-                                    : <div><span id="adminModalCVTitle">Help:</span> N/A</div>}
+                                    : null}
                             </div>
                             <div>
                                 {this.state.options
-                                    ? <form onSubmit={(e) => { this.updateOptions(e, this.state.options) }}>
-                                        <div>
-                                            <span id="adminModalCVTitle">Options:</span> {this.state.options}
-                                        </div>
-                                        <div id="adminTextinput">
-                                            <textarea id="adminTextAnswers" defaultValue={this.state.options} onChange={(e) => this.enterText(e, this.state.options)} cols="50" rows="6"></textarea>
-                                        </div>
-                                        <input type='submit' value="Update" disabled={this.state.updateButton !== this.state.options} />
-                                    </form>
-                                    : <div><span id="adminModalCVTitle">Options:</span> N/A</div>}
+                                    ? <div>
+                                        <span id="adminModalQuestTitle">Options:</span> {this.state.options.map(option => { return <div className='admin-options'>{option}</div> })}
+                                    </div>
+                                    : null}
                             </div>
                         </div>
                     </div>
@@ -348,7 +373,10 @@ class Admin extends React.Component {
                 <div id="admin-container">
                     {modalContent}
                     <div id="admin-header">
-                        <span>Welcome to The Admin Page</span>
+                        <div id='flyin-admin-wrapper'>
+                            <Link to={'/'}> <img id="flyin-admin" src={FRFlogo} /> </Link>
+                        </div>
+                        <span id="admin-title">Welcome to The Admin Page</span>
                     </div>
                     <div id="admin-midSection">
                         <div id='admin-sidebarWrapper'>
