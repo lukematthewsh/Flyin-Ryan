@@ -1,16 +1,18 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
 /*-------------------------------------------------------*/
-#home-page{
+
+#home-page {
     height: 100%;
 }
-.nav-bar{
+
+.nav-bar {
     background-color: white;
     height: 10vh;
-    width:100vw;
+    width: 100vw;
     position: absolute;
     z-index: 500;
     top: 0;
@@ -28,13 +30,12 @@
     background:  linear-gradient(to right,#e70001 10%,#ffe000 10%, #ffe000 20%,#008542 20%, #008542 30%,#e70001 30%, #e70001  40%,#ffe000 40%, #ffe000 50%, #008542 50%, #008542 60%, #e70001 60%, #e70001 70%, #ffe000 70%, #ffe000 80%,#008542 80%, #008542 90%, #e70001 90%) 100%;
 }
 
-
-#flyin-logo{
+#flyin-logo {
     margin-left: 2vw;
     width: 45vw;
 }
 
-#landing-page{
+#landing-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,11 +44,10 @@
     width: 100vw;
     background-image: url("../images/smallFly.png");
     background-size: cover;
-   
     box-shadow: 0 1px 9px .5px black;
 }
 
-#title{
+#title {
     color: white;
     text-shadow: 2px 2px 2px black;
     margin-top: 30vh;
@@ -57,33 +57,37 @@
 
 /*--------------------------Sign in/Sign up button styles-----------------------------*/
 
-#button-container{
+#button-container {
     margin-bottom: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-#inner-container{
+
+#inner-container {
     justify-content: center;
     display: flex;
     flex-direction: row;
     margin-bottom: 1vh;
 }
 
-div[id$='-box-wrapper']{
+div[id$='-box-wrapper'] {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#signup-icon{
+
+#signup-icon {
     width: 40px;
     margin-left: 6px;
 }
-#user-icon{
+
+#user-icon {
     width: 40px;
 }
-div[id$='-box']{
-    background-color: rgb(255,255,255, .2);
+
+div[id$='-box'] {
+    background-color: rgb(255, 255, 255, .2);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px 1px black;
     display: flex;
@@ -94,7 +98,8 @@ div[id$='-box']{
     width: 70px;
     border-radius: 50%;
 }
-div[id$="-landing-button"]{
+
+div[id$="-landing-button"] {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -106,44 +111,49 @@ div[id$="-landing-button"]{
     margin: 10px;
     transition: 1.5s;
     font-weight: 900;
-    overflow: hidden; 
+    overflow: hidden;
     color: black;
 }
-#arrow{
+
+#arrow {
     display: flex;
     align-items: center;
     justify-items: center;
     flex-direction: column;
 }
-#arrow-img{
+
+#arrow-img {
     position: absolute;
     z-index: 1;
     margin-top: 1vh;
-    width:55px;
+    width: 55px;
     height: 30px;
-    animation: bounce  3s infinite
+    animation: bounce 3s infinite
 }
- @keyframes bounce  {
-	0%, 20%, 50%, 80%, 100% {
-     transform: translateY(0);
-  }
-	40% {
-     transform:translateY(-15px);
-  }
-	60% {
-     transform:translateY(-5px);
-  }
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /*-------------------------------------------------------------------------------------------*/
+
 /*--------------------------Share button styles-----------------------------*/
-#share-icon{
+
+#share-icon {
     width: 60px;
     margin-left: 6px;
 }
 
-
 /*-------------------------------------------------------------------------------------------*/
+
 /*----------Media Queries App.css----------*/
 @media (min-width: 520px){
     #landing-page{
@@ -156,121 +166,115 @@ div[id$="-landing-button"]{
     #title{
         font-size: 28px;
     }
-    div[id$='-box']{
+    div[id$='-box'] {
         height: 100px;
         width: 100px;
         border-radius: 50%;
     }
-    #signup-icon{
+    #signup-icon {
         width: 60px;
         margin-left: 6px;
     }
-    #user-icon{
+    #user-icon {
         width: 60px;
     }
-    #arrow-img{
-        width:70px;
+    #arrow-img {
+        width: 70px;
         height: 60px;
     }
-    div[id$="-landing-button"]{
+    div[id$="-landing-button"] {
         font-size: 24px;
-    
     }
-    div[id$='-box-wrapper']{
+    div[id$='-box-wrapper'] {
         margin: 10px;
     }
 }
 
-
-@media (min-width: 1000px){
-    #flyin-logo{
+@media (min-width: 1000px) {
+    #flyin-logo {
         margin-left: 2vw;
         width: 30vw;
     }
-    #title{
+    #title {
         font-size: 35px;
     }
-    div[id$='-box']{
+    div[id$='-box'] {
         height: 100px;
         width: 100px;
         border-radius: 50%;
     }
-    #signup-icon{
+    #signup-icon {
         width: 60px;
         margin-left: 6px;
     }
-    #user-icon{
+    #user-icon {
         width: 60px;
     }
-    #arrow-img{
-        width:70px;
+    #arrow-img {
+        width: 70px;
         height: 60px;
     }
-    div[id$="-landing-button"]{
+    div[id$="-landing-button"] {
         height: auto;
         width: auto;
         font-size: 27px;
-    
     }
-    div[id$='-box-wrapper']{
+    div[id$='-box-wrapper'] {
         margin-left: 30px;
         margin-right: 30px;
     }
 }
 
-@media (min-width: 1200px){
-    #flyin-logo{
+@media (min-width: 1200px) {
+    #flyin-logo {
         margin-left: 2vw;
         width: 20vw;
     }
-    div[id$='-box']{
+    div[id$='-box'] {
         height: 90px;
         width: 90px;
         border-radius: 50%;
     }
-    #signup-icon{
+    #signup-icon {
         width: 60px;
         margin-left: 6px;
     }
-    #user-icon{
+    #user-icon {
         width: 60px;
     }
-    #arrow-img{
-        width:70px;
+    #arrow-img {
+        width: 70px;
         height: 60px;
     }
-    div[id$="-landing-button"]{
+    div[id$="-landing-button"] {
         height: auto;
         width: auto;
         font-size: 25px;
-    
     }
-    div[id$='-box-wrapper']{
+    div[id$='-box-wrapper'] {
         margin-left: 50px;
         margin-right: 50px;
     }
-    #landing-page{
-       
+    #landing-page {
         background-image: url("../images/1200pxJump.jpg");
         background-size: cover;
         background-position: 40% 40%;
         box-shadow: 0 1px 9px .5px black;
     }
-
 }
 
-@media (max-height: 450px){
-    .nav-bar{
-        height:20vh;
-        }
-    #landing-page{
-        background-image:url("../images/fall-line.jpg");
+@media (max-height: 450px) {
+    .nav-bar {
+        height: 20vh;
+    }
+    #landing-page {
+        background-image: url("../images/fall-line.jpg");
         background-position: 40%;
         display: flex;
         flex-direction: row;
         align-items: center;
     }
-    div[id$='-box']{
+    div[id$='-box'] {
         position: absolute;
         margin-left: 10px;
         bottom: 40px;
@@ -278,43 +282,38 @@ div[id$="-landing-button"]{
         width: 60px;
         border-radius: 50%;
     }
-    #signup-icon{
+    #signup-icon {
         width: 40px;
         margin-left: 6px;
     }
-    #user-icon{
+    #user-icon {
         width: 40px;
     }
-    #arrow-img{
-        display:none;
+    #arrow-img {
+        display: none;
     }
-    div[id$="-landing-button"]{
+    div[id$="-landing-button"] {
         height: auto;
-        width:80px;
+        width: 80px;
         font-size: 20px;
         text-shadow: 2px 2px 2px black;
         position: absolute;
         bottom: 2px;
-
-        color:white;
-        
-    
+        color: white;
     }
-    div[id$='-box-wrapper']{
+    div[id$='-box-wrapper'] {
         display: flex;
         align-content: center;
         margin-left: 50px;
         margin-right: 50px;
-        width:50px;
+        width: 50px;
     }
-    #title{
+    #title {
         font-size: 18px;
         margin-left: 5px
     }
-
-    #flyin-logo{
+    #flyin-logo {
         margin-left: 2vw;
         width: 30vw;
     }
- 
-    }
+}
