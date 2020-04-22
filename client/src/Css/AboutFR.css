@@ -46,7 +46,6 @@
   #signup-text h2{
   text-align: center;
 }
-
 #ryan-headshot{
     margin-top: 1vh;
     height: 40vh;
@@ -85,6 +84,7 @@
     padding:8px 15px;
     border-radius: 3px;
     background-color: #008542;
+    font-weight: 600;
     color:white;
     font-size: 16px;
     -webkit-box-shadow: 0px 6px 0px #008542;
