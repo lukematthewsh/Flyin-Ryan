@@ -6,7 +6,8 @@
     display: flex;
     align-items:center;
     justify-items: center;
-    flex-direction: column;    
+    flex-direction: column;  
+    color: rgb(45, 72, 155);  
 }
 #rasta-border{
     justify-self: center;
