@@ -229,7 +229,7 @@ class Questions extends React.Component {
                         id='datePicker'
                         selected={this.state.userAnswers}
                         onChange={date => this.changeDate(date)}
-                        placeholderText='DD/MM/YYYY'
+                        placeholderText='MM/DD/YYYY'
                     />
                     <div id='text-line-underline'></div>
                 </div>
