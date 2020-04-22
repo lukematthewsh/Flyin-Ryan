@@ -66,6 +66,7 @@
 
 .cv-button-active{
     color:white;
+    
     background:none;
     transition: .3s ease-in-out;
 }
@@ -300,3 +301,95 @@ div[id$='-link']:hover{
             margin-top: 20vh;
         }
     }
+
+@media (min-width: 1000px){
+    #dash-pic{
+        height: 10vh;
+        width: 10vh;
+    }
+    #dash-name{
+        font-size: 30px;
+    }
+  #more-link{
+    font-size:23px;
+  } 
+  #cv-link{
+      font-size: 23px;
+  }
+  #g-link{
+    font-size: 23px;
+}
+#core-values-list{
+    margin-left: 30vw;
+    width: 40vw;
+
+}
+
+#rasta-border-core{
+    margin-left: 30vw;
+    width: 40vw;
+    height: 2px;
+}
+#core-title{
+    width:40vw;
+    margin-left:30vw;
+    font-size: 20px;
+}
+#core-values h1{ 
+    padding-top: 15px;
+
+}
+
+#core-values h3{
+    width: 40vw;
+    padding-top: 9px;
+    margin-left: 30vw;
+    font-size: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+#add-container{
+    width: 40vw;
+    margin-left: 30vw;
+}
+#add-container p{
+   font-size:16px;
+}
+
+#feed-display h1{
+    font-size: 40px; 
+    padding-top: 15px;
+    margin-left: 30vw;
+}
+#feed-display h3{
+    font-size: 20px;
+    padding-top: 9px;
+    margin-left: 30vw;
+}
+#rasta-border-feed{
+    margin-left: 30vw;
+    width: 40vw;
+  
+}
+#blog-list{
+    width: 40vw;
+    margin-left: 30vw;
+}
+div[id$="-link"]{
+    font-size: 20px
+}
+#goals h1{
+    font-size: 40px;
+    width: 40vw;
+    margin-left: 30vw;
+}
+#goals h3{
+    width: 40vw;
+    margin-left: 30vw;
+}
+#rasta-border-goals{
+    width: 40vw;
+    margin-left: 30vw;
+}
+}

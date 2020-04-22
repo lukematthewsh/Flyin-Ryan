@@ -106,7 +106,6 @@ class Dashboard extends React.Component {
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL || User : ""} alt="User Photo" />
                         <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
-
                     </div>
                     <div id="dash-links">
                         <div id="more-link" className={Mclasses} onClick={this.toggleContent}>Feed</div>

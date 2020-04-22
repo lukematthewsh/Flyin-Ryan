@@ -5,6 +5,13 @@
     width: 100vw;
     font-family: 'Do Hyeon', sans-serif;
     background-color: #3e6a99;
+    position: relative;
+}
+#bg-opacity{
+    opacity: .1;
+    position: absolute;
+    top: 10vh;
+    left:10vw;
 }
 
 #backButton {
@@ -237,6 +244,9 @@
 }
 
 @media (min-width: 750px){
+    #bg-opacity{
+        display: none;
+    }
     #questions{
     font-size: 3.5vw;
     }

@@ -14,6 +14,7 @@ import add from '../images/plus.png'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
+import BGimg from '../images/blendFR.png'
 const ProgressBarContainer = styled.div`
 width: 300px;
 `;
@@ -173,27 +174,28 @@ class Questions extends React.Component {
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             if (currentUserAnswers) {
-                console.log(currentUserAnswers)
-                if (currentUserAnswers[_this.state.category] === currentUserAnswers.Age) {
-                    let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
-                    _this.setState({
-                        userAnswers: new Date(prevAnswer),
-
-                    })
-                } else if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
-                    if (currentUserAnswers[_this.state.category].answer) {
+                if (currentUserAnswers[_this.state.category]) {
+                    if (currentUserAnswers[_this.state.category] === currentUserAnswers.Age) {
                         let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
                         _this.setState({
-                            userAnswers: prevAnswer,
-                            selectedAnswer: prevAnswer
+                            userAnswers: new Date(prevAnswer),
+
                         })
-                    }
-                } else if (currentUserAnswers[_this.state.question.folder]) {
-                    if (currentUserAnswers[_this.state.question.folder].answer) {
-                        textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
-                        _this.setState({
-                            userAnswers: textAnswers.current.value
-                        })
+                    } else if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
+                        if (currentUserAnswers[_this.state.category].answer) {
+                            let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
+                            _this.setState({
+                                userAnswers: prevAnswer,
+                                selectedAnswer: prevAnswer
+                            })
+                        }
+                    } else if (currentUserAnswers[_this.state.question.folder]) {
+                        if (currentUserAnswers[_this.state.question.folder].answer) {
+                            textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
+                            _this.setState({
+                                userAnswers: textAnswers.current.value
+                            })
+                        }
                     }
                 }
             }
@@ -210,6 +212,7 @@ class Questions extends React.Component {
             show: !this.state.show
         })
     }
+
     render() {
         const { question } = this.state;
         const category = this.state.category
@@ -282,10 +285,10 @@ class Questions extends React.Component {
                             src={backButton}
                             alt='back button' /></Link>}
 
-                    <img id='helpButton'
+                    {question.index > 1 ? <img id='helpButton'
                         onClick={this.openHelp}
                         src={helpButton}
-                        alt='help button' />
+                        alt='help button' /> : <></>}
                 </div>
                 <HelpModal show={this.state.show} help={this.state.help} closeHelp={this.closeHelp} />
                 <ProgressBarContainer>

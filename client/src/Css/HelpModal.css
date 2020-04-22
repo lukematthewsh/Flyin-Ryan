@@ -1,5 +1,4 @@
 
-  
   .modal {
     position: fixed;
     left: 20vw;
@@ -15,8 +14,7 @@
         justify-content: space-between;
         align-items: center;
     }
-    #modal h2 {
-      border-bottom: 1px solid #ccc;
+    #top-close h2 {
       padding: 1rem;
     }
     .content {
@@ -25,6 +23,9 @@
     #close-message{
         font-size: 10px;
         padding: 1rem;
+    }
+    #close-button{
+      padding: 1rem;
     }
     @keyframes fadeIn {
         from{

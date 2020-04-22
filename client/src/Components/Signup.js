@@ -34,15 +34,22 @@ class Signup extends React.Component {
                         </div>
                     </div>
 
-                    <input type="checkbox" id="no-checkbox" />
-                    <p>I want email reminders</p>
+
 
                     <div id='modal-buttons'>
                         <Link onClick={this.props.signupHandler} to={'/verify'} style={{ textDecoration: 'none' }}><div id='signIn-button' type='submit'>Sign Up</div></Link>
                         <Link to={'/questions'} onClick={this.props.googleHandler} style={{ textDecoration: 'none' }}><div id="google-signin"><img id="google-img" src={Goog} />Sign up with Google</div></Link>
                         <Link to={'/questions'} onClick={this.props.facebookHandler} style={{ textDecoration: 'none' }}><div id="facebook-signin"><img id="facebook-img" src={facebook} />Sign up with Facebook</div></Link>
-                        <div id="spacing-div"></div>
+                        <div id="email-reminders">
+                        I want email reminders
+                            <label className="checkboxStyles">
+                               
+                                <input type="checkbox" />
+                                <span className="checkbox-styled"></span>
+                            </label>
+                        </div>
                     </div>
+
                 </form>
             </div>
         )
