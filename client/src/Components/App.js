@@ -1,18 +1,16 @@
-import React from 'react';
-import '../Css/App.css';
-import Landing from "./Landing.js";
 import { firebaseApp, database, googleProvider, facebookProvider } from '../firebaseApp';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Signup from './Signup.js';
-import Dashboard from './Dashboard';
+import dbFetch from './QuestionsData'
 import Questions from './Questions';
+import Dashboard from './Dashboard';
+import Landing from "./Landing.js";
+import Signup from './Signup.js';
+import Holding from './Holding'
+import Contact from './Contact'
 import Login from './Login';
 import Admin from './Admin'
-import Contact from './Contact'
-import Holding from './Holding'
-
-import dbFetch from './QuestionsData'
-
+import React from 'react';
+import '../Css/App.css';
 
 
 class App extends React.Component {
