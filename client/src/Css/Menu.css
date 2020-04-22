@@ -125,5 +125,23 @@
     width: 3vw;
     height: 3vw;
   }
+  #flyoutMenu {
+    font-family: 'Questrial', sans-serif;
+    z-index: 10000;
+    width: 30vw;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    ;
+    grid-template-rows: auto;
+    grid-template-areas: ". list x";
+    position: fixed;
+    top: 0;
+    left: 70vw;;
+    transition: transform .7s ease-in-out;
+    overflow: scroll;
+    text-decoration: none;
+  }
 }
 
