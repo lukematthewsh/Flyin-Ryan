@@ -64,19 +64,14 @@
 }
 
 #social-media-container {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     display:flex;
     width: 100%;
     justify-content: center;
 }
 
-#bottom-signup{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3vh;
-    margin-bottom: 10vh;
-}
+
 #sign-container{
     display: flex;
     flex-direction: row; 
@@ -111,7 +106,7 @@
     font-weight: 600;
     padding: 8px 13px;
     display: inline-block;
-    position: static;
+    
 }
 
 #fb-share-button:hover {
@@ -130,7 +125,7 @@
     vertical-align: middle;
     color: white;
     font-size: 16px;
-    padding: 0 3px
+    padding: 0 3px;
 }
 #signup-text{
     text-align: center;
