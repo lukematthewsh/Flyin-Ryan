@@ -12,6 +12,7 @@ import HelpModal from './helpModal';
 import nextArrow from '../images/white_arrow.png'
 import add from '../images/plus.png'
 import BGimg from '../images/blendFR.png'
+
 const ProgressBarContainer = styled.div`
 width: 300px;
 `;
