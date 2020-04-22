@@ -15,6 +15,7 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 import BGimg from '../images/blendFR.png'
+
 const ProgressBarContainer = styled.div`
 width: 300px;
 `;
