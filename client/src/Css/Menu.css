@@ -119,6 +119,12 @@
   cursor: pointer;
   animation: spin 1.5s infinite;
 }
+#sign-container{
+  position: absolute;
+  bottom: 10vh;
+  display: flex;
+  flex-direction: row; 
+}
 
 @media(min-width: 1200px) {
   #X {
