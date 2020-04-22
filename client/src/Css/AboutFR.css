@@ -101,6 +101,8 @@
 
 #fb-share-button {
     margin-right: 5px;
+    -webkit-box-shadow: 0px 6px 0px black;
+    -moz-box-shadow: 0px 6px 0px black;
     box-shadow: 0px 2px 0px black;
     background: #3b5998;
     border-radius: 3px;
