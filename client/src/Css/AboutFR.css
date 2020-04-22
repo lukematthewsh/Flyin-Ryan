@@ -100,7 +100,7 @@
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     border-radius: 15px 15px 15px 15px;
     background-color: #3b5998;
     width: 90px;
@@ -114,8 +114,9 @@
     position: relative;
 }
 #share-icon{
-    height: 27px;
+    height: 2.1vh;
     width:auto;
+    margin-right: 5px;
 }
 
 #signup-text{
@@ -137,6 +138,7 @@
     }
     #coaster-img{
         width:70vw;
+        height:70vw;
     }
     #sign-up-bottom-button{
         
@@ -157,6 +159,7 @@
     }
     #coaster-img{
         width:70vw;
+        height:70vw;
     }
     #sign-up-bottom-button{
         
@@ -229,8 +232,8 @@
         width: 50vw;
     }
     #coaster-img{
-        width:25vw;
-        height: 25vw;
+        width:35vw;
+        height: 35vw;
     }
    
       
