@@ -86,6 +86,25 @@
     color: white;
 }
 
+#dateWrapper{
+    margin-bottom: 20vh;
+}
+
+#datePicker{
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 10vw;;
+    width: 70vw;
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+#datePicker::placeholder{
+    color: rgba(255, 255, 255, 0.281);
+    font-size: 10vw;
+}
+
 #question-button-container {
     display: flex;
     flex-direction: column;

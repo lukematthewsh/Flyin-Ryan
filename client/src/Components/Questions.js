@@ -11,6 +11,9 @@ import helpButton from '../images/help.svg'
 import HelpModal from './helpModal';
 import nextArrow from '../images/white_arrow.png'
 import add from '../images/plus.png'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
+
 import BGimg from '../images/blendFR.png'
 
 const ProgressBarContainer = styled.div`
@@ -25,6 +28,7 @@ class Questions extends React.Component {
         this.textAnswers = React.createRef()
 
         this.state = {
+
             question: '',
             category: '',
             help: '',
@@ -39,6 +43,13 @@ class Questions extends React.Component {
 
     enterText = (event) => {
         this.setState({ userAnswers: event.target.value })
+    }
+
+    changeDate = (date) => {
+        this.setState({
+            userAnswers: date
+        })
+
     }
 
     nextQuestion = async () => {
@@ -164,20 +175,28 @@ class Questions extends React.Component {
         return database.ref('/users/' + uid).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
             if (currentUserAnswers) {
-                if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
-                    if (currentUserAnswers[_this.state.category].answer) {
+                if (currentUserAnswers[_this.state.category]) {
+                    if (currentUserAnswers[_this.state.category] === currentUserAnswers.Age) {
                         let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
                         _this.setState({
-                            userAnswers: prevAnswer,
-                            selectedAnswer: prevAnswer
+                            userAnswers: new Date(prevAnswer),
+
                         })
-                    }
-                } else if (currentUserAnswers[_this.state.question.folder]) {
-                    if (currentUserAnswers[_this.state.question.folder].answer) {
-                        textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
-                        _this.setState({
-                            userAnswers: textAnswers.current.value
-                        })
+                    } else if (currentUserAnswers[_this.state.category] && !_this.state.category.includes('Core Value Questions')) {
+                        if (currentUserAnswers[_this.state.category].answer) {
+                            let prevAnswer = currentUserAnswers[_this.state.question.folder].answer
+                            _this.setState({
+                                userAnswers: prevAnswer,
+                                selectedAnswer: prevAnswer
+                            })
+                        }
+                    } else if (currentUserAnswers[_this.state.question.folder]) {
+                        if (currentUserAnswers[_this.state.question.folder].answer) {
+                            textAnswers.current.value = currentUserAnswers[_this.state.question.folder].answer
+                            _this.setState({
+                                userAnswers: textAnswers.current.value
+                            })
+                        }
                     }
                 }
             }
@@ -204,13 +223,27 @@ class Questions extends React.Component {
         let nextButton
         let reviewAnswer
         if (this.state.data) {
-            if (!category.includes('Core Value Questions') && !category.includes('Key')) {
+            if (category.includes('Age') && !category.includes('Key')) {
+                headerText = 'Demographic Questions'
+                answerStyle = <div id='dateWrapper'>
+                    <DatePicker
+                        id='datePicker'
+                        selected={this.state.userAnswers}
+                        onChange={date => this.changeDate(date)}
+                        placeholderText='DD/MM/YYYY'
+                    />
+                    <div id='text-line-underline'></div>
+                </div>
+                nextButton = <div
+                    onClick={this.nextQuestion}
+                    disabled={!isEnabled}
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
+            } else if (category.includes('Sex') && !category.includes('Key')) {
                 headerText = 'Demographic Questions'
                 answerStyle = question.options.map(option => {
                     return <QuestionOption handler={this.selected} key={option} id={option} selected={this.state.selectedAnswer} option={option} />
                 })
                 nextButton = <div
-
                     onClick={this.nextQuestion}
                     disabled={!isEnabled}
                 ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
