@@ -203,7 +203,7 @@ div[id$='-link']:hover{
     
 }
 #blog-list{
-    height: 50vh;
+    height: 60vh;
     overflow: scroll;
     width:80vw;
     margin-left: 10vw;
