@@ -62,7 +62,7 @@ class App extends React.Component {
     let name = document.getElementById('up-name').value
 
     let actionCodeSettings = {
-      url: 'http://localhost:3000/login'
+      url: 'https://flyinryanchallenge.herokuapp.com/login'
     }
 
     await firebaseApp.auth().createUserWithEmailAndPassword(email, password)
