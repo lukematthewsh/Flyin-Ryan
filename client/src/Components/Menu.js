@@ -38,10 +38,16 @@ class Menu extends Component {
           <Link to={'/Contact'} style={{ textDecoration: 'none', color: 'black' }}>
             <h2>Contact</h2>
           </Link>
-
-          {!this.props.user ?
-            <Link id='sign-in-link' style={{ textDecoration: 'none', color: 'black' }} to={'/login'}>
+         
+           {!this.props.user ?
+            <Link id='sign-up-menu' style={{ textDecoration: 'none', color: 'black' }} to={'/login'}>
               <h2>Login</h2>
+            </Link>
+            : null }
+
+            {!this.props.user ?
+            <Link id='sign-up-menu' style={{ textDecoration: 'none', color: 'black' }} to={'/signup'}>
+              <h2>Sign Up</h2>
             </Link>
             : null}
 

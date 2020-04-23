@@ -46,7 +46,6 @@
   #signup-text h2{
   text-align: center;
 }
-
 #ryan-headshot{
     margin-top: 1vh;
     height: 40vh;
@@ -64,20 +63,18 @@
 }
 
 #social-media-container {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     display:flex;
     width: 100%;
     justify-content: center;
 }
 
-#bottom-signup{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3vh;
-    margin-bottom: 10vh;
-}
 
+#sign-container{
+    display: flex;
+    flex-direction: row; 
+}
 #sign-up-bottom-button{
     margin-left:5px;
     display: flex;
@@ -87,12 +84,9 @@
     padding:8px 15px;
     border-radius: 3px;
     background-color: #008542;
+    font-weight: 600;
     color:white;
     font-size: 16px;
-    -webkit-box-shadow: 0px 6px 0px #008542;
-    -moz-box-shadow: 0px 6px 0px #008542;
-    box-shadow: 0px 2px 0px black;
-    border: 1px solid #008575;
 }
 #sign-up-bottom-button:hover {
     cursor: pointer;
@@ -101,13 +95,12 @@
 
 #fb-share-button {
     margin-right: 5px;
-    box-shadow: 0px 2px 0px black;
     background: #3b5998;
     border-radius: 3px;
     font-weight: 600;
     padding: 8px 13px;
     display: inline-block;
-    position: static;
+    
 }
 
 #fb-share-button:hover {
@@ -126,14 +119,8 @@
     vertical-align: middle;
     color: white;
     font-size: 16px;
-    padding: 0 3px
+    padding: 0 3px;
 }
-#share-icon{
-    height: 2.1vh;
-    width:auto;
-
-}
-
 #signup-text{
     text-align: center;
 }
@@ -155,15 +142,6 @@
         width:70vw;
         height:70vw;
     }
-    #sign-up-bottom-button{
-        
-        width: 120px;
-        color:white;
-        font-size: 26px;
-
-        height: 32px;
-       
-    }
 }
 @media (min-width: 1000px){
     h2{
@@ -176,26 +154,18 @@
         width:70vw;
         height:70vw;
     }
-    #sign-up-bottom-button{
-        
-        width: 150px;
-        color:white;
-        font-size: 30px;
-
-        height: 35px;
-       
-    }
-    #share-bottom-button{
-        
-        width: 150px;
-        color:white;
-        font-size: 30px;
-
-        height: 35px;
-       
-    }
+   
 }
 @media (min-width: 1200px){
+    #fb-share-button span {
+        font-size: 30px;
+    }
+    #sign-up-bottom-button{
+        font-size: 30px;
+    }
+    #fb-share-button svg {
+        width: 25px;
+    }
     #rasta-border{
         justify-self: center;
         margin-left: 15vw!important;
@@ -213,8 +183,6 @@
         align-items:center;
         justify-items: center;
         flex-direction: column;  
-        
-
     }
     #page-wrapper{
         width: 25vw;
