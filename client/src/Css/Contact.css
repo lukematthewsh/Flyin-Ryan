@@ -1,9 +1,11 @@
 #rasta-border-contact {
     width: 40vw;
     height: 3px;
-    background: linear-gradient(to right, #e70001 33%, #ffe000 33%, #ffe000 66%, #008542 66%) 100%;
+    background: linear-gradient(to right, rgb(231, 0, 1) 33%, rgb(255, 224, 0) 33%, #ffe000 66%, #008542 66%) 100%;
     margin-bottom: 10px;
 }
+
+
 
 #contact-page{
     display: flex;
@@ -25,6 +27,10 @@
     align-items: center;
     /* height: 20vh; */
     width: 100vw;
+}
+
+#subscribeTitle{
+    color: 
 }
 
 #contact-newsletter{
@@ -58,10 +64,27 @@
     flex-direction: column;
 }
 
-#text-line-underline-mailer{
+
+#text-line-underline-mailer-red{
     justify-self: center;
-    background: linear-gradient(to right, #3e6a99 0%, rgb(255, 255, 255,.8) 15%, white 85%, #3e6a99 100%) 100%;
-    width: 70%;
+    background: linear-gradient(to right, #3e6a99 0%, rgb(231, 0, 1) 15%, rgb(231, 0, 1) 85%, #3e6a99 100%) 100%;
+    width: 40%;
+    height: 2px;
+    margin-bottom: 8px;
+}
+
+#text-line-underline-mailer-yellow{
+    justify-self: center;
+    background: linear-gradient(to right, #3e6a99 0%, rgb(255, 224, 0) 15%, rgb(255, 224, 0) 85%, #3e6a99 100%) 100%;
+    width: 40%;
+    height: 2px;
+    margin-bottom: 8px;
+}
+
+#text-line-underline-mailer-green{
+    justify-self: center;
+    background: linear-gradient(to right, #3e6a99 0%, #1e8b55 15%, #1e8b55 85%, #3e6a99 100%) 100%;
+    width: 40%;
     height: 2px;
     margin-bottom: 8px;
 }
@@ -88,6 +111,7 @@
     font-family: 'Do Hyeon', sans-serif;
 }
 
+
 #contact-wrapper{
     display: flex;
     justify-content: center;
@@ -99,10 +123,10 @@
 #contact-contact{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     height: 20vh;
-
+    width: 100vw;
 }
 
 #connect-wrapper{
@@ -118,6 +142,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
 }
 #contact-social-media{
     display: flex;
@@ -127,5 +152,12 @@
 
 .logo-blip{
     height: 10vh;
-    width: 12.5vw;
+    width: 10vw;
+}
+ svg{
+    fill: white;
+ }
+
+.change-my-color{
+    fill: white;
 }

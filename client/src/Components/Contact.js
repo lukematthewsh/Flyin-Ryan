@@ -21,16 +21,16 @@ class Contact extends React.Component {
                 <div id="contact-page">
                     <div id='newsletter-wrapper'>
                         <div id="contact-newsletter">
-                            <h2 id="subscribe">Subscribe!</h2>
-                            <div id='rasta-border-contact'></div>
+                            <h2 id="subscribeTitle">Subscribe!</h2>
+                            <div id='text-line-underline-mailer-red'></div>
                             <Mailer />
                         </div>
                     </div>
                     <br></br>
                     <div id='contact-wrapper'>
                         <div id="contact-contact">
-                            <h2>Contact</h2>
-                            <div id='rasta-border-contact'></div>
+                            <h2 id='contactTitle'>Contact</h2>
+                            <div id='text-line-underline-mailer-yellow'></div>
                             <p>info@flyinryanhawks.org</p>
                             <p>1(802)391-0759</p>
                         </div>
@@ -38,8 +38,8 @@ class Contact extends React.Component {
                     <br></br>
                     <div id='connect-wrapper'>
                         <div id="contact-connect">
-                            <h2>Connect</h2>
-                            <div id='rasta-border-contact'></div>
+                            <h2 id='connectTitle'>Connect</h2>
+                            <div id='text-line-underline-mailer-green'></div>
                         </div>
                         <div id="contact-social-media">
                             <div className='icon'>
