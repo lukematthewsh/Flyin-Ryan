@@ -122,10 +122,10 @@ div[id$='-link']:hover{
 
 #share{
     order: 3;
-    filter: opacity(20%)
+    opacity: 70%
 }
 #edit{
-    filter: opacity(20%)
+   opacity: 70%;
 }
 
 #value{
@@ -152,7 +152,7 @@ div[id$='-link']:hover{
 }
 #core-tools{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items:center;
 }
