@@ -5,8 +5,6 @@
     margin-bottom: 10px;
 }
 
-
-
 #contact-page{
     display: flex;
     flex-direction: column;
@@ -27,10 +25,6 @@
     align-items: center;
     /* height: 20vh; */
     width: 100vw;
-}
-
-#subscribeTitle{
-    color: 
 }
 
 #contact-newsletter{
