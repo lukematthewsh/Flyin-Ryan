@@ -200,9 +200,9 @@ class CoreValues extends React.Component {
                                 <div id="button-core-container" key={item}>
                                     <h5 id="value">{item}</h5>
                                     <div id="core-tools">
-                                        <div id="edit" onClick={(e) => {this.openEditModal(e, index)}}> <img src={editIco} style={{ maxWidth: "15px" }} /></div>
-                                        <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "15px" }} /></div>
-                                        <div onClick={(e) => {this.openRemModal(e, index)}}><img id='close-remove-button' src={X} style={{ maxWidth: "20px" }} /></div>
+                                        <div id="edit" onClick={(e) => {this.openEditModal(e, index)}}> <img src={editIco} style={{ maxWidth: "25px" }} /></div>
+                                        <div onClick={this.openShareModal}><img id="share" src={ShareIco} style={{ maxWidth: "25px" }} /></div>
+                                        <div onClick={(e) => {this.openRemModal(e, index)}}><img id='close-remove-button' src={X} style={{ maxWidth: "35px" }} /></div>
                                     </div>
                                 </div>
                             ))}
