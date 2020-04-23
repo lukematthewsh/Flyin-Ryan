@@ -26,6 +26,38 @@ class App extends React.Component {
     }
   }
 
+  async componentDidMount() {
+    firebaseApp.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          user: firebaseApp.auth().currentUser
+        });
+      }
+    });
+
+    let dbInfo = await dbFetch()
+
+    if (!this.state.database) {
+      this.setState({
+        database: database,
+        questions: dbInfo
+      })
+    }
+  }
+
+  async componentDidUpdate() {
+     if (firebaseApp.auth().currentUser && !this.state.admin) {
+       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
+         return snapshot.val()
+       })
+       if (isAdmin) {
+         this.setState({
+           admin: isAdmin
+         })
+       }
+     } 
+  }
+
   loginHandler = async () => {
 
 
@@ -52,6 +84,15 @@ class App extends React.Component {
         })
 
       }
+    })
+  }
+
+  logOut = async () => {
+    await firebaseApp.auth().signOut()
+
+    this.setState({
+      user: firebaseApp.auth().currentUser,
+      admin: null
     })
   }
 
@@ -116,15 +157,6 @@ class App extends React.Component {
     })
   }
 
-  logOut = async () => {
-    await firebaseApp.auth().signOut()
-
-    this.setState({
-      user: firebaseApp.auth().currentUser,
-      admin: null
-    })
-  }
-
   facebookHandler = async () => {
     await firebaseApp.auth().signInWithPopup(facebookProvider)
       .then(async () => {
@@ -163,39 +195,6 @@ class App extends React.Component {
         this.setState({ user: firebaseApp.auth().currentUser, modal: false })
       })
   }
-
-  async componentDidMount() {
-    firebaseApp.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({
-          user: firebaseApp.auth().currentUser
-        });
-      }
-    });
-
-    let dbInfo = await dbFetch()
-
-    if (!this.state.database) {
-      this.setState({
-        database: database,
-        questions: dbInfo
-      })
-    }
-  }
-
-  async componentDidUpdate() {
-     if (firebaseApp.auth().currentUser && !this.state.admin) {
-       let isAdmin = await database.ref(`/users/${this.state.user.uid}/Admin`).once('value').then(function (snapshot) {
-         return snapshot.val()
-       })
-       if (isAdmin) {
-         this.setState({
-           admin: isAdmin
-         })
-       }
-     } 
-  }
-
 
   render() {
     return (

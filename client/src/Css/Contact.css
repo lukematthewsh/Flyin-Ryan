@@ -1,48 +1,131 @@
-*{
-    margin: 0;
-    padding: 0;
+#rasta-border-contact {
+    width: 40vw;
+    height: 3px;
+    background: linear-gradient(to right, #e70001 33%, #ffe000 33%, #ffe000 66%, #008542 66%) 100%;
+    margin-bottom: 10px;
 }
 
-#contact-page {
+#contact-page{
     display: flex;
     flex-direction: column;
-    background-color:#3e6a99;
-    height: 100vh;;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #3e6a99;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 3vh;
 }
 
-#contact-newsletter {
-    margin-top: 5vh;
-    width: 90vw;
-    text-align: center;
-}
-
-#subscribe {
-    margin-top: 10vh; 
-}
-
-#contact-contact {
-    margin-top: 5vh;
-    width: 90vw;
-    text-align: center;
-}
-
-#contact-connect {
-    margin-top: 5vh;
-    width: 90vw;
-    text-align: center;
-}
-
-#contact-social-media {
+#newsletter-wrapper{
+    padding-top: 15vh;
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    /* height: 20vh; */
+    width: 100vw;
 }
 
-.icon {
-    margin: 5px;
+#contact-newsletter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo-blip {
-    width: 30px;
-    height: 30px;
+.form-control{
+    height: 5vh;
+    width: 70vw;
+    background-color: transparent;
+    color: white;
+    border:none;
+    outline: none;
+    outline-style: none;
+    outline-offset: 0;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 3.5vh;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+
+#lineWrapper{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#text-line-underline-mailer{
+    justify-self: center;
+    background: linear-gradient(to right, #3e6a99 0%, rgb(255, 255, 255,.8) 15%, white 85%, #3e6a99 100%) 100%;
+    width: 70%;
+    height: 2px;
+    margin-bottom: 8px;
+}
+
+.form-control::placeholder{
+    color: rgba(255, 255, 255, 0.322);
+}
+
+.contact-signup{
+    margin-left:5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding:8px 15px;
+    border-radius: 3px;
+    background-color: #254d77;
+    color:white;
+    font-size: 16px;
+    -webkit-box-shadow: 0px 6px 0px #254d77;
+    -moz-box-shadow: 0px 6px 0px #254d77;
+    box-shadow: 0px 2px 0px black;
+    border: 1px solid #254d77;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+#contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 20vh; */
+    width: 100vw;
+}
+
+#contact-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20vh;
+
+}
+
+#connect-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+#contact-connect{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#contact-social-media{
+    display: flex;
+    width: 75vw;
+    justify-content: space-evenly;
+}
+
+.logo-blip{
+    height: 10vh;
+    width: 12.5vw;
 }

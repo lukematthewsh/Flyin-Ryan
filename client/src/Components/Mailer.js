@@ -26,18 +26,22 @@ function Mailer() {
                                 placeholder="Last Name"
                             />
                         </div> */}
-                        <div class="form-group">
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                class="form-control"
-                                placeholder="Email"
-                            />
+                        <div id='lineWrapper'>
+                            <div class="form-group">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    class="form-control"
+                                    placeholder="Email"
+                                />
+                            </div>
+                            <div id='text-line-underline-mailer'></div>
+                            <button type="submit" class="contact-signup">
+                                Sign Up
+                             </button>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            Sign Up
-            </button>
+
                     </form>
                 </div>
             </section>
