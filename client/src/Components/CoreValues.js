@@ -165,7 +165,6 @@ class CoreValues extends React.Component {
     }
 
     render() {
-
         if (this.state.userData === null) {
             return (
                 <div id="core-values">

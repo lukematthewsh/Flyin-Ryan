@@ -17,12 +17,18 @@ class ShareModal extends React.Component {
         let prevPosts = await database.ref(`/feed`).once("value").then(function (snapshot) {
             return snapshot.val() || []
         })
+
+        if(prevPosts.includes(author + colon + content)) {
+            await alert("You've Already Shared This CoreValue!")
+        } else {
         prevPosts.push(author + colon + content)
 
         let feedAnswers = {}
         feedAnswers[`/feed`] = prevPosts
 
         await database.ref().update(feedAnswers)
+        }
+
         this.props.closeShareModal()
     }
 
