@@ -103,10 +103,11 @@ class About extends React.Component {
                                     </div>
                                     </FacebookShareButton>
                             </div>
-
+                            {this.props.user ? null :
                             <div id='bottom-signup'>
                                 <Link style={{ textDecoration: 'none' }} to={'/signup'} ><div id="sign-up-bottom-button" >Sign Up</div> </Link>
                             </div>
+                            }
 
                         </div>
 
