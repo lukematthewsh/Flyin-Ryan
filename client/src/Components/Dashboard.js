@@ -93,7 +93,7 @@ class Dashboard extends React.Component {
             })
         }
     }
-// Hiit
+    // Hiit
 
     render() {
         let CVclasses = classnames('cv-button', { 'cv-button-active': this.state.CVbutt.active });
@@ -101,11 +101,14 @@ class Dashboard extends React.Component {
         let Mclasses = classnames('m-button', { 'm-button-active': this.state.Mbutt.active })
         return (
             <div id='dash-page'>
-                <Header user={this.state.user} logOut={this.props.logOut} admin={this.props.admin}/>
+                <Header user={this.state.user} logOut={this.props.logOut} admin={this.props.admin} />
                 <div id="dashboard-wrapper">
                     <div id="user-greeting">
                         <img id="dash-pic" src={this.state.user ? this.state.user.photoURL || User : ""} alt="User Photo" />
-                        <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
+                        <div id="name-email-cont">
+                            <div id="dash-name">{this.state.user ? this.state.user.displayName || this.state.user.email : "Loading"}</div>
+                            <div id="dash-email">{this.state.user.email}</div>
+                        </div>
                     </div>
                     <div id="dash-links">
                         <div id="more-link" className={Mclasses} onClick={this.toggleContent}>Feed</div>

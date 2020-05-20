@@ -15,13 +15,19 @@
     align-items: center;
 }
 
-#dash-name {
+#name-email-cont {
     font-family: 'Questrial', sans-serif;
     align-self: flex-end;
     margin-left: 2vw;
-    padding-bottom: 2vh;
     font-size: 28px;
     font-weight: bold;
+}
+
+#dash-email {
+    font-size: 13px;
+    text-align: left;
+    font-weight: lighter;
+    padding-left: 1px;
 }
 
 #user-greeting{
