@@ -253,7 +253,6 @@ class Questions extends React.Component {
                     <textarea id="textAnswers" placeholder="Write response here..." ref={this.textAnswers} onChange={this.enterText} cols="25" rows="6"></textarea>
                 </div>
                 nextButton = <div
-
                     onClick={this.nextQuestion}
                     disabled={!this.state.userAnswers || !isEnabled}
                 ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
