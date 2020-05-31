@@ -102,6 +102,30 @@ class Questions extends React.Component {
         this.checkForAnswer(newIndex)
     }
 
+    goToCV = async () => {
+        const newIndex = 13;
+        let userAnswers = {}
+        userAnswers[`/users/${this.props.user.uid}/${this.state.question.folder}`] = { question: this.state.question.inquiry, answer: this.state.userAnswers }
+
+        if (this.state.userAnswers) {
+            await database.ref().update(userAnswers)
+        }
+        this.setState({
+            percentage: 100,
+            question: this.state.data.questions[newIndex],
+            category: this.state.data.questions[newIndex].folder,
+            help: this.state.data.questions[newIndex].help,
+            userAnswers: ''
+        })
+
+        if (this.state.category.includes('Core Value Questions')) {
+            if (this.textAnswers.current) {
+                this.textAnswers.current.value = null
+            }
+        }
+        this.checkForAnswer(newIndex)
+    }
+
     async componentDidMount() {
         let cvAnswers = await database.ref(`/users/${this.props.user.uid}/Key Core Values`).once('value').then(function (snapshot) {
             let currentUserAnswers = snapshot.val()
@@ -222,6 +246,8 @@ class Questions extends React.Component {
         let headerText
         let nextButton
         let reviewAnswer
+        let redirectText
+        let rememberThis
         if (this.state.data) {
             if (category.includes('Age') && !category.includes('Key')) {
                 headerText = 'Demographic Questions'
@@ -246,6 +272,45 @@ class Questions extends React.Component {
                 nextButton = <div
                     onClick={this.nextQuestion}
                     disabled={!isEnabled}
+                ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
+            } else if (category.includes('Redirect') && !category.includes('Key')) {
+                headerText = 'Lets Get Started'
+                redirectText = <div>
+                    <div id='redirect-text'>
+                        We will now guide you through the process of determining your core values with 10 prompts designed to help you take ownership of this process. You may skip any or all of these questions by clicking the arrow button.
+                    </div>
+                    <br></br>
+                    <div id='rememberThingsWrapper'>
+                        <div id='rememberThings'>
+                            <div id='rememberTitle'>Things to Remember</div>
+                            <ul>
+                                <li>
+                                    Keep it Real: Make sure your core values relect the real you.
+                                </li>
+                                <li>
+                                    This is potentially a lifetime journey. Take whatever time you need to compose your core values.
+                                </li>
+                                <li>
+                                    You can add, delete, or modify any of your core values at any time. Not just in this app, but throughout your life!
+                                </li>
+                                <li>
+                                    consider sharing your core values with the Flyin Ryan Foundation for us to post to our social media pages. Let your core values be an inspiration to others!
+                                </li>
+                                <li>
+                                    Enjoy the process!
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br></br>
+                    <div id='redirectInstructionsWrapper'>
+                        <div id='redirectInstructions'>
+                            Hit the arrow button below if you would like to see the helpful hint questions or click <div onClick={this.goToCV}>[HERE]</div> to go straight to writing your core values.
+                        </div>
+                    </div>
+                </div>
+                nextButton = <div
+                    onClick={this.nextQuestion}
                 ><img src={nextArrow} style={{ maxWidth: "45px" }} /></div>
             } else if (category.includes('Core Value Questions')) {
                 headerText = 'Core Value Questions'
@@ -285,7 +350,7 @@ class Questions extends React.Component {
                             src={backButton}
                             alt='back button' /></Link>}
 
-                    {question.index > 1 ? <img id='helpButton'
+                    {question.index > 2 ? <img id='helpButton'
                         onClick={this.openHelp}
                         src={helpButton}
                         alt='help button' /> : <></>}
@@ -297,23 +362,37 @@ class Questions extends React.Component {
                     </div>
                     <Progress percentage={this.state.percentage} />
                 </ProgressBarContainer>
-
-                <div id='question-container'>
-                    <div id="questions">
-                        <QuestionCard question={question} category={this.state.category} />
+                {this.state.category !== "Redirect"
+                    ? <div>
+                        <div id='question-container'>
+                            <div id="questions">
+                                <QuestionCard question={question} category={this.state.category} />
+                            </div>
+                        </div>
+                        <div id="question-button-container">
+                            <div id='answerStyleWrapper'>
+                                {answerStyle}
+                                {reviewAnswer}
+                            </div>
+                            <div id="question-inner-container">
+                                {nextButton}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    : <div>
+                        <div id='redirect-text-wrapper'>
+                            <div>
+                                {redirectText}
+                            </div>
+                        </div>
+                        <div id="question-button-container-redirect">
+                            <div id="question-inner-container-redirect">
+                                {nextButton}
+                            </div>
 
-                <div id="question-button-container">
-                    <div id='answerStyleWrapper'>
-                        {answerStyle}
-                        {reviewAnswer}
-                    </div>
-                    <div id="question-inner-container">
-                        {nextButton}
-                    </div>
+                        </div>
+                    </div>}
 
-                </div>
             </div>
         )
     }
