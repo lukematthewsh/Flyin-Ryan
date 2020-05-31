@@ -20,8 +20,9 @@ class Landing extends React.Component {
                         <br></br>
                         <h3>Take the Challenge!</h3>
                     </div>
-                    {this.props.user ? null :
-                        <div id="button-container">
+                    {this.props.user
+                        ? null
+                        : <div id="button-container">
                             <div id="inner-container">
 
                                 <div id='signup-butt-container'>

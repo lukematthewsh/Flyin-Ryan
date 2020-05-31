@@ -7,11 +7,12 @@
     background-color: #3e6a99;
     position: relative;
 }
-#bg-opacity{
+
+#bg-opacity {
     opacity: .1;
     position: absolute;
     top: 10vh;
-    left:10vw;
+    left: 10vw;
 }
 
 #backButton {
@@ -86,21 +87,22 @@
     color: white;
 }
 
-#dateWrapper{
+#dateWrapper {
     margin-bottom: 20vh;
 }
 
-#datePicker{
+#datePicker {
     border: none;
     background-color: transparent;
     color: white;
-    font-size: 10vw;;
+    font-size: 10vw;
+    ;
     width: 70vw;
     text-align: center;
     font-family: 'Do Hyeon', sans-serif;
 }
 
-#datePicker::placeholder{
+#datePicker::placeholder {
     color: rgba(255, 255, 255, 0.281);
     font-size: 10vw;
 }
@@ -110,6 +112,58 @@
     flex-direction: column;
     width: 100vw;
     height: 52vh;
+    align-items: center;
+}
+
+#redirect-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.53vh;
+    margin-top: 3vh;
+    height: 66vh;
+    width: 100vw;
+    overflow: scroll;
+    color: white;
+    font-size: 5vw;
+}
+
+#redirect-text {
+    width: 70vw;
+    text-align: center;
+}
+
+#rememberThingsWrapper {
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+}
+
+#rememberThings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+}
+
+#rememberTitle {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 6vw;
+}
+
+#redirectInstructionsWrapper{
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    text-align: center;
+}
+
+#question-button-container-redirect {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100vw;
     align-items: center;
 }
 
@@ -140,7 +194,7 @@
     background-color: grey;
 }
 
-#finalTextinput{
+#finalTextinput {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -171,7 +225,7 @@
     box-shadow: inset 0px 0px 80px 10px rgba(41, 83, 128, 0.842);
     font-size: 2vh;
     color: white;
-    width:50vw;
+    width: 50vw;
 }
 
 #textAnswers::placeholder {
@@ -186,7 +240,7 @@
     text-align: center;
 }
 
-#cvSubmit{
+#cvSubmit {
     width: 25vw;
     height: 5vh;
     border: 1px solid black;
@@ -196,7 +250,7 @@
     font-family: 'Do Hyeon', sans-serif;
 }
 
-#reviewCV{
+#reviewCV {
     height: 18vh;
     margin-top: 2vh;
     overflow-y: scroll;
@@ -237,26 +291,24 @@
     font-family: 'Do Hyeon', sans-serif;
     width: 25vw;
     height: 45px;
-    display:flex;
+    display: flex;
     margin-top: 15px;
     justify-content: center;
     align-content: center;
 }
 
-@media (min-width: 750px){
-    #bg-opacity{
+@media (min-width: 750px) {
+    #bg-opacity {
         display: none;
     }
-    #questions{
-    font-size: 3.5vw;
+    #questions {
+        font-size: 3.5vw;
     }
-    .answerOption{
+    .answerOption {
         font-size: 3vw;
     }
-    #textAnswers{
+    #textAnswers {
         width: 50vw;
     }
-
-
-
+    #question-button-container-redirect {}
 }
